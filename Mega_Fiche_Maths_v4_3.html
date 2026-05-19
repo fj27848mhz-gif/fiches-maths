@@ -1,0 +1,3455 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Méga-Fiche Maths — Par Chapitre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']] },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+:root {
+  /* Palette chaude — rouges, oranges, ambres pour la mémorisation */
+  --bg: #1a0e0e;
+  --bg-2: #221012;
+  --card: #2a1416;
+  --text: #f5e8e0;
+  --muted: #b89a8e;
+
+  --red: #ef4444;
+  --red-deep: #b91c1c;
+  --crimson: #dc2626;
+  --orange: #f97316;
+  --amber: #f59e0b;
+  --rose: #fb7185;
+  --gold: #eab308;
+  --green-warm: #84cc16;
+
+  --border: rgba(239,68,68,.15);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  line-height: 1.65;
+  background-image:
+    radial-gradient(ellipse at top, rgba(239,68,68,.06), transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(249,115,22,.04), transparent 50%);
+}
+.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 18px 80px; }
+
+.hero {
+  background: linear-gradient(135deg, rgba(239,68,68,.18), rgba(249,115,22,.10));
+  border: 1px solid rgba(239,68,68,.30);
+  border-radius: 20px;
+  padding: 32px 30px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 30px rgba(239,68,68,.08);
+}
+.hero-label {
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  margin: 10px 0 8px;
+  font-weight: 800;
+  background: linear-gradient(120deg, #fca5a5, #f97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p { color: var(--muted); margin: 4px 0; font-size: 15px; }
+
+.ch {
+  background: linear-gradient(135deg, rgba(220,38,38,.25), rgba(185,28,28,.08));
+  border: 2px solid rgba(239,68,68,.35);
+  border-radius: 18px;
+  padding: 26px 28px;
+  margin: 44px 0 20px;
+  box-shadow: 0 4px 24px rgba(220,38,38,.10);
+}
+.ch .cn {
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.ch h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  margin: 6px 0 6px;
+  font-weight: 800;
+  color: #fca5a5;
+}
+.ch p { color: var(--muted); margin: 4px 0; font-size: 14px; }
+
+.sec-h {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  margin: 36px 0 14px;
+  padding: 10px 0 8px;
+  border-bottom: 2px solid rgba(239,68,68,.20);
+  color: var(--text);
+  font-weight: 700;
+}
+.sec-h .roman {
+  color: var(--red);
+  margin-right: 14px;
+  font-weight: 800;
+  font-size: 30px;
+  text-shadow: 0 0 18px rgba(239,68,68,.30);
+}
+
+.blk {
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+  border-left-width: 5px;
+  background: rgba(255,255,255,.02);
+}
+.blk-l {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.blk p { margin: 8px 0; }
+.blk ul, .blk ol { margin: 8px 0 8px 22px; padding: 0; }
+.blk li { margin: 4px 0; }
+
+.def {
+  background: rgba(220,38,38,.10);
+  border-color: rgba(220,38,38,.40);
+  border-left-color: var(--crimson);
+}
+.def .blk-l { color: #fca5a5; }
+
+.prop {
+  background: rgba(249,115,22,.10);
+  border-color: rgba(249,115,22,.35);
+  border-left-color: var(--orange);
+}
+.prop .blk-l { color: #fdba74; }
+
+.thm {
+  background: rgba(251,113,133,.10);
+  border-color: rgba(251,113,133,.35);
+  border-left-color: var(--rose);
+}
+.thm .blk-l { color: #fda4af; }
+
+.rem {
+  background: rgba(245,158,11,.08);
+  border-color: rgba(245,158,11,.32);
+  border-left-color: var(--amber);
+}
+.rem .blk-l { color: #fcd34d; }
+
+.met {
+  background: rgba(234,179,8,.08);
+  border-color: rgba(234,179,8,.32);
+  border-left-color: var(--gold);
+}
+.met .blk-l { color: #fde047; }
+
+.ex {
+  background: rgba(252,165,165,.06);
+  border-color: rgba(252,165,165,.28);
+  border-left-color: #fca5a5;
+}
+.ex .blk-l { color: #fecaca; }
+
+.exo {
+  background: rgba(132,204,22,.07);
+  border-color: rgba(132,204,22,.30);
+  border-left-color: var(--green-warm);
+}
+.exo .blk-l { color: #bef264; }
+
+.preuve {
+  background: rgba(255,255,255,.025);
+  border-color: rgba(255,255,255,.10);
+  border-left-color: rgba(255,255,255,.20);
+  font-size: 14px;
+}
+.preuve .blk-l { color: var(--muted); }
+
+.coeur {
+  background: linear-gradient(135deg, rgba(239,68,68,.10), rgba(220,38,38,.04));
+  border: 2px solid rgba(239,68,68,.30);
+  border-left: 5px solid var(--red);
+  border-radius: 12px;
+  padding: 22px 18px 16px;
+  margin: 18px 0;
+  position: relative;
+}
+.coeur::before {
+  content: "★ À CONNAÎTRE PAR CŒUR";
+  position: absolute;
+  top: -11px;
+  left: 14px;
+  background: var(--red);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 4px 11px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(239,68,68,.40);
+}
+.coeur p { margin: 10px 0 6px; }
+.coeur .blk-l { display: none; }
+
+.todo {
+  background: rgba(239,68,68,.06);
+  border: 1px dashed rgba(239,68,68,.40);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: var(--muted);
+  font-style: italic;
+  font-size: 14px;
+  margin: 12px 0;
+}
+
+/* Bloc "Rédaction type prof" — le pattern verbatim à reproduire en DS */
+.redaction {
+  background: linear-gradient(135deg, rgba(234,179,8,.14), rgba(245,158,11,.07));
+  border: 2px solid rgba(234,179,8,.45);
+  border-left: 6px solid var(--gold);
+  border-radius: 12px;
+  padding: 22px 18px 16px;
+  margin: 18px 0;
+  position: relative;
+  box-shadow: 0 3px 14px rgba(234,179,8,.08);
+}
+.redaction::before {
+  content: "📝 RÉDACTION TYPE PROF — À REPRODUIRE";
+  position: absolute;
+  top: -11px;
+  left: 14px;
+  background: var(--gold);
+  color: #1a0e0e;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 4px 11px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(234,179,8,.40);
+}
+.redaction p { margin: 10px 0 6px; }
+.redaction ol, .redaction ul { margin: 8px 0 8px 22px; padding: 0; }
+.redaction li { margin: 6px 0; }
+.redaction strong { color: #fde047; }
+.redaction em { color: #fcd34d; font-style: normal; font-weight: 600; }
+.redaction .skel {
+  background: rgba(0,0,0,.22);
+  padding: 10px 14px;
+  border-radius: 8px;
+  border-left: 3px solid rgba(234,179,8,.40);
+  margin: 10px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13.5px;
+  color: #f5e8e0;
+  line-height: 1.7;
+}
+
+/* Bloc "Étape" — sous-élément d'une méthode globale en plusieurs étapes */
+.etape {
+  background: rgba(132,204,22,.05);
+  border-left: 3px solid var(--green-warm);
+  border-radius: 0 8px 8px 0;
+  padding: 8px 14px;
+  margin: 8px 0;
+  font-size: 14.5px;
+}
+.etape strong { color: #bef264; }
+
+.toc {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 24px;
+}
+.toc h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  margin: 0 0 12px;
+  color: #fca5a5;
+}
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+.toc a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(239,68,68,.05);
+  border: 1px solid rgba(239,68,68,.15);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all .18s;
+}
+.toc a:hover {
+  background: rgba(239,68,68,.14);
+  border-color: rgba(239,68,68,.40);
+  transform: translateX(3px);
+}
+.toc a .ico {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+table.tab {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  background: rgba(0,0,0,.18);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table.tab td, table.tab th {
+  border: 1px solid rgba(239,68,68,.15);
+  padding: 8px 12px;
+  text-align: center;
+}
+table.tab th {
+  background: rgba(239,68,68,.12);
+  font-weight: 700;
+  color: #fca5a5;
+}
+
+code {
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(239,68,68,.10);
+  padding: 1px 7px;
+  border-radius: 5px;
+  font-size: 13px;
+  color: #fda4af;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(245,158,11,.20);
+  color: var(--amber);
+  margin-left: 6px;
+  letter-spacing: .5px;
+}
+
+.blk strong { color: #fecaca; font-weight: 700; }
+.coeur strong { color: #fef2f2; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-label">Fiche de révision — Cours + Rédactions type prof</div>
+  <h1>Méga-Fiche Maths</h1>
+  <p>Définitions, propriétés, méthodes et <strong style="color:#fde047;">rédactions verbatim du prof</strong></p>
+  <p>ECT 1 — Méga-fiche complète</p>
+  <p style="color: var(--muted); font-size: 13px; font-style: italic; margin-top: 8px;">📌 Ordre du cours : Équations → Fonctions → Limites → Suites → Python → Continuité → Dénombrement → Probabilités → Fonctions composées → Primitives → Ln → VAR finies. Raisonnement en annexe.</p>
+</div>
+
+<div class="toc">
+  <h3>📚 Sommaire général</h3>
+  <div class="toc-grid">
+    <a href="#c2"><span class="ico">🟰</span> Chapitre 1 — Équations & Inéquations</a>
+    <a href="#c3"><span class="ico">📐</span> Chapitre 2 — Fonctions</a>
+    <a href="#c4"><span class="ico">∞</span> Chapitre 3 — Limites</a>
+    <a href="#c5"><span class="ico">🧮</span> Chapitre 4 — Suites</a>
+    <a href="#c6"><span class="ico">🐍</span> Chapitre 5 — Python</a>
+    <a href="#c3-7"><span class="ico">⟶</span> Chapitre 6 — Continuité &amp; TVI</a>
+    <a href="#cden"><span class="ico">#</span> Chapitre 7 — Dénombrement <em style="opacity:.55">(à venir)</em></a>
+    <a href="#c7"><span class="ico">🎯</span> Chapitre 8 — Probabilités</a>
+    <a href="#c3-8"><span class="ico">∘</span> Chapitre 9 — Fonctions composées</a>
+    <a href="#c14"><span class="ico">∫</span> Chapitre 10 — Primitives</a>
+    <a href="#c12"><span class="ico">📈</span> Chapitre 11 — Logarithme Népérien</a>
+    <a href="#c13"><span class="ico">🎲</span> Chapitre 12 — Variables Aléatoires Finies</a>
+    <a href="#c1" style="opacity:.7"><span class="ico">🧠</span> Annexe — Raisonnement</a>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CHAPITRE 1 — RAISONNEMENT                                    -->
+<!-- ============================================================ -->
+
+<div class="ch" id="c1">
+  <div class="cn">Annexe</div>
+  <h2>Raisonnement</h2>
+  <p>Logique, affirmations, contraposée, réciproque, formules de Morgan, raisonnement par récurrence</p>
+</div>
+
+<div class="toc">
+  <h3>Sections du chapitre 1</h3>
+  <div class="toc-grid">
+    <a href="#c1-1"><span class="ico">🧩</span> I. Un peu de logique</a>
+    <a href="#c1-2"><span class="ico">🔄</span> II. Contraposée, réciproque, équivalence</a>
+    <a href="#c1-3"><span class="ico">⊖</span> III. Négation et formules de Morgan</a>
+    <a href="#c1-4"><span class="ico">🪜</span> IV. Raisonnement par récurrence</a>
+  </div>
+</div>
+
+<h3 class="sec-h" id="c1-1"><span class="roman">I.</span> Un peu de logique</h3>
+
+<div class="coeur">
+<p><strong>Définition — Affirmation</strong></p>
+<p>En mathématiques, on fait des <strong>affirmations</strong>, qui sont soit vraies soit fausses.</p>
+<p>Une affirmation a la forme suivante : <em>« Si blabla, alors truc »</em>.</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemples</div>
+<ul>
+  <li>Si \(x^2 = 4\) alors \(x = 2\) &nbsp;→&nbsp; <strong style="color:#fda4af;">Fausse</strong></li>
+  <li>Si \(x = 2\) alors \(x^2 = 4\) &nbsp;→&nbsp; <strong style="color:#bef264;">Vraie</strong></li>
+  <li>Si \(ABC\) est rectangle en \(A\) alors \(AB^2 + AC^2 = BC^2\) &nbsp;→&nbsp; <strong style="color:#bef264;">Vraie</strong></li>
+  <li>Si \(AB^2 + AC^2 = BC^2\) alors \(ABC\) est rectangle en \(A\) &nbsp;→&nbsp; <strong style="color:#bef264;">Vraie</strong></li>
+</ul>
+</div>
+
+<h3 class="sec-h" id="c1-2"><span class="roman">II.</span> Contraposée, réciproque, équivalence</h3>
+
+<div class="coeur">
+<p><strong>Définition</strong></p>
+<p>Pour une affirmation <strong>H</strong> : « Si <strong>A</strong>, alors <strong>B</strong> » :</p>
+<ul>
+  <li>La <strong>contraposée</strong> est : « Si non <strong>B</strong>, alors non <strong>A</strong> » (\(\overline{B} \Rightarrow \overline{A}\))</li>
+  <li>La <strong>réciproque</strong> est : « Si <strong>B</strong>, alors <strong>A</strong> »</li>
+  <li>La <strong>contraposée de la réciproque</strong> est : « Si non <strong>A</strong>, alors non <strong>B</strong> »</li>
+</ul>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple</div>
+<p>Affirmation H : <em>« Si \(x^2 \neq 4\) alors \(x \neq 2\) »</em></p>
+<ul>
+  <li>Contraposée : <em>« Si \(x = 2\) alors \(x^2 = 4\) »</em></li>
+  <li>Réciproque : <em>« Si \(x \neq 2\) alors \(x^2 \neq 4\) »</em></li>
+  <li>Contraposée de la réciproque : <em>« Si \(x^2 = 4\) alors \(x = 2\) »</em></li>
+</ul>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété — Affirmation et contraposée</strong></p>
+<p>Une affirmation et sa contraposée sont soit toutes les deux vraies, soit toutes les deux fausses.</p>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété — Équivalence</strong></p>
+<p>Si une affirmation et sa réciproque sont toutes les deux vraies, on dit que les deux affirmations sont <strong>équivalentes</strong>.</p>
+<p>« <strong>A</strong> équivaut à <strong>B</strong> » s'écrit \(A \iff B\), c'est-à-dire « <strong>A</strong> si et seulement si <strong>B</strong> ».</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Connecteurs de rédaction</div>
+<p>Pour une implication « Si <strong>A</strong>, alors <strong>B</strong> », on peut écrire dans une démonstration :</p>
+<ul>
+  <li>« Si <strong>A</strong>, alors <strong>B</strong> »</li>
+  <li>« Donc <strong>B</strong> »</li>
+  <li>« Ainsi <strong>B</strong> »</li>
+  <li>« Par conséquent <strong>B</strong> »</li>
+</ul>
+</div>
+
+<h3 class="sec-h" id="c1-3"><span class="roman">III.</span> Négation et formules de Morgan</h3>
+
+<div class="blk rem">
+<div class="blk-l">Remarque essentielle</div>
+<p>La négation de <strong>A</strong> est notée \(\overline{A}\).</p>
+<p>⚠️ Le « <strong>ou</strong> » n'est <strong>pas exclusif</strong> en maths : ça n'est pas soit l'un soit l'autre, mais peut être les deux.</p>
+</div>
+
+<div class="coeur">
+<p><strong>Formules de Morgan</strong></p>
+<p>Soient \(A\) et \(B\) deux événements (ou affirmations) :</p>
+<p style="text-align: center; font-size: 18px;">\[\overline{A \cap B} = \overline{A} \cup \overline{B} \qquad \text{et} \qquad \overline{A \cup B} = \overline{A} \cap \overline{B}\]</p>
+<p>C'est-à-dire :</p>
+<ul>
+  <li>La négation de « <strong>A</strong> et <strong>B</strong> » est : « non <strong>A</strong> <strong>ou</strong> non <strong>B</strong> »</li>
+  <li>La négation de « <strong>A</strong> ou <strong>B</strong> » est : « non <strong>A</strong> <strong>et</strong> non <strong>B</strong> »</li>
+</ul>
+</div>
+
+<h3 class="sec-h" id="c1-4"><span class="roman">IV.</span> Raisonnement par récurrence</h3>
+
+<div class="blk ex">
+<div class="blk-l">Exemple introductif</div>
+<p>Soit \(n \geq 1\) un entier. Prouver que :</p>
+<p style="text-align: center;">\[1 + 2 + 3 + 4 + \dots + n = \dfrac{n(n+1)}{2}\]</p>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Méthode — Raisonnement par récurrence (en 4 étapes)</strong></p>
+
+<div class="etape">
+<strong>1) Définition</strong> — On définit l'affirmation sur laquelle on va travailler.
+<div class="skel">
+Pour tout entier \(n \geq \dots\), on note \(H_n\) l'affirmation : « <em>...</em> ».
+</div>
+</div>
+
+<div class="etape">
+<strong>2) Initialisation</strong> — On vérifie que \(H_n\) est vraie pour la plus petite valeur de \(n\) qui nous intéresse.
+<div class="skel">
+Pour \(n = \dots\), on vérifie que \(H_{\dots}\) est vraie. <br>
+On a : <em>(calcul)</em>. <br>
+Donc \(H_{\dots}\) est vraie.
+</div>
+</div>
+
+<div class="etape">
+<strong>3) Hérédité</strong> — Soit \(n \geq \dots\) un entier fixé. On suppose que \(H_n\) est vraie et on veut prouver que \(H_{n+1}\) est vraie.
+<div class="skel">
+Soit \(n \geq \dots\) un entier fixé. On suppose que \(H_n\) est vraie et on veut prouver que \(H_{n+1}\) est vraie. <br>
+On écrit alors : <em>(calcul partant de \(H_n\) et amenant à \(H_{n+1}\))</em>. <br>
+Ce qui montre que \(H_{n+1}\) est vraie.
+</div>
+</div>
+
+<div class="etape">
+<strong>4) Conclusion</strong> — On rassemble les deux étapes.
+<div class="skel">
+On a prouvé que \(H_{\dots}\) est vraie et que \(H_n\) est héréditaire pour tout \(n \geq \dots\). <br>
+<strong>Finalement</strong>, \(H_n\) est vraie pour tout entier \(n \geq \dots\).
+</div>
+</div>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Application à l'exemple — Somme 1+2+…+n = n(n+1)/2</div>
+
+<p><strong>1) Définition</strong> : Pour tout entier \(n \geq 1\), on note \(H_n\) l'affirmation : « \(1 + 2 + 3 + \dots + n = \dfrac{n(n+1)}{2}\) ».</p>
+
+<p><strong>2) Initialisation</strong> : Pour \(n = 1\), on vérifie que \(H_1\) est vraie.</p>
+<p>On a : \(\dfrac{1 \times 2}{2} = \dfrac{2}{2} = 1\). Donc \(H_1\) est vraie.</p>
+
+<p><strong>3) Hérédité</strong> : Soit \(n \geq 1\) un entier fixé. On suppose que \(H_n\) est vraie et on veut prouver que \(H_{n+1}\) est vraie.</p>
+<p>L'hypothèse \(H_n\) s'écrit : \(1 + 2 + 3 + \dots + n = \dfrac{n(n+1)}{2}\).</p>
+<p>On a alors :</p>
+<p style="text-align: center;">\[1 + 2 + 3 + \dots + n + (n+1) = \dfrac{n(n+1)}{2} + (n+1)\]</p>
+<p>D'après l'hypothèse de récurrence.</p>
+<p style="text-align: center;">\[= \dfrac{n(n+1)}{2} + \dfrac{2(n+1)}{2} = \dfrac{(n+1)(n+2)}{2}\]</p>
+<p>Donc \(H_{n+1}\) est vraie.</p>
+
+<p><strong>4) Conclusion</strong> : On a prouvé que \(H_1\) est vraie et que \(H_n\) est héréditaire pour tout \(n \geq 1\).</p>
+<p><strong>Finalement</strong>, pour tout \(n \geq 1\), on a : \(1 + 2 + 3 + \dots + n = \dfrac{n(n+1)}{2}\).</p>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- CHAPITRE 2 — ÉQUATIONS ET INÉQUATIONS                        -->
+<!-- ============================================================ -->
+
+<div class="ch" id="c2">
+  <div class="cn">Chapitre 1</div>
+  <h2>Équations & Inéquations</h2>
+  <p>Équations, inéquations, identités remarquables, second degré, polynômes (3ᵉ degré)</p>
+</div>
+
+<div class="toc">
+  <h3>Sections du chapitre 2</h3>
+  <div class="toc-grid">
+    <a href="#c2-1"><span class="ico">🟰</span> I. Équations</a>
+    <a href="#c2-2"><span class="ico">≤</span> II. Inéquations</a>
+    <a href="#c2-3"><span class="ico">²</span> III. Le second degré</a>
+    <a href="#c2-4"><span class="ico">³</span> IV. Polynômes (3ᵉ degré)</a>
+  </div>
+</div>
+
+<h3 class="sec-h" id="c2-1"><span class="roman">I.</span> Équations</h3>
+
+<div class="coeur">
+<p><strong>Définition — Équations équivalentes</strong></p>
+<p>Deux équations sont dites <strong>équivalentes</strong> lorsqu'elles ont les mêmes solutions (même ensemble de solutions).</p>
+</div>
+
+<div class="coeur">
+<p><strong>Règle n°1 — Addition / soustraction</strong></p>
+<p>Lorsqu'on ajoute (ou retranche) la même quantité aux deux membres d'une équation, on obtient une équation équivalente (c'est-à-dire qui a les mêmes solutions).</p>
+</div>
+
+<div class="coeur">
+<p><strong>Règle n°2 — Multiplication / division</strong></p>
+<p>Lorsqu'on multiplie (ou divise) chaque membre d'une équation par une même quantité <strong>non nulle</strong>, on obtient une équation équivalente.</p>
+</div>
+
+<div class="coeur">
+<p><strong>Rappel — Produit nul</strong></p>
+<p>Dire qu'un produit est égal à 0, c'est dire que l'un des facteurs est égal à 0.</p>
+<p style="text-align: center; font-size: 17px;">\[A \times B = 0 \iff A = 0 \text{ ou } B = 0\]</p>
+</div>
+
+<div class="coeur">
+<p><strong>Rappel — Identités remarquables</strong></p>
+<ul>
+  <li>\((a+b)^2 = a^2 + 2ab + b^2\)</li>
+  <li>\((a-b)^2 = a^2 - 2ab + b^2\)</li>
+  <li>\(a^2 - b^2 = (a-b)(a+b)\)</li>
+</ul>
+</div>
+
+<div class="coeur">
+<p><strong>Rappel — Quotient nul</strong></p>
+<p style="text-align: center; font-size: 17px;">\[\dfrac{A}{B} = 0 \iff A = 0 \text{ (et } B \neq 0\text{)}\]</p>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Méthode du prof — Résolution d'une équation (en 7 étapes)</strong></p>
+<ol>
+  <li><strong>Déterminer les contraintes</strong> (valeurs interdites)</li>
+  <li><strong>Faire apparaître le 0</strong></li>
+  <li><strong>Réduire au même dénominateur</strong> pour avoir 1 fraction seulement (se débarrasser du bas)</li>
+  <li><strong>Factoriser à mort</strong></li>
+  <li><strong>Séparer en plusieurs équations</strong> que l'on résout</li>
+  <li><strong>Donner la conclusion</strong> (après vérification des contraintes)</li>
+  <li><strong>Encadrer avec fierté</strong> 📦</li>
+</ol>
+<p style="margin-top:14px;">⚠️ <strong>Pièges à éviter</strong> :</p>
+<ul>
+  <li>Pas de division par 0</li>
+  <li>Dans une racine, pas de nombre négatif</li>
+</ul>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Rédaction type prof — Pattern verbatim</strong></p>
+<div class="skel">
+<strong>Soit \(x\) un réel.</strong> <br>
+On a : <em>(équation de départ)</em> <br>
+<strong>équivaut à</strong> : <em>(équation simplifiée)</em> <br>
+<strong>ou encore</strong> : <em>(autre forme)</em> <br>
+<strong>c-à-d</strong> : <em>(forme factorisée)</em> <br>
+<strong>équivaut à</strong> : <em>(facteur n°1 = 0)</em> <strong>ou</strong> <em>(facteur n°2 = 0)</em> <br>
+<strong>équivaut à</strong> : \(x = \dots\) <strong>ou</strong> \(x = \dots\) <br>
+<strong>Finalement, on a</strong> : \(\boxed{S = \{\dots\}}\)
+</div>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple a — Équation du 1ᵉʳ degré</div>
+<p>Résoudre \(3x + 1 = 0\).</p>
+<p>Soit \(x\) un réel. \(3x + 1 = 0\) <strong>équivaut à</strong> \(3x + 1 - 1 = 0 - 1\) (Règle n°1).</p>
+<p>C'est-à-dire \(3x = -1\). <strong>Équivaut à</strong> \(\dfrac{3x}{3} = \dfrac{-1}{3}\) (Règle n°2). C'est-à-dire \(x = -\dfrac{1}{3}\).</p>
+<p><strong>Finalement, on a</strong> \(\boxed{S = \left\{-\dfrac{1}{3}\right\}}\)</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple b — Équation produit</div>
+<p>Résoudre \((2x - 7)(4 - 3x) = 0\).</p>
+<p>Soit \(x\) un réel. \((2x - 7)(4 - 3x) = 0\) (un produit est nul ⟺ l'un des facteurs est nul).</p>
+<p><strong>Équivaut à</strong> \(2x - 7 = 0\) <strong>ou</strong> \(4 - 3x = 0\).</p>
+<p><strong>Équivaut à</strong> \(2x = 7\) <strong>ou</strong> \(-3x = -4\). <strong>Équivaut à</strong> \(x = \dfrac{7}{2}\) <strong>ou</strong> \(x = \dfrac{4}{3}\).</p>
+<p><strong>Finalement, on a</strong> \(\boxed{S = \left\{\dfrac{4}{3}\,;\,\dfrac{7}{2}\right\}}\)</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple c — Identité remarquable a² − b²</div>
+<p>Résoudre \(x^2 = 4\).</p>
+<p>Soit \(x\) un réel. \(x^2 = 4\) <strong>équivaut à</strong> \(x^2 - 4 = 0\). <strong>Or</strong> \(x^2 - 4 = x^2 - 2^2 = (x-2)(x+2)\).</p>
+<p>Donc l'équation s'écrit \((x - 2)(x + 2) = 0\). <strong>Équivaut à</strong> \(x - 2 = 0\) <strong>ou</strong> \(x + 2 = 0\).</p>
+<p><strong>Équivaut à</strong> \(x = 2\) <strong>ou</strong> \(x = -2\). <strong>Finalement, on a</strong> \(\boxed{S = \{-2\,;\,2\}}\)</p>
+</div>
+
+<h3 class="sec-h" id="c2-2"><span class="roman">II.</span> Inéquations</h3>
+
+<div class="coeur">
+<p><strong>Règle n°1 — Addition / soustraction (inéquation)</strong></p>
+<p>Si on ajoute (ou retranche) la même quantité aux deux membres d'une inéquation, on obtient une inéquation équivalente, <strong>en conservant le sens de l'inégalité</strong>.</p>
+</div>
+
+<div class="coeur">
+<p><strong>Règle n°2 — Multiplication / division (inéquation)</strong></p>
+<p>Si on multiplie (ou divise) par une même quantité <strong>non nulle</strong> chacun des membres d'une inéquation, on obtient une inéquation équivalente. <strong>Mais</strong> :</p>
+<ul>
+  <li>Si la quantité par laquelle on multiplie (ou divise) est <strong>positive</strong>, on <strong>conserve</strong> le sens de l'inégalité.</li>
+  <li>Si la quantité par laquelle on multiplie (ou divise) est <strong>négative</strong>, on <strong>renverse</strong> le sens de l'inégalité.</li>
+</ul>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Méthode du prof — Résolution d'une inéquation (en 7 étapes)</strong></p>
+<ol>
+  <li><strong>Déterminer les contraintes</strong> (valeurs interdites)</li>
+  <li><strong>Faire apparaître le 0</strong></li>
+  <li><strong>Réduire au même dénominateur</strong> pour n'avoir qu'une seule fraction</li>
+  <li><strong>Factoriser le haut et le bas</strong></li>
+  <li><strong>Dresser le tableau de signes</strong></li>
+  <li><strong>Conclusion</strong> (après vérification des contraintes)</li>
+  <li><strong>Encadrer avec fierté</strong> 📦</li>
+</ol>
+<p style="margin-top:14px;">⚠️ <strong>Obligation de faire 2 phrases pour la réponse</strong> : on change de phrase à chaque changement de signe ou quand on se cogne à une valeur interdite.</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple a — Inéquation linéaire</div>
+<p>Résoudre \(3x + 1 \geq 0\).</p>
+<p>Soit \(x\) un réel. \(3x + 1 \geq 0\) <strong>équivaut à</strong> \(3x \geq -1\) (Règle n°1).</p>
+<p><strong>Équivaut à</strong> \(x \geq -\dfrac{1}{3}\) (Règle n°2, on divise par 3 > 0 donc on conserve le sens).</p>
+<p><strong>Finalement, on a</strong> \(\boxed{S = \left[-\dfrac{1}{3}\,;\,+\infty\right[}\)</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple b — Inéquation avec coefficient négatif</div>
+<p>Résoudre \(2 - 5x < 0\).</p>
+<p>Soit \(x\) un réel. \(2 - 5x < 0\) <strong>équivaut à</strong> \(-5x < -2\) (Règle n°1).</p>
+<p><strong>Équivaut à</strong> \(x > \dfrac{-2}{-5}\) (Règle n°2, on divise par −5 < 0 donc on <strong>renverse</strong> le sens).</p>
+<p><strong>Équivaut à</strong> \(x > \dfrac{2}{5}\). <strong>Finalement, on a</strong> \(\boxed{S = \left]\dfrac{2}{5}\,;\,+\infty\right[}\)</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple c — Inéquation produit avec tableau de signes</div>
+<p>Résoudre \((3x + 1)(2 - 5x) > 0\).</p>
+<p><strong>On cherche le signe de \(3x + 1\)</strong> :</p>
+<p>\(3x + 1 = 0 \iff x = -\dfrac{1}{3}\) — \(3x + 1 > 0 \iff x > -\dfrac{1}{3}\) — \(3x + 1 < 0 \iff x < -\dfrac{1}{3}\).</p>
+<p><strong>On cherche le signe de \(2 - 5x\)</strong> :</p>
+<p>\(2 - 5x = 0 \iff x = \dfrac{2}{5}\) — \(2 - 5x > 0 \iff x < \dfrac{2}{5}\) — \(2 - 5x < 0 \iff x > \dfrac{2}{5}\).</p>
+<p><strong>On regroupe tout dans un tableau de signes</strong> :</p>
+<table class="tab">
+<tr><th>\(x\)</th><th>\(-\infty\)</th><th>\(-\dfrac{1}{3}\)</th><th>\(\dfrac{2}{5}\)</th><th>\(+\infty\)</th></tr>
+<tr><td>\(3x + 1\)</td><td>−</td><td>0</td><td>+</td><td>+</td></tr>
+<tr><td>\(2 - 5x\)</td><td>+</td><td>+</td><td>0</td><td>−</td></tr>
+<tr><td>\((3x+1)(2-5x)\)</td><td>−</td><td>0</td><td>+</td><td>0</td></tr>
+</table>
+<p><strong>Finalement</strong> \(\boxed{S = \left]-\dfrac{1}{3}\,;\,\dfrac{2}{5}\right[}\)</p>
+</div>
+
+<h3 class="sec-h" id="c2-3"><span class="roman">III.</span> Le second degré</h3>
+
+<p style="color: var(--muted); font-style: italic;">Forme générale : \(ax^2 + bx + c\) avec \(a \neq 0\).</p>
+
+<div class="coeur">
+<p><strong>Vocabulaire</strong></p>
+<p>Une <strong>racine</strong> d'un polynôme \(P\) est un réel \(\alpha\) tel que \(P(\alpha) = 0\) (« truc qui annule »).</p>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété (admise) — Le discriminant Δ</strong></p>
+<p>Soient \(a, b, c\) des réels avec \(a \neq 0\). Le <strong>discriminant</strong> de l'expression \(ax^2 + bx + c\) est le nombre :</p>
+<p style="text-align: center; font-size: 19px;">\[\Delta = b^2 - 4ac\]</p>
+
+<p><strong>★ Si \(\Delta > 0\)</strong>, alors pour tout \(x\), on a :</p>
+<p style="text-align: center;">\[ax^2 + bx + c = a(x - x_1)(x - x_2) \quad \text{avec } x_1 = \dfrac{-b - \sqrt{\Delta}}{2a} \text{ et } x_2 = \dfrac{-b + \sqrt{\Delta}}{2a}\]</p>
+
+<p><strong>★ Si \(\Delta = 0\)</strong>, alors pour tout \(x\), on a :</p>
+<p style="text-align: center;">\[ax^2 + bx + c = a(x - x_0)^2 \quad \text{avec } x_0 = \dfrac{-b}{2a}\]</p>
+
+<p><strong>★ Si \(\Delta < 0\)</strong>, alors pour tout \(x\), l'expression \(ax^2 + bx + c\) est <strong>toujours du signe de \(a\)</strong> (pas de racine réelle).</p>
+</div>
+
+<div class="coeur">
+<p><strong>Remarque — Solutions de l'équation \(ax^2 + bx + c = 0\)</strong></p>
+<ul>
+  <li>Si \(\Delta > 0\) : l'équation admet <strong>2 solutions distinctes</strong> \(x_1\) et \(x_2\) (formules ci-dessus)</li>
+  <li>Si \(\Delta = 0\) : l'équation admet <strong>une solution double</strong> \(x_0 = -\dfrac{b}{2a}\)</li>
+  <li>Si \(\Delta < 0\) : l'équation <strong>n'admet pas de solution</strong> (dans \(\mathbb{R}\))</li>
+</ul>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Rédaction type prof — Résolution d'une équation du second degré</strong></p>
+<div class="skel">
+Soit \(x\) un réel. On a \(ax^2 + bx + c = 0\). <br>
+<strong>C'est une équation du second degré, avec</strong> \(a = \dots\), \(b = \dots\) <strong>et</strong> \(c = \dots\) <br>
+On a \(\Delta = b^2 - 4ac = \dots\) <br>
+<strong>Puisque Δ &gt; 0</strong>, il y a <strong>deux solutions distinctes</strong>, qui sont : <br>
+\(\quad x_1 = \dfrac{-b - \sqrt{\Delta}}{2a} = \dots\) <strong>et</strong> \(x_2 = \dfrac{-b + \sqrt{\Delta}}{2a} = \dots\) <br>
+<strong>Finalement, on a</strong> \(\boxed{S = \{x_1\,;\,x_2\}}\)
+</div>
+<p style="margin-top:12px;">Variantes selon le signe de Δ :</p>
+<ul>
+  <li><strong>Si Δ = 0</strong> : <em>« Puisque Δ = 0, il y a une solution double, qui est : \(x_0 = -\dfrac{b}{2a} = \dots\) »</em></li>
+  <li><strong>Si Δ &lt; 0</strong> : <em>« Puisque Δ &lt; 0, il n'y a pas de solution. Ainsi \(S = \emptyset\). »</em></li>
+</ul>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Δ &gt; 0 — Résoudre \(x^2 + 4x - 5 = 0\)</div>
+<p>C'est une équation du second degré, avec \(a = 1\), \(b = 4\) et \(c = -5\).</p>
+<p>On a \(\Delta = b^2 - 4ac = 16 - 4 \times 1 \times (-5) = 16 + 20 = 36\).</p>
+<p>Puisque \(\Delta > 0\), il y a deux solutions distinctes, qui sont :</p>
+<p>\(x_1 = \dfrac{-b - \sqrt{\Delta}}{2a} = \dfrac{-4 - 6}{2} = \dfrac{-10}{2} = -5\) et \(x_2 = \dfrac{-4 + 6}{2} = \dfrac{2}{2} = 1\).</p>
+<p><strong>Finalement, on a</strong> \(\boxed{S = \{-5\,;\,1\}}\)</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Δ = 0 — Résoudre \(x^2 + 4x + 4 = 0\)</div>
+<p>C'est une équation du second degré, avec \(a = 1\), \(b = 4\) et \(c = 4\).</p>
+<p>On a \(\Delta = b^2 - 4ac = 16 - 4 \times 1 \times 4 = 16 - 16 = 0\).</p>
+<p>Puisque \(\Delta = 0\), il y a une solution double, qui est \(x_0 = \dfrac{-b}{2a} = \dfrac{-4}{2 \times 1} = -2\).</p>
+<p><strong>Finalement, on a</strong> \(\boxed{S = \{-2\}}\)</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Δ &lt; 0 — Résoudre \(x^2 + 4x + 7 = 0\)</div>
+<p>C'est une équation du second degré, avec \(a = 1\), \(b = 4\) et \(c = 7\).</p>
+<p>On a \(\Delta = b^2 - 4ac = 16 - 4 \times 1 \times 7 = 16 - 28 = -12\).</p>
+<p>Puisque \(\Delta < 0\), il n'y a pas de solution. <strong>Ainsi</strong> \(\boxed{S = \emptyset}\)</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Δ &gt; 0 — Résoudre \(3x^2 + 4x - 7 = 0\)</div>
+<p>C'est une équation du second degré, avec \(a = 3\), \(b = 4\) et \(c = -7\).</p>
+<p>On a \(\Delta = b^2 - 4ac = 16 - 4 \times 3 \times (-7) = 16 + 84 = 100\).</p>
+<p>Puisque \(\Delta > 0\), il y a deux solutions distinctes, qui sont :</p>
+<p>\(x_1 = \dfrac{-4 - 10}{6} = \dfrac{-14}{6} = -\dfrac{7}{3}\) et \(x_2 = \dfrac{-4 + 10}{6} = \dfrac{6}{6} = 1\).</p>
+<p><strong>Finalement, on a</strong> \(\boxed{S = \left\{-\dfrac{7}{3}\,;\,1\right\}}\)</p>
+</div>
+
+<div class="coeur">
+<p><strong>Remarque — Signe de \(ax^2 + bx + c\)</strong></p>
+<p><strong>★ Si \(\Delta > 0\)</strong> : on a \(ax^2 + bx + c = a(x - x_1)(x - x_2)\) avec \(x_1 < x_2\). Tableau de signes :</p>
+<table class="tab">
+<tr><th>\(x\)</th><th>\(-\infty\)</th><th>\(x_1\)</th><th>\(x_2\)</th><th>\(+\infty\)</th></tr>
+<tr><td>\(ax^2 + bx + c\)</td><td>signe de \(a\)</td><td>0</td><td>signe contraire de \(a\)</td><td>0</td></tr>
+<tr><td></td><td></td><td></td><td></td><td>signe de \(a\)</td></tr>
+</table>
+
+<p><strong>★ Si \(\Delta = 0\)</strong> : on a \(ax^2 + bx + c = a(x - x_0)^2\). Tableau de signes : signe de \(a\) partout (sauf 0 en \(x_0\)).</p>
+
+<p><strong>★ Si \(\Delta < 0\)</strong> : pour tout réel \(x\), \(ax^2 + bx + c\) est du signe de \(a\) (jamais nul).</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Inéquation du second degré : \(3x^2 + x - 5 \geq 0\)</div>
+<p>C'est une inéquation du second degré, avec \(a = 3\), \(b = 1\) et \(c = -5\).</p>
+<p>On a \(\Delta = b^2 - 4ac = 1 - 4 \times 3 \times (-5) = 1 + 60 = 61\).</p>
+<p>Puisque \(\Delta > 0\), il y a 2 racines distinctes, qui sont :</p>
+<p>\(x_1 = \dfrac{-1 - \sqrt{61}}{6}\) et \(x_2 = \dfrac{-1 + \sqrt{61}}{6}\).</p>
+<p>On a le tableau de signes :</p>
+<table class="tab">
+<tr><th>\(x\)</th><th>\(-\infty\)</th><th>\(\dfrac{-1-\sqrt{61}}{6}\)</th><th>\(\dfrac{-1+\sqrt{61}}{6}\)</th><th>\(+\infty\)</th></tr>
+<tr><td>\(3x^2 + x - 5\)</td><td>+</td><td>0</td><td>−</td><td>+</td></tr>
+</table>
+<p><strong>Finalement</strong> \(\boxed{S = \left]-\infty\,;\,\dfrac{-1-\sqrt{61}}{6}\right] \cup \left[\dfrac{-1+\sqrt{61}}{6}\,;\,+\infty\right[}\)</p>
+</div>
+
+<h3 class="sec-h" id="c2-4"><span class="roman">IV.</span> Polynômes (3ᵉ degré)</h3>
+
+<div class="coeur">
+<p><strong>Propriété (admise) — Factorisation par une racine</strong></p>
+<p>Soit \(P\) un polynôme et \(\alpha\) un réel. Le polynôme \(P(x)\) est <strong>factorisable par \(x - \alpha\)</strong> <strong>si et seulement si</strong> \(\alpha\) est une racine de \(P\) (c-à-d \(P(\alpha) = 0\)).</p>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Méthode du prof — Factorisation d'un polynôme de degré 3</strong></p>
+<ol>
+  <li><strong>Chercher une racine évidente</strong> du polynôme \(P\) (essayer \(0, 1, -1, 2, -2\)…)</li>
+  <li>Si \(P(\alpha) = 0\), <strong>en déduire</strong> que \(P(x)\) est factorisable par \(x - \alpha\)</li>
+  <li><strong>Poser la division euclidienne</strong> de \(P(x)\) par \(x - \alpha\)</li>
+  <li>Obtenir \(P(x) = (x - \alpha) \times Q(x)\) où \(Q(x)\) est de degré 2</li>
+  <li>Factoriser \(Q(x)\) avec le discriminant Δ (si nécessaire)</li>
+</ol>
+<p style="margin-top:14px;">⚠️ <strong>Une colonne par puissance</strong> dans la division euclidienne.</p>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Rédaction type prof — Pattern</strong></p>
+<div class="skel">
+On pose \(P(x) = \dots\) <br>
+On a \(P(\alpha) = \dots = 0\) <br>
+<strong>Donc</strong> \(\alpha\) <strong>est une racine du polynôme</strong> \(P\). <br>
+<strong>On sait alors que</strong> \(P(x)\) <strong>est factorisable par</strong> \(x - \alpha\). <br>
+<strong>On pose la division euclidienne de</strong> \(P(x)\) <strong>par</strong> \(x - \alpha\) : <em>(division)</em> <br>
+<strong>Finalement, pour tout réel \(x\), on a</strong> : \(\boxed{P(x) = (x - \alpha)(\dots)}\)
+</div>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Factoriser \(P(x) = x^3 + 4x^2 - 3x - 2\)</div>
+<p>On a \(P(1) = 1 + 4 - 3 - 2 = 0\). <strong>Donc 1 est une racine du polynôme \(P\).</strong></p>
+<p>On sait alors que \(P(x)\) est factorisable par \(x - 1\). On pose la division euclidienne :</p>
+<table class="tab" style="text-align:left;">
+<tr><td><code>x³ + 4x² − 3x − 2</code></td><td><code>x − 1</code></td></tr>
+<tr><td><code>−(x³ − x²)</code></td><td><code>x² + 5x + 2</code></td></tr>
+<tr><td><code>&nbsp;&nbsp;&nbsp;&nbsp;5x² − 3x − 2</code></td><td></td></tr>
+<tr><td><code>&nbsp;&nbsp;−(5x² − 5x)</code></td><td></td></tr>
+<tr><td><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2x − 2</code></td><td></td></tr>
+<tr><td><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;−(2x − 2)</code></td><td></td></tr>
+<tr><td><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0</code></td><td></td></tr>
+</table>
+<p><strong>Finalement, pour tout réel \(x\), on a</strong> : \(\boxed{P(x) = (x - 1)(x^2 + 5x + 2)}\)</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Application — Résoudre \(P(x) \geq 0\)</div>
+<p>Pour tout réel \(x\) : \(P(x) \geq 0\) <strong>équivaut à</strong> \((x - 1)(x^2 + 5x + 2) \geq 0\).</p>
+<p><strong>On cherche le signe de \(x^2 + 5x + 2\)</strong> : c'est une expression du second degré avec \(a = 1\), \(b = 5\), \(c = 2\).</p>
+<p>On a \(\Delta = b^2 - 4ac = 25 - 8 = 17 > 0\). Donc 2 racines : \(x_1 = \dfrac{-5 - \sqrt{17}}{2}\) et \(x_2 = \dfrac{-5 + \sqrt{17}}{2}\).</p>
+<p>On fait un tableau de signes pour \(P(x) = (x-1)(x^2 + 5x + 2)\) :</p>
+<table class="tab">
+<tr><th>\(x\)</th><th>\(-\infty\)</th><th>\(\frac{-5-\sqrt{17}}{2}\)</th><th>\(\frac{-5+\sqrt{17}}{2}\)</th><th>1</th><th>\(+\infty\)</th></tr>
+<tr><td>\(x - 1\)</td><td>−</td><td>−</td><td>−</td><td>0</td><td>+</td></tr>
+<tr><td>\(x^2 + 5x + 2\)</td><td>+</td><td>0</td><td>−</td><td>+</td><td>+</td></tr>
+<tr><td>\(P(x)\)</td><td>−</td><td>0</td><td>+</td><td>0</td><td>+</td></tr>
+</table>
+<p><strong>Finalement</strong> \(\boxed{S = \left[\dfrac{-5-\sqrt{17}}{2}\,;\,\dfrac{-5+\sqrt{17}}{2}\right] \cup [1\,;\,+\infty[}\)</p>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- CHAPITRE 3 — FONCTIONS                                       -->
+<!-- ============================================================ -->
+
+<div class="ch" id="c3">
+  <div class="cn">Chapitre 2</div>
+  <h2>Fonctions</h2>
+  <p>Généralités, variations, fonctions usuelles, dérivées, tangentes, continuité, TVI, fonctions composées</p>
+</div>
+
+<div class="toc">
+  <h3>Sections du chapitre 3</h3>
+  <div class="toc-grid">
+    <a href="#c3-1"><span class="ico">📋</span> I. Généralités</a>
+    <a href="#c3-2"><span class="ico">↗</span> II. Variations d'une fonction</a>
+    <a href="#c3-3"><span class="ico">📊</span> III. Fonctions usuelles</a>
+    <a href="#c3-4"><span class="ico">𝑓′</span> IV. Dérivées et variations</a>
+    <a href="#c3-5"><span class="ico">±·×÷</span> V. Dérivées et opérations</a>
+    <a href="#c3-6"><span class="ico">📏</span> VI. Tangentes</a>
+    <a href="#c3-7"><span class="ico">∼</span> VII. Continuité & TVI</a>
+    <a href="#c3-8"><span class="ico">∘</span> VIII. Fonctions composées</a>
+  </div>
+</div>
+
+<h3 class="sec-h" id="c3-1"><span class="roman">I.</span> Généralités</h3>
+
+<div class="coeur">
+<p><strong>Définition — Fonction</strong></p>
+<p>Une <strong>fonction \(f\)</strong> est un procédé d'association qui, à tout réel \(x\), associe un <strong>unique</strong> réel noté \(f(x)\).</p>
+<p>L'ensemble des valeurs possibles de \(x\) est l'<strong>ensemble de définition</strong> de la fonction \(f\).</p>
+<p>Le nombre \(f(x)\) est appelé <strong>image de \(x\) par la fonction \(f\)</strong>.</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemples</div>
+<ul>
+  <li><strong>Fonction carré</strong> \(f : x \mapsto x^2\) — définie sur \(\mathbb{R}\). On a \(f(3) = 9\), \(f\!\left(\tfrac{2}{5}\right) = \tfrac{4}{25}\), \(f(\sqrt{7}) = 7\).</li>
+  <li><strong>Fonction racine</strong> \(g : x \mapsto \sqrt{x}\) — définie sur \([0\,;+\infty[\). On a \(g(2) = \sqrt{2}\) ; \(g(-7)\) n'existe pas.</li>
+  <li><strong>Fonction inverse</strong> \(f : x \mapsto \dfrac{1}{x}\) — définie sur \(\mathbb{R}^* = \mathbb{R} \setminus \{0\} = \,]-\infty\,;\,0[\,\cup\,]0\,;\,+\infty[\) (on enlève 0 de l'ensemble).</li>
+</ul>
+</div>
+
+<div class="coeur">
+<p><strong>Définition — Représentation graphique</strong></p>
+<p>Dans un repère orthogonal, la <strong>courbe représentative</strong> de la fonction \(f\), notée <strong>\(\mathcal{C}_f\)</strong>, est l'ensemble des points de coordonnées \((x\,;\,f(x))\) où \(x\) décrit l'ensemble de définition de \(f\).</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Vocabulaire</div>
+<ul>
+  <li><strong>Abscisses</strong> : axe gauche/droite (horizontal)</li>
+  <li><strong>Ordonnées</strong> : axe bas/haut (vertical)</li>
+</ul>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">⚠️ Attention</div>
+<p>Placer 6 ou 6 000 points de \(\mathcal{C}_f\) ne suffit pas pour tracer \(\mathcal{C}_f\) de façon exacte.</p>
+<ul>
+  <li>On ne peut donc <strong>jamais raisonner sur la figure</strong></li>
+  <li>On ne peut donc <strong>jamais relier 2 points</strong>, car il faudrait savoir si la courbe ne fait que monter ou que descendre ou…</li>
+</ul>
+</div>
+
+<h3 class="sec-h" id="c3-2"><span class="roman">II.</span> Variations d'une fonction</h3>
+
+<div class="coeur">
+<p><strong>Définition — Strictement croissante / décroissante</strong></p>
+<p>On dit que la fonction \(f\) est <strong>strictement croissante</strong> sur l'ensemble \(I\) lorsque pour <strong>tous</strong> \(a\) et \(b\) dans \(I\) :</p>
+<p style="text-align: center;">Si \(a < b\) alors \(f(a) < f(b)\)</p>
+
+<p>On dit que la fonction \(f\) est <strong>strictement décroissante</strong> sur \(I\) lorsque pour <strong>tous</strong> \(a\) et \(b\) dans \(I\) :</p>
+<p style="text-align: center;">Si \(a < b\) alors \(f(a) > f(b)\)</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarques</div>
+<ul>
+  <li>Une fonction strictement croissante <strong>conserve l'ordre</strong>.</li>
+  <li>Une fonction strictement décroissante <strong>renverse l'ordre</strong>.</li>
+</ul>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple 1 — Étude directe de \(f : x \mapsto 3x - 7\)</div>
+<p>Étudier les variations de \(f\). Soit \(a\) et \(b\) deux réels, avec \(a < b\).</p>
+<p>On a \(f(a) = 3a - 7\) et \(f(b) = 3b - 7\).</p>
+<p>Alors \(3a < 3b\) donc \(3a - 7 < 3b - 7\) c-à-d \(f(a) < f(b)\).</p>
+<p><strong>Ainsi</strong> \(\boxed{f \text{ est strictement croissante sur } \mathbb{R}}\)</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple 2 — Étude directe de \(f : x \mapsto 7 - 3x\)</div>
+<p>Soit \(a\) et \(b\) deux réels, avec \(a < b\).</p>
+<p>Alors \(-3a > -3b\). Donc \(-3a + 7 > -3b + 7\) c-à-d \(f(a) > f(b)\).</p>
+<p><strong>Ainsi</strong> \(\boxed{f \text{ est strictement décroissante sur } \mathbb{R}}\)</p>
+</div>
+
+<h3 class="sec-h" id="c3-3"><span class="roman">III.</span> Fonctions usuelles</h3>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">A. La fonction carré</h4>
+
+<div class="coeur">
+<p><strong>Propriété (admise) — Fonction carré \(f : x \mapsto x^2\)</strong></p>
+<ul>
+  <li>Définie sur \(\mathbb{R}\)</li>
+  <li>Dérivable sur \(\mathbb{R}\), pour tout \(x \in \mathbb{R}\) : \(f'(x) = 2x\)</li>
+  <li>Strictement <strong>décroissante</strong> sur \(\mathbb{R}^-\) et strictement <strong>croissante</strong> sur \(\mathbb{R}^+\)</li>
+  <li>Tableau de variations : minimum \(f(0) = 0\) en 0</li>
+</ul>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Valeurs importantes (à étudier)</div>
+<ol>
+  <li>Valeurs interdites</li>
+  <li>Valeurs qui annulent la dérivée</li>
+</ol>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">B. La fonction cube</h4>
+
+<div class="coeur">
+<p><strong>Propriété (admise) — Fonction cube \(f : x \mapsto x^3\)</strong></p>
+<ul>
+  <li>Définie sur \(\mathbb{R}\)</li>
+  <li>Dérivable sur \(\mathbb{R}\), pour tout \(x \in \mathbb{R}\) : \(f'(x) = 3x^2\)</li>
+  <li>Strictement <strong>croissante</strong> sur \(\mathbb{R}\) (car \(f'(x) = 3x^2 \geq 0\))</li>
+</ul>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">C. Les fonctions affines</h4>
+
+<div class="coeur">
+<p><strong>Propriété (admise) — Fonction affine \(f : x \mapsto ax + b\)</strong></p>
+<p>Soit \(a\) et \(b\) deux réels. La fonction affine \(f : x \mapsto ax + b\) est dérivable sur \(\mathbb{R}\) et pour tout \(x \in \mathbb{R}\) :</p>
+<p style="text-align: center; font-size: 18px;">\[f'(x) = a\]</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarques</div>
+<ul>
+  <li>Si \(f\) est affine, elle se représente par <strong>une droite</strong>.</li>
+  <li><strong>Cas particulier : \(a = 0\)</strong> — si \(f : x \mapsto b\) (fonction constante), alors \(f'(x) = 0\) pour tout réel \(x\).</li>
+</ul>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">D. La fonction inverse</h4>
+
+<div class="coeur">
+<p><strong>Propriété (admise) — Fonction inverse \(f : x \mapsto \dfrac{1}{x}\)</strong></p>
+<ul>
+  <li>Définie sur \(\mathbb{R}^*\)</li>
+  <li>Dérivable sur \(\mathbb{R}^*\), pour tout \(x \in \mathbb{R}^*\) : \(f'(x) = -\dfrac{1}{x^2}\)</li>
+  <li>Strictement <strong>décroissante</strong> sur \(]-\infty\,;\,0[\) <strong>et</strong> strictement décroissante sur \(]0\,;\,+\infty[\) (2 phrases obligatoires, on ne joint pas)</li>
+</ul>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">E. La fonction racine</h4>
+
+<div class="coeur">
+<p><strong>Propriété (admise) — Fonction racine \(f : x \mapsto \sqrt{x}\)</strong></p>
+<ul>
+  <li>Définie sur \(\mathbb{R}^+ = [0\,;+\infty[\)</li>
+  <li>Dérivable sur \(\mathbb{R}^{+*} = \,]0\,;+\infty[\) (⚠️ <strong>pas en 0</strong>), pour tout \(x > 0\) : \(f'(x) = \dfrac{1}{2\sqrt{x}}\)</li>
+  <li>Strictement <strong>croissante</strong> sur \(]0\,;+\infty[\)</li>
+</ul>
+</div>
+
+<h3 class="sec-h" id="c3-4"><span class="roman">IV.</span> Dérivées et variations</h3>
+
+<div class="coeur">
+<p><strong>Théorème (admis) — Lien dérivée / variations</strong></p>
+<p>Soit \(f\) une fonction dérivable sur l'intervalle \(I\).</p>
+<ul>
+  <li>Si \(f'(x) > 0\) pour tout \(x \in I\), <strong>sauf pour un nombre fini de \(x\)</strong> pour lesquels \(f'(x) = 0\), alors \(f\) est strictement <strong>croissante</strong> sur \(I\).</li>
+  <li>Si \(f'(x) < 0\) pour tout \(x \in I\), sauf pour un nombre fini de \(x\) pour lesquels \(f'(x) = 0\), alors \(f\) est strictement <strong>décroissante</strong> sur \(I\).</li>
+  <li>Si \(f'(x) = 0\) pour tout \(x \in I\), alors \(f\) est <strong>constante</strong> sur \(I\).</li>
+</ul>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Rédaction type prof — Étude des variations d'une fonction</strong></p>
+<div class="skel">
+Pour trouver les variations de la fonction \(f\), <strong>on cherche le signe de sa dérivée</strong>. <br>
+La fonction \(f\) est <em>(soit affine, soit une somme/produit/quotient de fonctions dérivables sur</em> \(I\)<em>)</em>, <strong>donc</strong> \(f\) <strong>est dérivable sur</strong> \(I\). <br>
+<strong>Pour tout</strong> \(x \in I\), <strong>on a</strong> : \(f'(x) = \dots\) <br>
+<em>(étude du signe de \(f'(x)\), tableau de signes)</em> <br>
+<strong>Ainsi</strong> : <em>(conclusion sur les variations)</em> <br>
+<strong>Finalement</strong>, \(f\) est strictement <em>(croissante/décroissante)</em> sur \(\dots\)
+</div>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Étude de \(f : x \mapsto 3x - 7\) (affine)</div>
+<p>Pour trouver les variations de \(f\), on cherche le signe de sa dérivée.</p>
+<p>La fonction \(f\) est une fonction affine donc \(f\) est dérivable sur \(\mathbb{R}\).</p>
+<p>Pour tout \(x \in \mathbb{R}\), on a : \(f'(x) = 3\).</p>
+<p>Ainsi \(f'(x) > 0\) pour tout \(x\). <strong>Finalement</strong> : \(\boxed{f \text{ est strictement croissante sur } \mathbb{R}}\)</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Étude de \(f : x \mapsto x^2 + 7x - 4\) (somme)</div>
+<p>Pour trouver les variations de \(f\), on cherche le signe de sa dérivée.</p>
+<p>La fonction \(f\) est une somme de fonctions dérivables sur \(\mathbb{R}\) donc \(f\) est dérivable sur \(\mathbb{R}\).</p>
+<p>Pour tout \(x \in \mathbb{R}\), on a : \(f'(x) = 2x + 7\).</p>
+<p>On a le tableau de signes :</p>
+<table class="tab">
+<tr><th>\(x\)</th><th>\(-\infty\)</th><th>\(-\dfrac{7}{2}\)</th><th>\(+\infty\)</th></tr>
+<tr><td>\(f'(x)\)</td><td>−</td><td>0</td><td>+</td></tr>
+</table>
+<p><strong>Finalement</strong> : \(\boxed{f \text{ est strictement décroissante sur } \left]-\infty\,;\,-\dfrac{7}{2}\right] \text{ et strictement croissante sur } \left[-\dfrac{7}{2}\,;\,+\infty\right[}\)</p>
+</div>
+
+<h3 class="sec-h" id="c3-5"><span class="roman">V.</span> Dérivées et opérations</h3>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">A. Somme</h4>
+
+<div class="coeur">
+<p><strong>Propriété (admise) — Dérivée d'une somme</strong></p>
+<p>Soient \(f\) et \(g\) deux fonctions dérivables sur \(I\). Alors la somme \(f + g\) est dérivable sur \(I\) et :</p>
+<p style="text-align: center; font-size: 18px;">\[(f + g)' = f' + g'\]</p>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">B. Multiplication par un réel</h4>
+
+<div class="coeur">
+<p><strong>Propriété (admise) — Dérivée de \(c \cdot f\)</strong></p>
+<p>Soit \(f\) une fonction dérivable sur \(I\). Soit \(c\) un réel. Alors \(c \cdot f\) est dérivable sur \(I\) et :</p>
+<p style="text-align: center; font-size: 18px;">\[(c \cdot f)' = c \cdot f'\]</p>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">C. Produit</h4>
+
+<div class="coeur">
+<p><strong>Propriété (admise) — Dérivée d'un produit</strong></p>
+<p>Soient \(f\) et \(g\) deux fonctions dérivables sur \(I\). Alors \(fg\) est dérivable sur \(I\) et :</p>
+<p style="text-align: center; font-size: 18px;">\[(fg)' = f'g + fg'\]</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">🎵 Chanson mnémotechnique — Dérivée d'un produit</div>
+<p><em>« Dérivée du premier fois le second, plus dérivée du second fois le premier. »</em></p>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">D. Quotient</h4>
+
+<div class="coeur">
+<p><strong>Propriété (admise) — Dérivée d'un quotient</strong></p>
+<p>Soient \(f\) et \(g\) deux fonctions dérivables sur \(I\), avec \(g(x) \neq 0\) pour tout \(x \in I\). Alors \(\dfrac{f}{g}\) est dérivable sur \(I\) et :</p>
+<p style="text-align: center; font-size: 18px;">\[\left(\dfrac{f}{g}\right)' = \dfrac{f'g - fg'}{g^2}\]</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">🎵 Chanson mnémotechnique — Dérivée d'un quotient</div>
+<p><em>« Dérivée du haut fois le bas, moins dérivée du bas fois le haut, sur le carré du bas. »</em></p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Étude de \(f : x \mapsto \dfrac{3x + 2}{4x - 1}\) (quotient)</div>
+<p>Pour trouver les variations de \(f\), on cherche le signe de sa dérivée.</p>
+<p>La fonction \(f\) est un quotient de fonctions dérivables sur \(\mathbb{R} \setminus \left\{\dfrac{1}{4}\right\}\). Donc \(f\) est dérivable sur \(\mathbb{R} \setminus \left\{\dfrac{1}{4}\right\}\).</p>
+<p>Pour tout \(x \in \mathbb{R} \setminus \left\{\dfrac{1}{4}\right\}\), on a :</p>
+<p style="text-align: center;">\[f'(x) = \dfrac{3(4x - 1) - 4(3x + 2)}{(4x - 1)^2} = \dfrac{12x - 3 - 12x - 8}{(4x - 1)^2} = \dfrac{-11}{(4x - 1)^2}\]</p>
+<p>Ainsi \(f'(x) < 0\) pour tout \(x\) où \(f\) est définie.</p>
+<p><strong>Finalement</strong> : <strong>\(f\) est strictement décroissante sur \(\left]-\infty\,;\,\dfrac{1}{4}\right[\) et \(f\) est strictement décroissante sur \(\left]\dfrac{1}{4}\,;\,+\infty\right[\)</strong>.</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">⚠️ Obligation</div>
+<p>Obligation de faire <strong>2 phrases</strong> pour la réponse. On change de phrase à chaque changement de signe <strong>ou</strong> quand on se cogne à une valeur interdite.</p>
+</div>
+
+<h3 class="sec-h" id="c3-6"><span class="roman">VI.</span> Tangentes</h3>
+
+<div class="coeur">
+<p><strong>Définition — Tangente</strong></p>
+<p>Soit \(f\) une fonction dérivable sur l'intervalle \(I\). Soit \(a \in I\).</p>
+<p>La <strong>tangente \(T_a\)</strong> à \(\mathcal{C}_f\) au point d'abscisse \(a\) est la droite qui passe par le point \(A(a\,;\,f(a))\) et qui a pour <strong>pente \(f'(a)\)</strong>.</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarque</div>
+<p>On peut montrer que lorsque l'on est proche de \(A\), la droite \(T_a\) approxime bien la courbe \(\mathcal{C}_f\).</p>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété — Équation de la tangente</strong></p>
+<p>La tangente \(T_a\) a pour équation :</p>
+<p style="text-align: center; font-size: 19px;">\[y = f'(a)(x - a) + f(a)\]</p>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Rédaction type prof — Équation de la tangente</strong></p>
+<div class="skel">
+La tangente \(T_a\) à \(\mathcal{C}_f\) au point d'abscisse \(a\) <strong>a pour équation</strong> : <br>
+\(\quad y = f'(a)(x - a) + f(a)\) <br>
+<strong>Or</strong> \(f(a) = \dots\) <strong>et</strong> \(f'(a) = \dots\) <br>
+<strong>Donc</strong> \(y = \dots(x - a) + \dots\) <br>
+<strong>Finalement</strong> : \(\boxed{y = \dots}\)
+</div>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Tangente à \(\mathcal{C}_f\) au point d'abscisse 1</div>
+<p>La tangente \(T_1\) à \(\mathcal{C}_f\) au point d'abscisse 1 a pour équation : \(y = f'(1)(x - 1) + f(1)\).</p>
+<p>Or \(f(1) = -\dfrac{6}{5}\) et \(f'(1) = \dfrac{52}{25}\).</p>
+<p><strong>Ainsi</strong> \(T_1\) a pour équation \(\boxed{y = \dfrac{52}{25}(x - 1) - \dfrac{6}{5}}\)</p>
+</div>
+
+<h3 class="sec-h" id="c3-7"><span class="roman">VII.</span> Continuité & Théorème des Valeurs Intermédiaires (TVI)</h3>
+
+<div class="coeur">
+<p><strong>Définition — Continuité en \(a\)</strong></p>
+<p>Soit \(f\) une fonction définie sur l'intervalle \(I\). Soit \(a \in I\).</p>
+<p>On dit que \(f\) est <strong>continue en \(a\)</strong> lorsque :</p>
+<p style="text-align: center; font-size: 18px;">\[\lim_{x \to a} f(x) = f(a)\]</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarques</div>
+<ul>
+  <li>Si \(f\) est continue en \(a\) pour tout \(a \in I\), on dit que \(f\) est <strong>continue sur \(I\)</strong>.</li>
+  <li>Si \(f\) est continue sur \(I\), alors \(\mathcal{C}_f\) peut se tracer <strong>sans lever le crayon</strong>.</li>
+</ul>
+</div>
+
+<div class="coeur">
+<p><strong>Théorème (admis) — Dérivabilité ⟹ continuité</strong></p>
+<p>Si \(f\) est <strong>dérivable</strong> sur l'intervalle \(I\), alors \(f\) est <strong>continue</strong> sur \(I\).</p>
+</div>
+
+<div class="coeur">
+<p><strong>Théorème des Valeurs Intermédiaires (TVI) — admis</strong></p>
+<p>Soit \(f\) une fonction <strong>continue</strong> sur l'intervalle \(I\). Soient \(a\) et \(b\) dans \(I\).</p>
+<p>Alors, pour tout réel \(n\) <strong>entre \(f(a)\) et \(f(b)\)</strong>, l'équation \(f(x) = n\) (d'inconnue \(x\)) admet <strong>au moins une solution</strong> entre \(a\) et \(b\).</p>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Méthode du prof — Résoudre \(f(x) = 0\) avec le TVI (en 2 arguments + synthèse)</strong></p>
+
+<div class="etape">
+<strong>Argument n°1 — Variation (au plus 1 solution)</strong>
+<div class="skel">
+La fonction \(f\) est <em>(somme/produit/...)</em> de fonctions dérivables sur \(I\), donc \(f\) est dérivable sur \(I\). <br>
+Pour tout \(x \in I\), on a \(f'(x) = \dots\) <br>
+<em>(étude du signe de \(f'\))</em> <br>
+Ainsi, \(f\) est strictement <em>(croissante/décroissante)</em> sur \(I\). <br>
+<strong>On en déduit que l'équation \(f(x) = 0\) admet au plus 1 solution dans \(I\).</strong>
+</div>
+</div>
+
+<div class="etape">
+<strong>Argument n°2 — Continuité + TVI (au moins 1 solution)</strong>
+<div class="skel">
+On a \(f(a) = \dots\) et \(f(b) = \dots\) (avec \(f(a) < 0 < f(b)\) ou inversement). <br>
+Donc \(0 \in [f(a)\,;\,f(b)]\), c-à-d 0 est une valeur intermédiaire pour \(f\) sur \([a\,;\,b]\). <br>
+Or \(f\) est dérivable sur \(I\) donc \(f\) est continue sur \(I\). <br>
+Ainsi, <strong>d'après le théorème des valeurs intermédiaires</strong>, l'équation \(f(x) = 0\) admet <strong>au moins une solution</strong> dans \([a\,;\,b]\) et donc dans \(I\).
+</div>
+</div>
+
+<div class="etape">
+<strong>Synthèse</strong>
+<div class="skel">
+<strong>Finalement</strong>, l'équation \(f(x) = 0\) admet une <strong>unique solution</strong> dans \(I\). On la note \(\alpha\) et on a \(a < \alpha < b\).
+</div>
+</div>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Résoudre \(x^3 + 7x - 9 = 0\)</div>
+<p>Soit \(f : x \mapsto x^3 + 7x - 9\). L'équation s'écrit \(f(x) = 0\).</p>
+
+<p><strong>Argument n°1 (variation)</strong> : La fonction \(f\) est une somme de fonctions dérivables sur \(\mathbb{R}\), donc \(f\) est dérivable sur \(\mathbb{R}\). Pour tout \(x \in \mathbb{R}\), on a \(f'(x) = 3x^2 + 7 > 0\). Ainsi, \(f\) est strictement croissante sur \(\mathbb{R}\). On en déduit que l'équation \(f(x) = 0\) admet <strong>au plus 1 solution</strong> dans \(\mathbb{R}\).</p>
+
+<p><strong>Argument n°2 (continuité + TVI)</strong> : On a \(f(1) = 1 + 7 - 9 = -1\) et \(f(2) = 8 + 14 - 9 = 13\). Donc \(0 \in [f(1)\,;\,f(2)]\), c-à-d 0 est une valeur intermédiaire pour \(f\) sur \([1\,;\,2]\). Or \(f\) est dérivable sur \(\mathbb{R}\) donc \(f\) est continue sur \(\mathbb{R}\). Ainsi, d'après le TVI, l'équation \(f(x) = 0\) admet <strong>au moins une solution</strong> dans \([1\,;\,2]\) et donc dans \(\mathbb{R}\).</p>
+
+<p><strong>Synthèse</strong> : <strong>Finalement</strong>, l'équation \(f(x) = 0\) admet une <strong>unique solution</strong> dans \(\mathbb{R}\). On la note \(\alpha\) et on a \(\boxed{1 < \alpha < 2}\).</p>
+</div>
+
+<h3 class="sec-h" id="c3-8"><span class="roman">VIII.</span> Fonctions composées</h3>
+
+<div class="coeur">
+<p><strong>Définition — Composée de fonctions</strong></p>
+<p>Soit \(g\) et \(h\) deux fonctions. La <strong>composée de \(g\) par \(h\)</strong> est la fonction \(f = h \circ g\) (se lit « \(h\) rond \(g\) ») définie par :</p>
+<p style="text-align: center; font-size: 18px;">\[f(x) = (h \circ g)(x) = h(g(x))\]</p>
+<p>⚠️ Il s'agit de celui tout à droite (puis on va vers la gauche).</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">⚠️ Morale</div>
+<p>En général, \(h \circ g \neq g \circ h\). <strong>Attention à l'ordre !</strong></p>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété (admise) — Dérivée d'une composée</strong></p>
+<p>Soit \(u\) une fonction dérivable sur l'intervalle \(I\) et \(v\) une fonction dérivable sur l'intervalle \(J\). De plus, pour tout \(x \in I\), on a \(u(x) \in J\).</p>
+<p>Alors la fonction \(f = v \circ u\) est dérivable sur \(I\) et pour tout \(x \in I\) :</p>
+<p style="text-align: center; font-size: 19px;">\[f'(x) = u'(x) \times v'(u(x))\]</p>
+<p style="font-style: italic; color: var(--muted); text-align: center;">(dérivée de la 1ère étape × dérivée de la 2nde étape prise sur le résultat de la 1ère)</p>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété (admise) — Limite par composition</strong></p>
+<p>Soient \(a, b, c\) des réels ou \(\pm\infty\).</p>
+<p>Si \(\lim\limits_{x \to a} g(x) = b\) et \(\lim\limits_{x \to b} h(X) = c\), alors :</p>
+<p style="text-align: center; font-size: 18px;">\[\lim_{x \to a} (h \circ g)(x) = c\]</p>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- CHAPITRE 4 — LIMITES                                         -->
+<!-- ============================================================ -->
+
+<div class="ch" id="c4">
+  <div class="cn">Chapitre 3</div>
+  <h2>Limites</h2>
+  <p>Limites des fonctions usuelles, opérations sur les limites, formes indéterminées, asymptotes</p>
+</div>
+
+<div class="toc">
+  <h3>Sections du chapitre 4</h3>
+  <div class="toc-grid">
+    <a href="#c4-1"><span class="ico">💡</span> I. Introduction</a>
+    <a href="#c4-2"><span class="ico">📊</span> II. Limites des fonctions usuelles</a>
+    <a href="#c4-3"><span class="ico">±·×÷</span> III. Limites et opérations</a>
+    <a href="#c4-4"><span class="ico">┄</span> IV. Asymptotes</a>
+    <a href="#c4-5"><span class="ico">≤</span> V. Limites et inégalités</a>
+  </div>
+</div>
+
+<h3 class="sec-h" id="c4-1"><span class="roman">I.</span> Introduction</h3>
+
+<div class="blk ex">
+<div class="blk-l">Exemple introductif — Fonction carré</div>
+<p>Soit \(f : x \mapsto x^2\). On sait que \(f\) est strictement croissante sur \(\mathbb{R}^+\), absolument positive. \(\mathcal{C}_f\) monte jusqu'où ?</p>
+<p>Par exemple : Pour une « hauteur » 100, la courbe \(\mathcal{C}_f\) va-t-elle passer au-dessus du plafond ?</p>
+<p>C-à-d, existe-t-il un point \(g\) d'abscisse positive qui soit au-dessus du plafond ?</p>
+<p>C-à-d, existe-t-il un réel \(x \geq 0\) pour lequel \(f(x) > 100\) ? C-à-d existe-t-il un réel \(x \geq 0\) pour lequel \(x^2 > 100\) ? Oui, il suffit de prendre \(x = 11\).</p>
+<p><strong>Plus généralement</strong> : pour tout \(h \geq 0\) fixé, existe-t-il un réel \(x \geq 0\) tel que \(f(x) > h\) ? C-à-d \(x^2 > h\) ? Oui, il suffit de prendre \(x \geq \sqrt{h}\).</p>
+<p>Ainsi, \(\mathcal{C}_f\) va éclater tous les plafonds. C-à-d plus on va vers la droite, plus \(\mathcal{C}_f\) monte et va dépasser toute hauteur de plafond fixée à l'avance.</p>
+<p>On écrit : <em>« lorsque \(x\) tend vers \(+\infty\), le nombre \(f(x)\) tend vers \(+\infty\) »</em>, c-à-d :</p>
+<p style="text-align: center; font-size: 18px;">\[\lim_{x \to +\infty} f(x) = +\infty\]</p>
+</div>
+
+<h3 class="sec-h" id="c4-2"><span class="roman">II.</span> Limites des fonctions usuelles</h3>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">A. La fonction cube</h4>
+
+<div class="coeur">
+<p><strong>Propriété</strong></p>
+<p style="text-align: center;">\[\lim_{x \to +\infty} x^3 = +\infty \qquad \text{et} \qquad \lim_{x \to -\infty} x^3 = -\infty\]</p>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">B. La fonction racine</h4>
+
+<div class="coeur">
+<p><strong>Propriété</strong></p>
+<p style="text-align: center;">\[\lim_{x \to +\infty} \sqrt{x} = +\infty\]</p>
+<p><strong>Remarque</strong> : \(\lim\limits_{x \to 0} \sqrt{x} = 0\).</p>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">C. La fonction carré</h4>
+
+<div class="coeur">
+<p><strong>Propriété</strong></p>
+<p style="text-align: center;">\[\lim_{x \to +\infty} x^2 = +\infty \qquad \text{et} \qquad \lim_{x \to -\infty} x^2 = +\infty\]</p>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">D. Les fonctions affines</h4>
+
+<div class="blk ex">
+<div class="blk-l">Exemple</div>
+<p>Pour \(f : x \mapsto 3x - 4\) : \(\lim\limits_{x \to +\infty} (3x - 4) = +\infty\) et \(\lim\limits_{x \to -\infty} (3x - 4) = -\infty\).</p>
+<p>Pour \(g : x \mapsto -7x + 100\) : \(\lim\limits_{x \to +\infty} (-7x + 100) = -\infty\) et \(\lim\limits_{x \to -\infty} (-7x + 100) = +\infty\).</p>
+<p><strong>Remarque</strong> : \(\lim\limits_{x \to a} (-7x + 100) = -7a + 100\) (par continuité).</p>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">E. La fonction inverse</h4>
+
+<div class="coeur">
+<p><strong>Propriétés</strong></p>
+<ul>
+  <li>\(\lim\limits_{x \to +\infty} \dfrac{1}{x} = 0\) et \(\lim\limits_{x \to -\infty} \dfrac{1}{x} = 0\)</li>
+  <li>\(\lim\limits_{x \to 0^+} \dfrac{1}{x} = +\infty\) et \(\lim\limits_{x \to 0^-} \dfrac{1}{x} = -\infty\)</li>
+</ul>
+</div>
+
+<h3 class="sec-h" id="c4-3"><span class="roman">III.</span> Limites et opérations</h3>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">A. Somme</h4>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Étude de \(f : x \mapsto -3x^2 + 5x - 1\)</div>
+<p><strong>Étude en \(-\infty\)</strong> : On sait que \(\lim\limits_{x \to -\infty} (-3x^2) = -\infty\) et \(\lim\limits_{x \to -\infty} (5x - 1) = -\infty\).</p>
+<p>Donc, par somme : \(\boxed{\lim\limits_{x \to -\infty} f(x) = -\infty}\)</p>
+<p><strong>Étude en \(+\infty\)</strong> : On sait que \(\lim\limits_{x \to +\infty} (-3x^2) = -\infty\) et \(\lim\limits_{x \to +\infty} (5x - 1) = +\infty\).</p>
+<p><strong>Donc, par somme</strong> : <em>on ne peut pas conclure. Cela s'appelle une <strong>forme indéterminée</strong>.</em></p>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">B. Produit</h4>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — \(f : x \mapsto -3x^2(5x - 1)\)</div>
+<p><strong>Étude en \(-\infty\)</strong> : On sait que \(\lim\limits_{x \to -\infty} (-3x^2) = -\infty\) et \(\lim\limits_{x \to -\infty} (5x - 1) = -\infty\). Donc, par produit : \(\boxed{\lim\limits_{x \to -\infty} f(x) = +\infty}\)</p>
+<p><strong>Étude en \(+\infty\)</strong> : On sait que \(\lim\limits_{x \to +\infty} (-3x^2) = -\infty\) et \(\lim\limits_{x \to +\infty} (5x - 1) = +\infty\). Donc, par produit : \(\boxed{\lim\limits_{x \to +\infty} f(x) = -\infty}\)</p>
+</div>
+
+<div class="coeur">
+<p><strong>Formes indéterminées</strong> &nbsp; <span style="color:#fda4af;">← un péché d'asymptote est un péché de la <em>forme</em></span></p>
+<table class="tab" style="font-size:15px;">
+<tr><th>Opération</th><th>Forme indéterminée</th></tr>
+<tr><td>★ Somme</td><td>\((+\infty) + (-\infty)\)</td></tr>
+<tr><td>★ Produit</td><td>\(0 \times (\pm\infty)\) &nbsp; (indéterminée)</td></tr>
+<tr><td>★ Quotient</td><td>\(\dfrac{\pm\infty}{\pm\infty}\) &nbsp; et &nbsp; \(\dfrac{0}{0}\)</td></tr>
+</table>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Méthode du prof — Lever une forme indéterminée (infinis polynomiaux)</strong></p>
+<p>Pour une indétermination impliquant des infinis, <strong>on met en facteur « le ⊕ fort »</strong>.</p>
+<div class="skel">
+Soit \(f(x) = \text{(polynôme)}\) ou \(\dfrac{\text{(polynôme)}}{\text{(polynôme)}}\). <br>
+On factorise par le terme de plus haut degré : <br>
+\(\quad f(x) = x^n \left(\text{constante} + \dfrac{\dots}{x} + \dfrac{\dots}{x^2} + \dots\right)\) <br>
+On utilise alors \(\lim\limits_{x \to \pm\infty} \dfrac{1}{x^k} = 0\) et la limite de la parenthèse devient simple.
+</div>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Lever la FI dans \(f(x) = -3x^2 + 5x - 1\)</div>
+<p>Pour tout \(x \in \mathbb{R}^*\), on a :</p>
+<p style="text-align: center;">\[f(x) = -3x^2\left(1 - \dfrac{5x}{3x^2} + \dfrac{1}{3x^2}\right) = -3x^2\left(1 - \dfrac{5}{3x} + \dfrac{1}{3x^2}\right)\]</p>
+<p>On sait que \(\lim\limits_{x \to +\infty} \dfrac{5}{3x} = 0\) et \(\lim\limits_{x \to +\infty} \dfrac{1}{3x^2} = 0\).</p>
+<p>Donc, par somme : \(\lim\limits_{x \to +\infty} \left(1 - \dfrac{5}{3x} + \dfrac{1}{3x^2}\right) = 1\).</p>
+<p>D'autre part, on sait que \(\lim\limits_{x \to +\infty} (-3x^2) = -\infty\).</p>
+<p>Et donc, par produit : \(\boxed{\lim\limits_{x \to +\infty} f(x) = -\infty}\)</p>
+</div>
+
+<h3 class="sec-h" id="c4-4"><span class="roman">IV.</span> Asymptotes</h3>
+
+<div class="coeur">
+<p><strong>Définition — Asymptote (deux courbes)</strong></p>
+<p>Soit \(f\) et \(g\) deux fonctions définies sur \(\mathbb{R}\). On dit que les courbes \(\mathcal{C}_f\) et \(\mathcal{C}_g\) sont <strong>asymptotes</strong> l'une de l'autre <strong>en \(+\infty\)</strong> lorsque :</p>
+<p style="text-align: center; font-size: 18px;">\[\lim_{x \to +\infty} \bigl(f(x) - g(x)\bigr) = 0\]</p>
+<p>(Idem en \(-\infty\).)</p>
+</div>
+
+<div class="coeur">
+<p><strong>Cas particulier — Asymptote horizontale</strong></p>
+<p>Si \(f\) admet une <strong>limite finie</strong> \(a\) en \(+\infty\), c-à-d s'il existe un réel \(a\) tel que \(\lim\limits_{x \to +\infty} f(x) = a\), alors la <strong>droite d'équation \(y = a\)</strong> est <strong>asymptote horizontale</strong> à \(\mathcal{C}_f\) en \(+\infty\).</p>
+<p>(Idem en \(-\infty\).)</p>
+</div>
+
+<div class="coeur">
+<p><strong>Cas particulier — Asymptote verticale</strong></p>
+<p>Si \(\lim\limits_{x \to a} f(x) = \pm\infty\), alors la <strong>droite d'équation \(x = a\)</strong> est <strong>asymptote verticale</strong> à \(\mathcal{C}_f\).</p>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Rédaction type prof — Montrer qu'une droite est asymptote oblique</strong></p>
+<div class="skel">
+On veut prouver que la droite \(D\) d'équation \(y = ax + b\) est asymptote à \(\mathcal{C}_f\) en \(+\infty\). <br>
+C-à-d on veut prouver que \(\lim\limits_{x \to +\infty} \bigl(f(x) - (ax + b)\bigr) = 0\). <br>
+<strong>Partie calculs</strong> : pour tout \(x \in \dots\), on a \(f(x) - (ax + b) = \dots\) (calcul). <br>
+<strong>Partie limites</strong> : On sait que \(\lim\limits_{x \to +\infty} \dots = 0\). <br>
+<strong>Donc</strong> \(\lim\limits_{x \to +\infty} \bigl(f(x) - (ax + b)\bigr) = 0\). <br>
+<strong>Ainsi</strong> la droite \(D\) d'équation \(y = ax + b\) est asymptote à \(\mathcal{C}_f\) en \(+\infty\).
+</div>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">⚠️ Position relative \(\mathcal{C}_f\) / \(\Delta\)</div>
+<p>Pour trouver la <strong>position relative</strong> de \(\mathcal{C}_f\) et \(\Delta\), on cherche le <strong>signe</strong> de \(f(x) - (ax + b)\).</p>
+<ul>
+  <li>Si \(f(x) - (ax + b) > 0\) sur un intervalle : \(\mathcal{C}_f\) est <strong>au-dessus</strong> de \(\Delta\)</li>
+  <li>Si \(f(x) - (ax + b) < 0\) sur un intervalle : \(\mathcal{C}_f\) est <strong>au-dessous</strong> de \(\Delta\)</li>
+  <li>Si \(f(x) - (ax + b) = 0\) : intersection</li>
+</ul>
+</div>
+
+<!-- ============================================================ -->
+<!-- V. LIMITES ET INÉGALITÉS                                     -->
+<!-- ============================================================ -->
+<h3 class="sec-h" id="c4-5"><span class="roman">V.</span> Limites et inégalités</h3>
+
+<!-- ---------- A. COMPARAISON ---------- -->
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">A. Comparaison</h4>
+
+<div class="coeur">
+<p><strong>Théorème de comparaison (admis)</strong></p>
+<p>Soit \(f\) et \(g\) deux fonctions, définies sur \(\mathbb{R}\), telles que \(f(x) \leq g(x)\) pour tout \(x \in \mathbb{R}\).</p>
+<p>Si \(\lim\limits_{x \to +\infty} f(x) = +\infty\) alors \(\lim\limits_{x \to +\infty} g(x) = +\infty\).</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Limite par minoration</div>
+<p>Soit \(f : x \mapsto 5x + 7\sqrt{6x^4 + 3x^2 + 5}\).</p>
+<p>Pour tout réel \(x\), on a \(7\sqrt{6x^4 + 3x^2 + 5} \geq 0\), donc :</p>
+<p style="text-align: center;">\[5x + 7\sqrt{6x^4 + 3x^2 + 5} \geq 5x\]</p>
+<p>c-à-d \(f(x) \geq 5x\).</p>
+<p>Or \(\lim\limits_{x \to +\infty} 5x = +\infty\), donc, par comparaison :</p>
+<p style="text-align: center; font-size: 18px;">\[\boxed{\lim_{x \to +\infty} f(x) = +\infty}\]</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarques</div>
+<ul>
+  <li>On a des résultats analogues lorsque \(x\) tend vers \(-\infty\), ou vers un réel \(a\).</li>
+  <li>De même : si \(f(x) \leq g(x)\) pour tout réel \(x\) et \(\lim\limits_{x \to +\infty} g(x) = -\infty\), alors \(\lim\limits_{x \to +\infty} f(x) = -\infty\).</li>
+  <li>Le théorème de comparaison permet de <strong>trouver des limites infinies</strong>.</li>
+</ul>
+</div>
+
+<!-- ---------- B. THÉORÈME DES GENDARMES ---------- -->
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 30px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">B. Théorème des gendarmes (sandwich)</h4>
+
+<div class="coeur">
+<p><strong>Théorème des gendarmes (admis)</strong></p>
+<p>Soit \(f\), \(g\) et \(h\) trois fonctions définies sur \(\mathbb{R}\), avec \(f(x) \leq g(x) \leq h(x)\) pour tout réel \(x\).</p>
+<p>Si \(\lim\limits_{x \to +\infty} f(x) = L\) <strong>et</strong> \(\lim\limits_{x \to +\infty} h(x) = L\), alors :</p>
+<p style="text-align: center; font-size: 18px;">\[\lim_{x \to +\infty} g(x) = L\]</p>
+<p>(le théorème permet de <strong>trouver des limites finies</strong>)</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple b) — Limite par encadrement</div>
+<p>Soit \(f : x \mapsto \dfrac{x^4 + 7x^3 + 5x^2 + 3 + \sqrt{6x^2+5}}{x^2 + 1}\).</p>
+<p>Pour tout \(x \in \mathbb{R}^{+*}\), on a :</p>
+<p style="text-align: center;">\[f(x) \geq \dfrac{x^4}{x^2 + 1} \geq \dfrac{x^4}{2x^2} = \dfrac{x^2}{2}\]</p>
+<p>(car le haut est positif et on a diminué le bas).</p>
+<p>Or \(\lim\limits_{x \to +\infty} \dfrac{x^2}{2} = +\infty\), donc, par comparaison :</p>
+<p style="text-align: center; font-size: 17px;">\[\boxed{\lim_{x \to +\infty} f(x) = +\infty}\]</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple d) — Encadrement vers 0 (avec gendarmes)</div>
+<p>Soit \(f : x \mapsto \dfrac{3x + 7}{x^2 + \sqrt{x^2+1}}\).</p>
+<p>Pour tout \(x > 0\), on a \(0 \leq f(x) \leq \dfrac{3x + 7}{x^2}\) (car le haut est positif et on a diminué le bas).</p>
+<p>Or encore : \(f(x) \leq \dfrac{3x}{x^2} + \dfrac{7}{x^2} = \dfrac{3}{x} + \dfrac{7}{x^2}\). C-à-d :</p>
+<p style="text-align: center;">\[0 \leq f(x) \leq \dfrac{3}{x} + \dfrac{7}{x^2} \quad \text{pour tout } x > 0\]</p>
+<p>L'étude naïve montre que l'écart \(\dfrac{3}{x} + \dfrac{7}{x^2}\) tend vers 0.</p>
+<p>On sait que \(\lim\limits_{x \to +\infty} \dfrac{3}{x} = 0\) et \(\lim\limits_{x \to +\infty} \dfrac{7}{x^2} = 0\), donc, par somme :</p>
+<p style="text-align: center;">\[\lim_{x \to +\infty} \left(\dfrac{3}{x} + \dfrac{7}{x^2}\right) = 0\]</p>
+<p>Alors, d'après le <strong>théorème des gendarmes</strong> :</p>
+<p style="text-align: center; font-size: 18px;">\[\boxed{\lim_{x \to +\infty} f(x) = 0}\]</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple e) — Limite finie non-nulle</div>
+<p>Soit \(f : x \mapsto \dfrac{x^2 + x + 2}{\sqrt{x^2 + 4x + 1}}\). Pour tout \(x > 0\), on a :</p>
+<p>D'autre part : \(x^2 + 4x + 1 \leq x^2 + 4x + 4 = (x+2)^2\) et donc \(\sqrt{x^2 + 4x + 1} \leq |x+2| = x+2\) (car la fonction racine est croissante sur \(\mathbb{R}^+\)).</p>
+<p>C-à-d \(\sqrt{x^2 + 4x + 1} \leq x + 2\), donc \(\dfrac{1}{\sqrt{x^2 + 4x + 1}} \geq \dfrac{1}{x+2}\) (puisque tout est positif).</p>
+<p>Finalement, on a : \(\dfrac{1}{(x+2)^2} \leq \dfrac{1}{x^2 + 4x + 1} \leq \dfrac{2}{x^2}\) pour tout \(x > 0\).</p>
+<p>On sait que \(\lim\limits_{x \to +\infty} \left(1 + \dfrac{1}{x} + \dfrac{2}{x^2}\right) = 1\) et \(\lim\limits_{x \to +\infty} \left(1 + \dfrac{2/x + 1/x^2}{1 + 4/x + 1/x^2}\right) = 1\), par somme.</p>
+<p>Alors, d'après le théorème des gendarmes :</p>
+<p style="text-align: center; font-size: 18px;">\[\boxed{\lim_{x \to +\infty} f(x) = 1}\]</p>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Rédaction type prof — Lever une FI par comparaison/gendarmes</strong></p>
+<div class="skel">
+<strong>Étape 1 — Encadrer (ou minorer/majorer)</strong> : pour tout \(x \in \dots\), on a \(\dots \leq f(x) \leq \dots\). <br>
+<em>(astuce : pour majorer un quotient positif, on augmente le haut ou on diminue le bas)</em><br>
+<strong>Étape 2 — Calculer les limites des bornes</strong> : \(\lim\limits_{x \to +\infty} (\text{borne inf}) = L_1\) et \(\lim\limits_{x \to +\infty} (\text{borne sup}) = L_2\). <br>
+<strong>Étape 3 — Conclure</strong> :
+<ul>
+<li>Si \(L_1 = L_2 = L\) : par <strong>théorème des gendarmes</strong>, \(\lim\limits_{x \to +\infty} f(x) = L\)</li>
+<li>Si on a juste \(f(x) \geq g(x)\) avec \(\lim g = +\infty\) : par <strong>comparaison</strong>, \(\lim\limits_{x \to +\infty} f(x) = +\infty\)</li>
+</ul>
+</div>
+</div>
+
+<div class="blk met">
+<div class="blk-l">⚠️ Méthode — Sens des inégalités</div>
+<ul>
+  <li><strong>Pour <em>majorer</em> un quotient positif</strong> : on <strong>augmente le haut</strong> ou on <strong>diminue le bas</strong>.</li>
+  <li><strong>Pour <em>minorer</em> un quotient positif</strong> : on <strong>diminue le haut</strong> ou on <strong>augmente le bas</strong>.</li>
+  <li>Une fonction <strong>croissante conserve l'ordre</strong> ; une fonction <strong>décroissante renverse l'ordre</strong>. (Exemple : la fonction inverse \(x \mapsto 1/x\) renverse l'ordre sur \(\mathbb{R}^{+*}\).)</li>
+</ul>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarque — Expressions conjuguées</div>
+<p>Soit \(a\) et \(b\) deux réels. Les expressions \(a+b\) et \(a-b\) sont dites <strong>« conjuguées »</strong> l'une de l'autre. On a :</p>
+<p style="text-align: center; font-size: 18px;">\[\boxed{(a-b)(a+b) = a^2 - b^2}\]</p>
+<p>Technique utile pour lever des FI avec racines : multiplier par la quantité conjuguée.</p>
+</div>
+
+<!-- ---------- VI. ÉTUDE DE FONCTION TYPE - ASYMPTOTE VERTICALE ---------- -->
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 30px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">C. Étude type — Asymptote verticale (limites à gauche/droite)</h4>
+
+<div class="blk ex">
+<div class="blk-l">Exemple complet — \(f(x) = \dfrac{x-3}{x-1}\) (étude en 1)</div>
+<p>On sait que pour tout \(x \in \mathbb{R} \setminus \{1\}\), on a :</p>
+<p style="text-align: center;">\[f(x) = \dfrac{x-3}{x-1} = (x-3) \cdot \dfrac{1}{x-1}\]</p>
+<p><strong>Tableau de signes</strong> de \((x-3)(x-1)\) sur \(\mathbb{R} \setminus \{1\}\) :</p>
+<table class="tab" style="text-align:center;">
+<tr><th>\(x\)</th><th>\(-\infty\)</th><th>1</th><th>3</th><th>\(+\infty\)</th></tr>
+<tr><th>\(x-1\)</th><td>–</td><td>0</td><td>+</td><td></td><td>+</td></tr>
+<tr><th>\(x-3\)</th><td>–</td><td></td><td>–</td><td>0</td><td>+</td></tr>
+<tr><th>\(f(x)\)</th><td>+</td><td>‖</td><td>–</td><td>0</td><td>+</td></tr>
+</table>
+<p><strong>Étude en 1</strong> :</p>
+<p>\(\lim\limits_{x \to 1}(x - 3) = -2\) et \(\lim\limits_{\substack{x \to 1 \\ x > 1}}(x - 1) = 0^+\), donc par quotient :</p>
+<p style="text-align: center;">\[\lim_{\substack{x \to 1 \\ x > 1}} f(x) = -\infty\]</p>
+<p>D'autre part, on sait que \(\lim\limits_{\substack{x \to 1 \\ x < 1}}(x-1) = 0^-\), donc par quotient :</p>
+<p style="text-align: center;">\[\lim_{\substack{x \to 1 \\ x < 1}} f(x) = +\infty\]</p>
+<p style="background: rgba(239,68,68,.10); padding: 10px 14px; border-radius: 6px; border: 1px solid rgba(239,68,68,.30);"><strong>Remarque</strong> : La droite d'équation \(x = 1\) est <strong>asymptote verticale</strong> à \(\mathcal{C}_f\).</p>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Rédaction type prof — Asymptote verticale en \(x = a\)</strong></p>
+<div class="skel">
+On veut prouver que la droite d'équation \(x = a\) est asymptote verticale à \(\mathcal{C}_f\). <br>
+C-à-d \(\lim\limits_{x \to a} f(x) = \pm\infty\) (ou limite à gauche / à droite). <br>
+<strong>Méthode</strong> : on factorise et on étudie chaque facteur. <br>
+\(\lim\limits_{x \to a}(\text{numérateur}) = \dots\) et \(\lim\limits_{\substack{x \to a \\ x > a}}(\text{dénominateur}) = 0^+\) <br>
+Donc par <strong>quotient</strong> : \(\lim\limits_{\substack{x \to a \\ x > a}} f(x) = \pm\infty\). <br>
+<em>(Faire le même travail à gauche \((x < a)\) puis conclure.)</em><br>
+<strong>Ainsi</strong> la droite \(x = a\) est asymptote verticale à \(\mathcal{C}_f\).
+</div>
+</div>
+
+<div class="blk met">
+<div class="blk-l">⚠️ Méthode — Mettre en valeur quelque chose</div>
+<ol>
+  <li>Écrire les <strong>valeurs des dérivées qui s'annulent</strong> dans le tableau de variation.</li>
+  <li>Indiquer les <strong>asymptotes</strong> sur la courbe représentative.</li>
+</ol>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Cours — Point sur une courbe</div>
+<p>Soit \(M(x ; y)\) un point.</p>
+<ul>
+  <li>Le point \(M\) appartient à \(\mathcal{C}_f\) <strong>si et seulement si</strong> \(y = f(x)\).</li>
+  <li>Le point \(M\) appartient à \(\mathcal{C}_f\) <em>et</em> à l'axe des abscisses si et seulement si \(f(x) = 0\) (et \(y = 0\)).</li>
+  <li>Le point \(M\) appartient à \(\mathcal{C}_f\) <em>et</em> à l'axe des ordonnées si et seulement si \(M(0 ; f(0))\).</li>
+</ul>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- CHAPITRE 5 — SUITES                                          -->
+<!-- ============================================================ -->
+
+<div class="ch" id="c5">
+  <div class="cn">Chapitre 4</div>
+  <h2>Suites</h2>
+  <p>Suites arithmétiques, géométriques, arithmético-géométriques, variations, suites bornées, limites de suites, sommes</p>
+</div>
+
+<div class="toc">
+  <h3>Sections du chapitre 5</h3>
+  <div class="toc-grid">
+    <a href="#c5-1"><span class="ico">📜</span> I. Définition</a>
+    <a href="#c5-2"><span class="ico">➕</span> II. Suites arithmétiques, géométriques, arithmético-géométriques</a>
+    <a href="#c5-3"><span class="ico">↕</span> III. Sens de variation</a>
+    <a href="#c5-4"><span class="ico">📏</span> IV. Suites majorées, minorées, bornées</a>
+    <a href="#c5-5"><span class="ico">∞</span> V. Suites et limites</a>
+    <a href="#c5-6"><span class="ico">Σ</span> VI. Sommes remarquables</a>
+  </div>
+</div>
+
+<!-- ---------- I. DÉFINITION ---------- -->
+<h3 class="sec-h" id="c5-1"><span class="roman">I.</span> Définition</h3>
+
+<div class="coeur">
+<p><strong>Définition — Suite</strong></p>
+<p>Une <strong>suite</strong> est une liste (ordonnée et avec répétition possible) de réels.</p>
+<p>En général, on désigne par \((u_n)\) la suite utilisée. Alors les termes successifs de la suite sont :</p>
+<p style="text-align: center; font-size: 17px;">\[u_0, \; u_1, \; u_2, \; \dots, \; u_n, \; u_{n+1}, \; \dots\]</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">⚠️ Remarque — Ne surtout pas confondre</div>
+<ul>
+  <li>\((u_n)\) désigne <strong>la suite</strong> (toute la liste)</li>
+  <li>\(u_n\) désigne <strong>le terme numéro \(n\)</strong> de la suite</li>
+</ul>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemples — Définitions explicites et récurrentes</div>
+<p><strong>★ Définition explicite</strong> : La suite \((u_n)\) définie par \(u_n = n^2\) pour tout \(n \geq 0\).</p>
+<p>Alors : \(u_5 = 5^2 = 25\), \(u_p = p^2\), \(u_{n+1} = (n+1)^2 = n^2 + 2n + 1 \neq u_n + 1\).</p>
+
+<p><strong>★ Définition récurrente</strong> : La suite \((u_n)\) définie par :</p>
+<p style="text-align: center;">\[u_{n+1} = \dfrac{1}{n - 2} \quad \text{pour tout } n \geq 0\]</p>
+<p>Cette suite <strong>n'existe pas</strong> (problème en \(n = 2\)).</p>
+
+<p><strong>★ Définition par récurrence avec valeur initiale</strong> :</p>
+<p style="text-align: center;">\[\begin{cases} u_0 = 5 \\ u_{n+1} = 3 u_n - 1 \quad \text{pour tout } n \geq 0 \end{cases}\]</p>
+<p>Alors \(u_1 = 3 \times u_0 - 1 = 3 \times 5 - 1 = 14\), \(u_2 = 3 \times u_1 - 1 = 3 \times 14 - 1 = 41\), \(\dots\), \(u_{2k+1} = 3 \times u_{2k} - 1\).</p>
+</div>
+
+<!-- ---------- II. SUITES ARITHMÉTIQUES / GÉOMÉTRIQUES / ARITHMÉTICO-GÉO ---------- -->
+<h3 class="sec-h" id="c5-2"><span class="roman">II.</span> Suites arithmétiques, géométriques, arithmético-géométriques</h3>
+
+<!-- A. Arithmétiques -->
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">A. Suites arithmétiques</h4>
+
+<div class="coeur">
+<p><strong>Définition — Suite arithmétique</strong></p>
+<p>La suite \((u_n)\) est dite <strong>arithmétique</strong> lorsqu'il existe un réel \(r\) tel que :</p>
+<p style="text-align: center; font-size: 17px;">\[u_{n+1} = u_n + r \quad \text{pour tout } n \geq 0\]</p>
+<p>Dans ces conditions, le nbr \(r\) est appelé la <strong>raison</strong> de la suite arithmétique \((u_n)\).</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemples</div>
+<p><strong>★</strong> La suite \((u_n)\) définie par \(u_{k+1} = -3 + u_k\) pour tout \(k \geq 0\). On reconnaît une suite arithmétique de raison \(r = -3\).</p>
+
+<p><strong>★</strong> La suite \((u_n)\) définie par : \(u_0 = 0\), \(u_1 = 2\), \(u_2 = 3\). On a \(u_1 = u_0 + 2\) et \(u_2 = u_1 + 1\). Donc \((u_n)\) <strong>n'est pas arithmétique</strong>.</p>
+
+<p><strong>★</strong> Soit \(n \geq 0\) un entier. On a \(u_{n+1} - u_n = 2(n+1) + 3 - (2n + 3) = 2\). Ainsi, \((u_n)\) est arithmétique de raison \(r = 2\).</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarque — Les suites arithmétiques sont les suites « du 1er degré en n »</div>
+<p>Les suites arithmétiques sont celles pour lesquelles il existe des réels \(a\) et \(b\) tels que :</p>
+<p style="text-align: center; font-size: 17px;">\[u_n = an + b \quad \text{(expression du 1er degré en } n\text{)}\]</p>
+<p>La raison est alors \(r = a\).</p>
+<p><strong>Exemple</strong> : la suite \((u_n)\) définie par \(u_n = 2n + 3\) pour tout \(n \geq 0\) est arithmétique de raison \(r = 2\).</p>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété — Terme général</strong></p>
+<p>Si \((u_n)\) est arithmétique de raison \(r\), alors pour tout \(n \geq 0\) :</p>
+<p style="text-align: center; font-size: 17px;">\[u_n = u_0 + nr\]</p>
+<p>Plus généralement, pour tous entiers \(n \geq p \geq 0\) :</p>
+<p style="text-align: center; font-size: 17px;">\[u_n = u_p + (n - p) \cdot r\]</p>
+<p>(« facteur de départ » \(\to u_p\))</p>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété — Somme des termes d'une suite arithmétique</strong></p>
+<p>Soit \((u_n)\) une suite arithmétique de raison \(r\). Alors pour tout entier \(N \geq 0\) :</p>
+<p style="text-align: center; font-size: 18px;">\[S_N = u_0 + u_1 + u_2 + \dots + u_N = (N+1) \times \dfrac{u_0 + u_N}{2}\]</p>
+</div>
+
+<div class="blk preuve">
+<div class="blk-l">Preuve (par pairing « petit + grand »)</div>
+<p>On pose \(S_N = u_0 + u_1 + u_2 + \dots + u_N\). Alors :</p>
+<p>\(2 S_N = (u_0 + u_1 + \dots + u_N) + (u_N + u_{N-1} + \dots + u_0)\)</p>
+<p>\(= (u_0 + u_N) + (u_1 + u_{N-1}) + \dots + (u_N + u_0)\), il y a \(N+1\) paquets.</p>
+<p>Or chaque paquet vaut \(u_0 + u_N\) (somme constante par symétrie), donc \(2 S_N = (N+1)(u_0 + u_N)\). D'où :</p>
+<p style="text-align: center;">\[S_N = (N+1) \cdot \dfrac{u_0 + u_N}{2}\]</p>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Formule à retenir — Somme arithmétique</strong></p>
+<div class="skel">
+\(S = \text{(moyenne des termes extrêmes)} \times \text{(nombre de termes)} = \dfrac{u_0 + u_N}{2} \times (N+1)\)
+</div>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Somme \(11 + 13 + 15 + \dots + 2027\)</div>
+<p>On reconnaît une somme de termes consécutifs d'une suite arithmétique de raison \(r = 2\) (premier terme 11, dernier terme 2027).</p>
+<p>Nombre de termes : \(\dfrac{2027 - 11}{2} + 1 = 1009\).</p>
+<p>Alors :</p>
+<p style="text-align: center;">\[S = \dfrac{11 + 2027}{2} \times 1009 = \boxed{1019 \times 1009}\]</p>
+</div>
+
+<!-- B. Géométriques -->
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 30px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">B. Suites géométriques</h4>
+
+<div class="coeur">
+<p><strong>Définition — Suite géométrique</strong></p>
+<p>La suite \((u_n)\) est dite <strong>géométrique</strong> lorsqu'il existe un réel \(q\) tel que :</p>
+<p style="text-align: center; font-size: 17px;">\[u_{n+1} = q \times u_n \quad \text{pour tout } n \geq 0\]</p>
+<p>Dans ces conditions, le réel \(q\) est appelé la <strong>raison</strong> de la suite géométrique \((u_n)\).</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemples</div>
+<p><strong>★</strong> La suite \((u_n)\) définie par \(u_{n+1} = \dfrac{u_n}{3}\) avec \(u_0 = 2025\). On reconnaît une suite géométrique de raison \(q = \dfrac{1}{3}\).</p>
+
+<p><strong>★</strong> La suite \((u_n)\) définie par \(u_n = n^2\) pour tout \(n \geq 0\). Alors \(u_0 = 0\), \(u_1 = 1\), \(u_2 = 4\). On voit que \(u_1 = u_0 \cdot ?\) (rien ne marche). Ainsi \((u_n)\) <strong>n'est pas géométrique</strong>.</p>
+
+<p><strong>★</strong> Soit \(n \geq 0\) un entier. \((u_n)\) définie par \(u_n = (-1)^n\). On a \(u_0 = 1\), \(u_1 = -1\), \(u_2 = 1\), \(\dots\) Et \(\dfrac{u_{n+1}}{u_n} = \dfrac{(-1)^{n+1}}{(-1)^n} = (-1)\). Ainsi \((u_n)\) est <strong>géométrique de raison \(q = -1\)</strong>.</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Rappels — Puissances</div>
+<ul>
+  <li>\(a^{n+p} = a^n \times a^p\)</li>
+  <li>\(a^{np} = (a^n)^p\)</li>
+  <li>\(a^n \times b^n = (a \times b)^n\)</li>
+</ul>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété — Terme général</strong></p>
+<p>Si \((u_n)\) est géométrique de raison \(q\), alors pour tout \(n \geq 0\) :</p>
+<p style="text-align: center; font-size: 17px;">\[u_n = u_0 \cdot q^n\]</p>
+<p>Plus généralement, pour tous entiers \(n \geq p \geq 0\) :</p>
+<p style="text-align: center; font-size: 17px;">\[u_n = u_p \cdot q^{n-p}\]</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarque — Les suites géométriques sont les « exponentielles en n »</div>
+<p>Les suites géométriques sont celles pour lesquelles il existe des réels \(a\) et \(b\) tels que :</p>
+<p style="text-align: center;">\[u_n = a \times b^n\]</p>
+<p>La raison est alors \(q = b\).</p>
+<p>Exemple : \(u_n = (-1)^n\) → géométrique de raison \(q = -1\).</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Rappel — Puissances négatives et fractions</div>
+<ul>
+  <li>\(a^{-2} = \dfrac{1}{a^2}\)</li>
+  <li>\(\dfrac{a^n}{a^p} = a^{n-p}\)</li>
+  <li>Exemple : \(u_n = \dfrac{1}{5^{-2}}\left(-\dfrac{2}{5}\right)^n = 5^2 \left(-\dfrac{2}{5}\right)^n = 25 \times \left(-\dfrac{2}{5}\right)^n\)</li>
+</ul>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété — Somme géométrique</strong></p>
+<p>Soit \((u_n)\) une suite géométrique de raison \(q\), avec \(\boxed{q \neq 1}\). Alors pour tout entier \(N \geq 0\) :</p>
+<p style="text-align: center; font-size: 18px;">\[S_N = u_0 + u_1 + u_2 + \dots + u_N = u_0 \times \dfrac{1 - q^{N+1}}{1 - q}\]</p>
+</div>
+
+<div class="blk preuve">
+<div class="blk-l">Preuve</div>
+<p>On pose \(S_N = u_0 + u_1 + \dots + u_N\). Alors :</p>
+<p>\(S_N = u_0 + u_0 q + u_0 q^2 + \dots + u_0 q^N = u_0 (1 + q + q^2 + \dots + q^N)\).</p>
+<p>D'après une identité connue (BS¹⁶) : \(\dfrac{1 - q^{N+1}}{1 - q} = 1 + q + q^2 + \dots + q^N\), donc :</p>
+<p style="text-align: center;">\[S_N = u_0 \times \dfrac{1 - q^{N+1}}{1 - q}\]</p>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Formule à retenir — Somme géométrique</strong></p>
+<div class="skel">
+\(S = \text{(premier terme de la somme)} \times \dfrac{1 - q^{\text{(nombre de termes)}}}{1 - q}\)
+</div>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Somme \(20 + 200 + 2000 + \dots + 2 \times 10^{24}\)</div>
+<p>On reconnaît la somme de <strong>24 termes consécutifs</strong> d'une suite géométrique de raison \(q = 10\) (\(q \neq 1\) ✓). Alors :</p>
+<p style="text-align: center;">\[S = 20 \times \dfrac{1 - 10^{24}}{1 - 10}\]</p>
+</div>
+
+<!-- C. Arithmético-géométriques -->
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 30px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">C. Suites arithmético-géométriques</h4>
+
+<div class="coeur">
+<p><strong>Définition</strong></p>
+<p>La suite \((u_n)\) est dite <strong>arithmético-géométrique</strong> lorsqu'il existe des réels \(a\) et \(b\) tels que :</p>
+<p style="text-align: center; font-size: 17px;">\[u_{n+1} = a u_n + b \quad \text{pour tout } n \geq 0\]</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple DM 4 — \(u_{n+1} = \dfrac{2}{5} u_n + 1\) avec \(u_0 = 0\)</div>
+<p>On reconnaît une suite arithmético-géométrique avec \(a = \dfrac{2}{5}\) et \(b = 1\).</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarque</div>
+<ul>
+  <li>La suite \((u_n)\) définie par \(u_{n+1} = \dfrac{2}{5} u_n\) → suite géométrique.</li>
+  <li>La suite \((u_n)\) définie par \(u_{n+1} = u_n + 3\) avec \(a = 1\) et \(b = 3\) → suite arithmético-géométrique <strong>et</strong> arithmétique.</li>
+</ul>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété — Forme close d'une suite arithmético-géométrique</strong></p>
+<p>Soit \(a\) et \(b\) deux réels avec \(\boxed{a \neq 1}\). On considère la suite arithmético-géométrique \((u_n)\) telle que \(u_{n+1} = a u_n + b\) pour tout \(n \geq 0\).</p>
+<p>Alors, pour tout \(n \geq 0\), on pose \(V_n = u_n - \omega\) où \(\omega\) sera déterminé plus tard.</p>
+<p>Pour tout \(n \geq 0\), on a :</p>
+<p>\(V_{n+1} = u_{n+1} - \omega = a u_n + b - \omega = a(V_n + \omega) + b - \omega = a V_n + a\omega + b - \omega = a V_n + \omega(a - 1) + b\)</p>
+<p>On choisit \(\omega\) de sorte que \(\omega(a-1) + b = 0\), c-à-d :</p>
+<p style="text-align: center;">\[\omega = \dfrac{-b}{a - 1} = \dfrac{b}{1 - a}\]</p>
+<p>Pour cette valeur de \(\omega\) avec choix : \(V_{n+1} = a V_n\) pour tout \(n \geq 0\). Ainsi \((V_n)\) est <strong>géométrique de raison \(q = a\)</strong>. On sait alors que pour tout \(n \geq 0\), on a \(V_n = V_0 \cdot a^n\), c-à-d :</p>
+<p style="text-align: center; font-size: 17px;">\[u_n = \omega + (u_0 - \omega) \cdot a^n\]</p>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Rédaction type prof — Suite arithmético-géométrique (À SAVOIR REFAIRE !)</strong></p>
+<div class="skel">
+<strong>Étape 1</strong> — Pour tout \(n \geq 0\), on pose \(V_n = u_n - \omega\) où \(\omega\) sera déterminé plus tard. <br>
+<strong>Étape 2</strong> — Pour tout \(n \geq 0\), on a \(V_{n+1} = u_{n+1} - \omega = a u_n + b - \omega = a(V_n + \omega) + b - \omega = a V_n + \omega(a-1) + b\). <br>
+<strong>Étape 3</strong> — On choisit \(\omega\) tel que \(\omega(a-1) + b = 0\), c-à-d \(\omega = \dfrac{-b}{a-1}\). <br>
+<strong>Étape 4</strong> — Pour cette valeur de \(\omega\), \((V_n)\) est géométrique de raison \(q = a\). Donc \(V_n = V_0 \cdot a^n\). <br>
+<strong>Étape 5</strong> — Ainsi, pour tout \(n \geq 0\) : \(u_n = V_n + \omega = (u_0 - \omega) \cdot a^n + \omega\).
+</div>
+</div>
+
+<!-- ---------- III. SENS DE VARIATION ---------- -->
+<h3 class="sec-h" id="c5-3"><span class="roman">III.</span> Sens de variation d'une suite</h3>
+
+<div class="coeur">
+<p><strong>Définition — Croissante / décroissante</strong></p>
+<ul>
+  <li>La suite \((u_n)\) est dite <strong>croissante</strong> lorsque \(u_{n+1} \geq u_n\) pour tout \(n \geq 0\).</li>
+  <li>La suite \((u_n)\) est dite <strong>décroissante</strong> lorsque \(u_{n+1} \leq u_n\) pour tout \(n \geq 0\).</li>
+</ul>
+</div>
+
+<div class="blk met">
+<div class="blk-l">Méthode — Trouver le sens de variation</div>
+<p>Pour trouver le sens de variation d'une suite \((u_n)\), on cherche le <strong>signe de \(u_{n+1} - u_n\)</strong>.</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — \(u_n = n^2\)</div>
+<p>Soit \(n \geq 0\) un entier. On a :</p>
+<p style="text-align: center;">\[u_{n+1} - u_n = (n+1)^2 - n^2 = n^2 + 2n + 1 - n^2 = 2n + 1 \geq 0\]</p>
+<p>Ainsi, \((u_n)\) est croissante.</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — \(u_n = (-1)^n\) (ni croissante, ni décroissante)</div>
+<p>Soit \(n \geq 0\) un entier. On a :</p>
+<p style="text-align: center;">\[u_{n+1} - u_n = (-1)^{n+1} - (-1)^n = (-1)^n((-1) - 1) = -2(-1)^n\]</p>
+<ul>
+  <li>Si \(n\) est pair : \(u_{n+1} - u_n = -2\) → décroissante</li>
+  <li>Si \(n\) est impair : \(u_{n+1} - u_n = 2\) → croissante</li>
+</ul>
+<p>L'écart ne garde pas un signe fixe, donc <strong>la suite n'est ni croissante, ni décroissante</strong>.</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Récurrence \(u_0 = 1\), \(u_{n+1} = 2u_n - 3\) (décroissante)</div>
+<p>On pose \(u_0 = 1\) et \(u_{n+1} = 2 u_n - 3\) pour tout \(n \geq 0\). On note \(H_n\), on note l'affirmation : <em>« \(u_{n+1} \leq u_n\) »</em>.</p>
+<p><strong>Initialisation</strong> : Pour \(n = 0\), on a \(u_1 = 2 u_0 - 3 = -1\) et \(u_0 = 1\), donc \(u_1 \leq u_0\). Ainsi \(H_0\) est vraie.</p>
+<p><strong>Hérédité</strong> : Soit \(n \geq 0\) sur un entier fixé. On suppose que \(H_n\) est vraie et on veut prouver que \(H_{n+1}\) est vraie, c-à-d \(u_{n+2} \leq u_{n+1}\).</p>
+<p>OR : d'après l'hypothèse de récurrence, on a \(u_{n+1} \leq u_n\). Donc \(2 u_{n+1} \leq 2 u_n\), donc \(2 u_{n+1} - 3 \leq 2 u_n - 3\), c-à-d \(u_{n+2} \leq u_{n+1}\). Ainsi \(H_{n+1}\) est vraie.</p>
+<p><strong>Conclusion</strong> : On a prouvé que \(H_0\) est vraie et que \(H_n\) est héréditaire pour tout \(n \geq 0\), donc \(H_n\) est vraie pour tout \(n \geq 0\). Ainsi, \((u_n)\) est <strong>décroissante</strong>.</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarque</div>
+<p>Si une suite est croissante ou décroissante, on dit que la suite est <strong>monotone</strong>.</p>
+</div>
+
+<!-- ---------- IV. SUITES MAJORÉES, MINORÉES, BORNÉES ---------- -->
+<h3 class="sec-h" id="c5-4"><span class="roman">IV.</span> Suites majorées, minorées, bornées</h3>
+
+<div class="coeur">
+<p><strong>Définitions</strong></p>
+<ul>
+  <li>On dit que la suite \((u_n)\) est <strong>majorée</strong> lorsqu'il existe un réel \(M\) tel que \(u_n \leq M\) pour tout \(n \geq 0\). Dans ces conditions, le réel \(M\) est appelé un <strong>majorant</strong> de \((u_n)\).</li>
+  <li>On dit que la suite \((u_n)\) est <strong>minorée</strong> lorsqu'il existe un réel \(m\) tel que \(u_n \geq m\) pour tout \(n \geq 0\). Dans ces conditions, le réel \(m\) est appelé un <strong>minorant</strong> de \((u_n)\).</li>
+  <li>On dit que \((u_n)\) est <strong>bornée</strong> si elle est à la fois majorée et minorée.</li>
+</ul>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarque</div>
+<p>Si \((u_n)\) est majorée (respectivement minorée), il existe alors une infinité de majorants (respectivement minorants).</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemples</div>
+<p><strong>★</strong> Pour tout \(n \geq 0\), on a \(u_n = n^2\). D'autre part, \(\lim\limits_{n \to +\infty} n^2 = +\infty\) donc \((u_n)\) <strong>n'est pas majorée</strong>. La suite \((u_n)\) est minorée par 0, donc <strong>pas majorée</strong>.</p>
+
+<p><strong>★</strong> Pour tout \(n \geq 0\), on a \(u_n = (-1)^n\). Si \(n\) est pair, on a \(u_n = 1\) ; si \(n\) est impair, on a \(u_n = -1\). Ainsi, la suite \((u_n)\) est majorée par 1 et minorée par \(-1\). <strong>Ainsi, \((u_n)\) est bornée</strong>.</p>
+
+<p><strong>★</strong> Pour tout \(n \geq 0\) : \(u_n = n(-1)^n\). Pour \(n\) pair, on a \(u_n = n\) → donc \((u_n)\) n'est pas majorée. Pour \(n\) impair, on a \(u_n = -n\) → donc \((u_n)\) n'est pas minorée.</p>
+</div>
+
+<!-- ---------- V. SUITES ET LIMITES ---------- -->
+<h3 class="sec-h" id="c5-5"><span class="roman">V.</span> Suites et limites</h3>
+
+<div class="coeur">
+<p><strong>Définition — Convergence / divergence</strong></p>
+<ul>
+  <li>Si \(\lim\limits_{n \to +\infty} u_n\) existe et est <strong>finie</strong>, on dit que la suite \((u_n)\) <strong>converge</strong>.</li>
+  <li>Dans tous les autres cas, on dit que \((u_n)\) <strong>diverge</strong>.</li>
+</ul>
+</div>
+
+<div class="coeur">
+<p><strong>Théorème — Transfert des résultats de fonctions vers suites</strong></p>
+<p>Tous les théorèmes vus sur les limites de fonctions restent valables pour les suites.</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemples</div>
+<p><strong>★</strong> Pour tout \(n \geq 0\) : \(u_n = n^2\). On sait que \(\lim n^2 = +\infty\), donc \(\lim u_n = +\infty\). Ainsi \((u_n)\) <strong>diverge vers \(+\infty\)</strong>.</p>
+
+<p><strong>★</strong> Pour tout \(n \geq 0\) : \(u_n = \dfrac{2}{n^2 + 2}\). Partie calculs :</p>
+<p style="text-align: center;">\[u_n = \dfrac{2/n^2}{1 + 2/n^2} \quad \text{(quotient)}\]</p>
+<p>On sait que \(\lim \dfrac{2}{n^2} = 0\). D'autre part, \(\lim \dfrac{1}{1 + 2/n^2} = 1\). Donc, par produit, \(\lim u_n = 0\). Finalement, \((u_n)\) <strong>converge vers 0</strong>.</p>
+
+<p><strong>★</strong> Pour tout \(n \geq 0\) : \(u_n = (-1)^n\). Si \(n\) est pair, \(u_n = 1\) ; si \(n\) est impair, \(u_n = -1\). Donc \((u_n)\) n'a pas de limite. Ainsi \((u_n)\) <strong>diverge</strong>.</p>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété — Limites de \(q^n\) (Théorème fondamental)</strong></p>
+<p>Soit \(q\) un réel.</p>
+<ul>
+  <li>Si \(q > 1\), alors \(\lim\limits_{n \to +\infty} q^n = +\infty\)</li>
+  <li>Si \(q = 1\), alors \(\lim\limits_{n \to +\infty} q^n = 1\)</li>
+  <li>Si \(-1 < q < 1\), alors \(\lim\limits_{n \to +\infty} q^n = 0\)</li>
+  <li>Si \(q \leq -1\), alors \((q^n)\) <strong>n'a pas de limite</strong></li>
+</ul>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Schéma — Sur la droite réelle</div>
+<p>Sur l'axe des réels : ... \(-1\) ... \(0\) ... \(1\) ... \(+\infty\) ...</p>
+<p>Selon la position de \(q\) : pas de limite | tend vers 0 | tend vers 1 | tend vers \(+\infty\).</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Suite exo 3</div>
+<p>1.d) Pour tout \(n \geq 0\), on a \(x_n = -4 \cdot \left(\dfrac{2}{3}\right)^n + 3\).</p>
+<p>On a \(\dfrac{2}{3} \in \;]-1, 1[\), donc \(\lim \left(\dfrac{2}{3}\right)^n = 0\), donc \(\lim x_n = 3\). Ainsi \((x_n)\) <strong>converge vers 3</strong>.</p>
+
+<p>2.d) Pour tout \(n \geq 0\), on a \(a_n = 3^n \cdot \left(1 + \dfrac{1}{3^{n^2}}\right)\).</p>
+<p>On a \(3 > 1\) donc \(\lim 3^n = +\infty\). D'autre part, on sait que \(\lim 3^{n^2} = +\infty\), donc \(\lim \left(1 + \dfrac{1}{3^{n^2}}\right) = 1\), donc par produit \(\lim a_n = +\infty\). Ainsi, \((a_n)\) <strong>diverge vers \(+\infty\)</strong>.</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Suite exo 4</div>
+<p>Pour tout \(n \geq 0\) : \(u_n = \dfrac{1 - (1/3)^n}{1 + (1/3)^n}\).</p>
+<p>On a \(\dfrac{1}{3} \in \;]-1, 1[\), donc \(\lim (1/3)^n = 0\). Par quotient \(\lim u_n = 1\). Ainsi \((u_n)\) converge vers 1.</p>
+</div>
+
+<div class="coeur">
+<p><strong>Théorème (admis) — Théorème de convergence monotone ⭐</strong></p>
+<p>Soit \((u_n)\) une suite.</p>
+<p><strong>★ Si \((u_n)\) est croissante</strong> :</p>
+<ul>
+  <li>Si \((u_n)\) <strong>n'est pas majorée</strong>, alors \((u_n)\) <strong>diverge vers \(+\infty\)</strong>.</li>
+  <li>Si \((u_n)\) <strong>est majorée</strong>, alors \((u_n)\) <strong>converge</strong>.</li>
+</ul>
+<p><strong>★ Si \((u_n)\) est décroissante</strong> :</p>
+<ul>
+  <li>Si \((u_n)\) n'est pas minorée, alors \((u_n)\) diverge vers \(-\infty\).</li>
+  <li>Si \((u_n)\) est minorée, alors \((u_n)\) converge.</li>
+</ul>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarque — Le théorème ne donne pas la limite !</div>
+<ul>
+  <li>Si \((u_n)\) est croissante et majorée par \(M\), on a \(u_n \leq M\). Alors \((u_n)\) converge vers une certaine limite \(L\), et on a \(L \leq M\).</li>
+  <li>Si \((u_n)\) est décroissante et minorée par \(m\), alors \((u_n)\) converge vers une certaine limite \(L\), et on a \(L \geq m\).</li>
+</ul>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Définition — Point fixe</div>
+<p>Soit \(f\) une fonction. Tout réel \(x\) qui vérifie \(f(x) = x\) est appelé un <strong>point fixe</strong> de \(f\).</p>
+</div>
+
+<div class="blk met">
+<div class="blk-l">Méthode — Prouver qu'une suite diverge</div>
+<ul>
+  <li>Expression explicite</li>
+  <li>Théorème de comparaison</li>
+  <li>Suite croissante mais pas majorée (resp. décroissante mais pas minorée)</li>
+  <li>Raisonnement par l'absurde</li>
+</ul>
+<p><strong>Détail du raisonnement par l'absurde</strong> :</p>
+<p style="font-family: 'JetBrains Mono', monospace; font-size: 13px; background: rgba(0,0,0,.15); padding: 10px; border-radius: 6px;">hypothèse fausse → déductions inattaquables → contradiction</p>
+<p>Difficultés :</p>
+<ul>
+  <li><strong>Hypothèses</strong> : prendre le <em>contraire</em> de ce qu'on veut prouver.</li>
+  <li><strong>Contradiction</strong> : regarder le bon truc.</li>
+</ul>
+</div>
+
+<div class="blk met">
+<div class="blk-l">Méthode — Prouver qu'une suite converge</div>
+<ul>
+  <li>Expression explicite</li>
+  <li>Théorème des gendarmes (encadrement donné dans 1 ou plusieurs questions d'avant)</li>
+  <li>Suite croissante et majorée / décroissante et minorée (théorème de convergence monotone)</li>
+</ul>
+</div>
+
+<!-- ---------- VI. SOMMES REMARQUABLES ---------- -->
+<h3 class="sec-h" id="c5-6"><span class="roman">VI.</span> Sommes remarquables — Synthèse</h3>
+
+<div class="coeur">
+<p><strong>Formules à connaître par cœur</strong></p>
+<p><strong>★ Somme arithmétique</strong> (suite arithmétique de raison \(r\), \(N+1\) termes) :</p>
+<p style="text-align: center; font-size: 17px;">\[\sum_{k=0}^{N} u_k = (N+1) \cdot \dfrac{u_0 + u_N}{2} = \text{(nbr de termes)} \times \text{(moyenne des extrêmes)}\]</p>
+
+<p><strong>★ Somme géométrique</strong> (suite géométrique de raison \(q \neq 1\), \(N+1\) termes) :</p>
+<p style="text-align: center; font-size: 17px;">\[\sum_{k=0}^{N} u_k = u_0 \times \dfrac{1 - q^{N+1}}{1 - q} = \text{(premier terme)} \times \dfrac{1 - q^{\text{(nbr de termes)}}}{1 - q}\]</p>
+
+<p><strong>★ Somme des entiers</strong> :</p>
+<p style="text-align: center;">\[\sum_{k=1}^{N} k = \dfrac{N(N+1)}{2}\]</p>
+
+<p><strong>★ Somme des carrés</strong> :</p>
+<p style="text-align: center;">\[\sum_{k=1}^{N} k^2 = \dfrac{N(N+1)(2N+1)}{6}\]</p>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- CHAPITRE 6 — PYTHON                                          -->
+<!-- ============================================================ -->
+
+<div class="ch" id="c6">
+  <div class="cn">Chapitre 5</div>
+  <h2>Python</h2>
+  <p>Langage de programmation, variables, librairies, boucles, conditions, fonctions, dichotomie</p>
+</div>
+
+<div class="toc">
+  <h3>Sections du chapitre 6</h3>
+  <div class="toc-grid">
+    <a href="#c6-1"><span class="ico">💡</span> I. Introduction</a>
+    <a href="#c6-2"><span class="ico">🔁</span> II. Algorithmes : range, boucles, conditions</a>
+    <a href="#c6-3"><span class="ico">ƒ</span> III. Fonctions et dichotomie</a>
+  </div>
+</div>
+
+<!-- ---------- I. INTRODUCTION ---------- -->
+<h3 class="sec-h" id="c6-1"><span class="roman">I.</span> Introduction</h3>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">A. Un langage de programmation</h4>
+
+<div class="coeur">
+<p><strong>Opérateurs Python</strong></p>
+<ul>
+  <li>addition : <code>+</code></li>
+  <li>soustraction : <code>-</code></li>
+  <li>division : <code>/</code></li>
+  <li>multiplication : <code>*</code></li>
+  <li>puissance : <code>**</code></li>
+  <li>virgule dans l'écriture décimale : <code>.</code> (point !)</li>
+</ul>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Expression mathématique</div>
+<p>\(\left(\dfrac{17}{3}\right)^5 - 8\) s'écrit en Python :</p>
+<pre style="font-family: 'JetBrains Mono', monospace; font-size: 14px; background: rgba(0,0,0,.20); padding: 10px 14px; border-radius: 6px; border-left: 3px solid var(--gold);">
+(17/3)**5 - 8</pre>
+</div>
+
+<div class="blk prop">
+<div class="blk-l">Variables et print</div>
+<p>On définit des variables en leur donnant un <strong>nom</strong> et un <strong>contenu</strong> (= valeur de départ). La variable est écrite à gauche et sa valeur à droite.</p>
+<p>Si on veut qu'une réponse s'affiche à l'écran, on utilise la commande <code>print(...)</code>.</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Multiplication</div>
+<pre style="font-family: 'JetBrains Mono', monospace; font-size: 14px; background: rgba(0,0,0,.20); padding: 10px 14px; border-radius: 6px; border-left: 3px solid var(--gold);">
+x = 7
+y = 2
+z = x * y
+print(z)</pre>
+<p>Alors apparaît : <code>14</code> à l'écran.</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Puissance et réaffectation</div>
+<pre style="font-family: 'JetBrains Mono', monospace; font-size: 14px; background: rgba(0,0,0,.20); padding: 10px 14px; border-radius: 6px; border-left: 3px solid var(--gold);">
+x = 7
+y = 2
+z = x ** y
+print(z)</pre>
+<p>Affiche \(7^2 = 49\).</p>
+<p><strong>Remarque</strong> : Si on modifie les valeurs attribuées à une variable, la <strong>valeur ancienne</strong> est remplacée par la <strong>valeur nouvelle</strong> (ce qui est actuellement sur l'adresse mémoire de la variable).</p>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 30px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">B. Librairies</h4>
+
+<div class="coeur">
+<p><strong>Importer une librairie</strong></p>
+<p>Si on veut écrire des opérations <strong>« avancées »</strong>, on a besoin d'importer les librairies adéquates. En général, on importe la librairie sous son diminutif. On utilise la commande :</p>
+<pre style="font-family: 'JetBrains Mono', monospace; font-size: 14px; background: rgba(0,0,0,.20); padding: 10px 14px; border-radius: 6px; border-left: 3px solid var(--gold);">
+import numpy as np</pre>
+</div>
+
+<div class="blk prop">
+<div class="blk-l">Commandes numpy utiles</div>
+<ul>
+  <li>racine carrée : <code>np.sqrt(...)</code></li>
+  <li>factorielle : <code>np.factorial(...)</code></li>
+  <li>logarithme népérien : <code>np.log(...)</code></li>
+  <li>fonction exponentielle : <code>np.exp(...)</code></li>
+  <li>le nombre \(\pi\) : <code>np.pi</code></li>
+  <li>le nombre \(e\) : <code>np.e</code></li>
+</ul>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — \(A = \left(\dfrac{\sqrt{\pi}}{\sqrt{13!}}\right)^7\)</div>
+<pre style="font-family: 'JetBrains Mono', monospace; font-size: 14px; background: rgba(0,0,0,.20); padding: 10px 14px; border-radius: 6px; border-left: 3px solid var(--gold);">
+import numpy as np
+A = (np.sqrt(np.pi) / np.sqrt(np.factorial(13)))**7
+print(A)</pre>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 30px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">C. Intervention de l'utilisateur</h4>
+
+<div class="coeur">
+<p><strong>Commande input</strong></p>
+<p>Toute demande de données sera formulée à l'écran grâce à la commande :</p>
+<pre style="font-family: 'JetBrains Mono', monospace; font-size: 14px; background: rgba(0,0,0,.20); padding: 10px 14px; border-radius: 6px; border-left: 3px solid var(--gold);">
+input("...")</pre>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Coefficient binomial \(\binom{n}{p} = \dfrac{n!}{p!(n-p)!}\)</div>
+<p>On veut écrire un programme qui calcule et affiche \(\binom{n}{p}\) pour des valeurs de \(n\) et \(p\) entrées par l'utilisateur.</p>
+<pre style="font-family: 'JetBrains Mono', monospace; font-size: 14px; background: rgba(0,0,0,.20); padding: 10px 14px; border-radius: 6px; border-left: 3px solid var(--gold);">
+import numpy as np
+n = input("entrez la valeur de n : ")
+p = input("entrez la valeur de p : ")
+z = np.factorial(n) / (np.factorial(p) * np.factorial(n - p))
+print(z)</pre>
+</div>
+
+<!-- ---------- II. ALGORITHMES ---------- -->
+<h3 class="sec-h" id="c6-2"><span class="roman">II.</span> Quelques algorithmes</h3>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">A. La commande range</h4>
+
+<div class="coeur">
+<p><strong>Commande range</strong></p>
+<p>La commande <code>range(...)</code> permet d'énumérer les entiers. Plus précisément :</p>
+<ul>
+  <li><code>range(n)</code> va énumérer les entiers de 0 jusqu'à \(n-1\).</li>
+  <li><code>range(a, b)</code> va énumérer les entiers de \(a\) jusqu'à \(b-1\).</li>
+</ul>
+<p>Exemple : <code>range(11, 15)</code> énumère 11, 12, 13, 14.</p>
+<p><strong>⚠️ Attention</strong> : on utilise une virgule <code>,</code> pas un point-virgule. La borne supérieure est exclue.</p>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 30px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">B. La boucle for</h4>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Calculer \(b_{100}\) avec \(b_0 = 2\), \(b_{n+1} = \dfrac{b_n^3 - 2}{b_n + 1}\)</div>
+<p>On veut calculer et afficher la valeur de \(b_{100}\). On utilise le programme suivant :</p>
+<pre style="font-family: 'JetBrains Mono', monospace; font-size: 14px; background: rgba(0,0,0,.20); padding: 10px 14px; border-radius: 6px; border-left: 3px solid var(--gold);">
+b = 2
+for k in range(1, 101):
+    b = (b**3 - 2) / (b + 1)
+print(b)</pre>
+<p>Commentaires importants :</p>
+<ul>
+  <li><strong>« : »</strong> à la fin de la ligne <code>for ...</code> est obligatoire.</li>
+  <li><strong>L'indentation</strong> indique le corps de la boucle (les instructions à répéter).</li>
+  <li><code>#</code> est l'indicateur d'un <strong>commentaire</strong> (pas exécuté).</li>
+  <li>On affiche le <strong>dernier terme calculé</strong> à la fin (avec <code>print</code> hors de la boucle).</li>
+</ul>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 30px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">C. La condition if ... else</h4>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Suite définie par cas</div>
+<p>On considère la suite \((u_n)\) définie par : \(u_{n+1} = \dfrac{u_n}{2}\) si \(u_n \geq 1\), \(u_{n+1} = 3u_n + 1\) si \(u_n < 1\), et \(u_0 = 2026\).</p>
+<p>On veut calculer et afficher \(u_{1000}\) :</p>
+<pre style="font-family: 'JetBrains Mono', monospace; font-size: 14px; background: rgba(0,0,0,.20); padding: 10px 14px; border-radius: 6px; border-left: 3px solid var(--gold);">
+u = 2026
+for k in range(1, 1001):
+    if u >= 1:
+        u = u / 2
+    else:
+        u = 3 * u + 1
+print(u)</pre>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarque — Codage des inégalités</div>
+<p>\(u \geq 10\) se code en Python : <code>u >= 10</code>.</p>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 30px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">D. La boucle tant que (while)</h4>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Sapin de Noël</div>
+<p>On plante un sapin de 30 cm en 2026. Le sapin grandit de 3 cm chaque année. En quelle année va-t-on le détruire (devra atteindre 3 m 80, soit 380 cm) ?</p>
+<p>On va calculer les hauteurs annuelles du sapin tant qu'elles ne dépassent pas 3 m 80. On utilise la commande <code>while</code> :</p>
+<pre style="font-family: 'JetBrains Mono', monospace; font-size: 14px; background: rgba(0,0,0,.20); padding: 10px 14px; border-radius: 6px; border-left: 3px solid var(--gold);">
+h = 30                # on introduit et initialise une variable hauteur en cm
+n = 2026              # on introduit et initialise une variable année
+while h < 380:        # on calcule tant que la hauteur ne dépasse pas 3m80
+    h = h + 30
+    n = n + 1
+print(n)</pre>
+</div>
+
+<!-- ---------- III. FONCTIONS ET DICHOTOMIE ---------- -->
+<h3 class="sec-h" id="c6-3"><span class="roman">III.</span> Fonctions et dichotomie</h3>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">A. Définir une fonction</h4>
+
+<div class="coeur">
+<p><strong>Syntaxe — Définition d'une fonction</strong></p>
+<p>Pour définir une fonction, on utilise la commande :</p>
+<pre style="font-family: 'JetBrains Mono', monospace; font-size: 14px; background: rgba(0,0,0,.20); padding: 10px 14px; border-radius: 6px; border-left: 3px solid var(--gold);">
+def f(x):
+    return [écrire la formule de f(x)]</pre>
+<p>(⚠️ ne pas oublier l'<strong>indentation</strong> et les <strong>« : »</strong>)</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemples</div>
+<p><strong>★</strong> \(f : x \mapsto \sqrt{x^3 + 2x - 3}\) :</p>
+<pre style="font-family: 'JetBrains Mono', monospace; font-size: 13px; background: rgba(0,0,0,.20); padding: 8px 12px; border-radius: 6px;">
+import numpy as np
+def f(x):
+    return np.sqrt(x**3 + 2*x - 3)</pre>
+
+<p><strong>★</strong> \(g : x \mapsto x^3 - x^2 + 2x - 3\) :</p>
+<pre style="font-family: 'JetBrains Mono', monospace; font-size: 13px; background: rgba(0,0,0,.20); padding: 8px 12px; border-radius: 6px;">
+def g(x):
+    return x**3 - x**2 + 2*x - 3</pre>
+
+<p><strong>★</strong> Fonction définie par morceaux : \(h(x) = x^2\) si \(x \leq 1\), \(h(x) = 7x - 1\) si \(x > 1\) :</p>
+<pre style="font-family: 'JetBrains Mono', monospace; font-size: 13px; background: rgba(0,0,0,.20); padding: 8px 12px; border-radius: 6px;">
+def h(x):
+    if x <= 1:
+        return x * x
+    else:
+        return 7 * x - 1</pre>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 30px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">B. Approximation d'un nombre par dichotomie</h4>
+
+<div class="blk ex">
+<div class="blk-l">Exemple complet — \(g(x) = x^3 - x^2 + 2x - 3\)</div>
+<p><strong>1) Étudier les variations de \(g\) sur \(\mathbb{R}^+\)</strong></p>
+<p>La fonction \(g\) est une somme de fonctions dérivables sur \(\mathbb{R}^+\), donc \(g\) est dérivable sur \(\mathbb{R}^+\).</p>
+<p>Pour tout \(x \geq 0\), on a \(g'(x) = 3x^2 - 2x + 2\). C'est une expression du second degré avec \(a = 3\), \(b = -2\), \(c = 2\). \(\Delta = b^2 - 4ac = 4 - 24 = -20\). Donc \(\Delta < 0\), pour tout \(x \geq 0\), \(g'(x)\) est du <strong>signe de \(a\)</strong>, c-à-d \(g'(x) > 0\).</p>
+<p>Ainsi <strong>\(g\) est strictement croissante sur \(\mathbb{R}^+\)</strong>.</p>
+
+<p><strong>2) Montrer que \(g(x) = 0\) admet une unique solution \(\alpha \in [1\,;2]\)</strong></p>
+<ul>
+  <li>La fonction \(g\) est strictement croissante sur \(\mathbb{R}^+\). Donc l'équation \(g(x) = 0\) admet <strong>au plus une solution</strong> dans \(\mathbb{R}^+\).</li>
+  <li>On a \(g(1) = -1\) et \(g(2) = 5\). Ainsi \(0 \in [g(1), g(2)]\) (valeur intermédiaire pour \(g\) sur \([1, 2]\)).</li>
+  <li>\(g\) est dérivable sur \(\mathbb{R}^+\) donc \(g\) est continue sur \(\mathbb{R}^+\). D'après le <strong>théorème des valeurs intermédiaires</strong>, l'équation \(g(x) = 0\) admet au moins une solution dans \([1, 2]\).</li>
+</ul>
+<p>Finalement l'équation \(g(x) = 0\) admet une <strong>unique solution dans \(\mathbb{R}^+\)</strong>, qu'on note \(\alpha\), et on a \(\boxed{1 \leq \alpha \leq 2}\).</p>
+
+<p><strong>3) Trouver une valeur approchée de \(\alpha\) à \(10^{-3}\) près par dichotomie</strong></p>
+<p><strong>Rappel</strong> : \([a, b]\) est l'intervalle d'étude. Milieu \(m = \dfrac{a+b}{2}\). Longueur de l'intervalle = \(b - a\).</p>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Code Python — Dichotomie (À SAVOIR REFAIRE !)</strong></p>
+<pre style="font-family: 'JetBrains Mono', monospace; font-size: 13px; background: rgba(0,0,0,.20); padding: 10px 14px; border-radius: 6px; border-left: 3px solid var(--gold); color: var(--text);">
+g = 1                          # on introduit (initialise) une variable "bord-gauche"
+d = 2                          # on introduit (initialise) une variable "bord-droit"
+def f(x):
+    return x**3 - x*x + 2*x - 3
+while d - g > 0.001:            # on boucle tant que l'intervalle d'étude est de longueur plus grande que 0.001
+    m = (g + d) / 2             # on introduit le milieu
+    if f(m) < 0:
+        g = m
+    else:
+        d = m
+print(g)</pre>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Vocabulaire — Valeurs approchées</div>
+<ul>
+  <li>\(d\) : <strong>valeur approchée par excès</strong> (au-dessus de \(\alpha\))</li>
+  <li>\(g\) : <strong>valeur approchée par défaut</strong> (en-dessous de \(\alpha\))</li>
+</ul>
+</div>
+
+<div class="blk met">
+<div class="blk-l">Méthode alternative — Pour une équation \(f(x) = 0\) (uniquement)</div>
+<p>On peut utiliser la <strong>règle des signes</strong> : \(\mathbb{R}^+ = \text{produit de facteurs de mêmes signes}\) :</p>
+<pre style="font-family: 'JetBrains Mono', monospace; font-size: 13px; background: rgba(0,0,0,.20); padding: 10px 14px; border-radius: 6px; border-left: 3px solid var(--gold);">
+g = 1
+d = 2
+def f(x):
+    return x**3 - x*x + 2*x - 3
+while d - g > 0.001:
+    m = (g + d) / 2
+    if f(g) * f(m) > 0:        # f(g) et f(m) ont même signe → racine non franchie
+        g = m
+    else:
+        d = m
+print(g)</pre>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- CHAPITRE 7 — PROBABILITÉS                                    -->
+<!-- ============================================================ -->
+
+<div class="ch" id="c7">
+  <div class="cn">Chapitre 8</div>
+  <h2>Probabilités</h2>
+  <p>Univers, événements, équiprobabilité, probabilités conditionnelles, formules des probabilités totales et composées, indépendance</p>
+</div>
+
+<div class="toc">
+  <h3>Sections du chapitre 7</h3>
+  <div class="toc-grid">
+    <a href="#c7-1"><span class="ico">🌐</span> I. Introduction</a>
+    <a href="#c7-2"><span class="ico">⚖️</span> II. Équiprobabilité</a>
+    <a href="#c7-3"><span class="ico">⊃</span> III. Probabilités conditionnelles & indépendance</a>
+  </div>
+</div>
+
+<!-- ---------- I. INTRODUCTION ---------- -->
+<h3 class="sec-h" id="c7-1"><span class="roman">I.</span> Introduction</h3>
+
+<div class="coeur">
+<p><strong>Définitions — Vocabulaire de base</strong></p>
+<ul>
+  <li>Une <strong>expérience aléatoire</strong> est une expérience dont l'issue ne peut être fixée avec certitude avant d'avoir effectué l'expérience.</li>
+  <li>L'ensemble de toutes les issues possibles de l'expérience s'appelle <strong>l'univers</strong>, et on le note \(\Omega\).</li>
+  <li>Tout <strong>sous-ensemble</strong> de \(\Omega\) est appelé un <strong>événement</strong>.</li>
+  <li>Un événement qui ne contient qu'une seule issue est appelé <strong>événement élémentaire</strong>.</li>
+</ul>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Lancer d'un dé cubique non truqué</div>
+<p>On lance un dé cubique, non truqué, dont les faces sont numérotées de 1 à 6. On s'intéresse au numéro de la face supérieure.</p>
+<p>On pose \(\Omega = \{1, 2, 3, 4, 5, 6\}\).</p>
+<p>Soit \(I\) l'événement <em>« on a obtenu un nombre impair »</em>. Alors \(I = \{1, 3, 5\}\).</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Tirage d'une boule dans une urne</div>
+<p>Une urne contient 5 boules rouges, 3 boules vertes et 2 boules jaunes, indiscernables au toucher. On s'intéresse à la couleur de la boule tirée.</p>
+<p><strong>★ Premier choix d'univers</strong> : \(\Omega_1 = \{\text{rouge, vert, jaune}\}\). Soit \(R\) l'événement « on a tiré une boule rouge ». Alors \(R = \{\text{rouge}\}\). C'est un événement élémentaire.</p>
+<p><strong>★ Second choix d'univers</strong> : on numérote les boules (1 à 5 rouges, 6-7-8 vertes, 9-10 jaunes). On pose \(\Omega_2 = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}\). Soit \(R\) l'événement « on a obtenu une boule rouge », alors \(R = \{1, 2, 3, 4, 5\}\). <em>Ça n'est pas un événement élémentaire</em>.</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Tirage d'une carte (jeu de 52)</div>
+<p>On tire une carte dans un jeu classique de 52 cartes, non marquées. On s'intéresse à la carte tirée. Soit \(\Omega\) l'ensemble des 52 cartes.</p>
+<p>Soit \(F\) l'événement « on a tiré une figure ». Alors :</p>
+<p style="text-align: center; font-size: 14px;">\[F = \{\text{V}\heartsuit, \text{D}\heartsuit, \text{R}\heartsuit, \text{V}\diamondsuit, \text{D}\diamondsuit, \text{R}\diamondsuit, \text{V}\spadesuit, \text{D}\spadesuit, \text{R}\spadesuit, \text{V}\clubsuit, \text{D}\clubsuit, \text{R}\clubsuit\}\]</p>
+</div>
+
+<div class="coeur">
+<p><strong>Définition — Probabilité sur un univers fini</strong></p>
+<p>Soit \(\Omega\) un univers fini lié à une expérience aléatoire. On pose \(\Omega = \{e_1, e_2, e_3, \dots, e_n\}\).</p>
+<p>Définir une <strong>probabilité</strong> sur \(\Omega\), c'est attribuer un nombre \(P_i\) à l'événement élémentaire \(\{e_i\}\), pour chaque \(i\), tel que :</p>
+<ul>
+  <li>\(\boxed{0 \leq P_i \leq 1}\) pour tout \(i\)</li>
+  <li>\(\boxed{P_1 + P_2 + \dots + P_n = 1}\)</li>
+</ul>
+<p>Pour tout événement \(A\), la <strong>probabilité de \(A\)</strong> est la somme des probabilités des événements élémentaires qui forment \(A\).</p>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété — Probabilité de \(\Omega\) et de \(\emptyset\)</strong></p>
+<p>On a \(P(\Omega) = 1\) et \(P(\emptyset) = 0\), et pour tout événement \(A\) :</p>
+<p style="text-align: center; font-size: 17px;">\[0 \leq P(A) \leq 1\]</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Probabilités sur un dé non truqué</div>
+<p>On lance un dé non truqué. \(\Omega = \{1, 2, 3, 4, 5, 6\}\). Pour tout \(i\), on note \(P_i\) la probabilité d'obtenir la face n°\(i\). Puisque le dé n'est pas truqué, il n'y a pas de face privilégiée. Alors \(P_1 = P_2 = \dots = P_6\). De plus, \(P_1 + P_2 + \dots + P_6 = 1\), c-à-d \(6P_1 = 1\), donc \(P_1 = \dfrac{1}{6}\). Ainsi <strong>\(P_i = \dfrac{1}{6}\) pour tout \(i\)</strong>.</p>
+<p>Soit \(I\) l'événement « on a obtenu un nombre impair ». On a \(I = \{1, 3, 5\}\). Alors :</p>
+<p style="text-align: center;">\[P(I) = P_1 + P_3 + P_5 = \dfrac{1}{6} + \dfrac{1}{6} + \dfrac{1}{6} = \dfrac{3}{6} = \boxed{\dfrac{1}{2}}\]</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Probabilités des boules (avec \(\Omega_2\))</div>
+<p>Pour \(\Omega_2\), l'ensemble des 10 boules : puisque les boules sont indiscernables au toucher, il n'y a pas de boule privilégiée. Pour tout \(i\), on note \(P_i\) la probabilité d'obtenir la boule n°\(i\). Alors \(P_1 = P_2 = \dots = P_{10}\). De plus \(\sum_{i=1}^{10} P_i = 1\), c-à-d \(10 P_1 = 1\), donc \(P_i = \dfrac{1}{10}\).</p>
+<p>Soit \(R\) l'événement « on a tiré une boule rouge ». Alors \(R = \{1, 2, 3, 4, 5\}\), donc :</p>
+<p style="text-align: center;">\[P(R) = \dfrac{5}{10} = \dfrac{1}{2}, \quad P(V) = \dfrac{3}{10}, \quad P(J) = \dfrac{2}{10}\]</p>
+</div>
+
+<div class="coeur">
+<p><strong>Définitions — Événements opérés</strong></p>
+<p>Soit \(A\) et \(B\) deux événements.</p>
+<ul>
+  <li>L'événement <strong>contraire</strong> de \(A\), noté \(\overline{A}\), est formé par tous les événements élémentaires qui ne sont pas dans \(A\).</li>
+  <li>L'événement <strong>« \(A\) et \(B\) »</strong>, noté \(A \cap B\), est formé par tous les événements élémentaires qui sont dans \(A\) <em>et</em> dans \(B\).</li>
+  <li>L'événement <strong>« \(A\) ou \(B\) »</strong>, noté \(A \cup B\), est formé par tous les événements qui sont dans \(A\) <em>ou</em> dans \(B\).</li>
+</ul>
+</div>
+
+<div class="coeur">
+<p><strong>Propriétés fondamentales ⭐</strong></p>
+<p>Pour tous événements \(A\) et \(B\) :</p>
+<p style="text-align: center; font-size: 17px;">\[\boxed{P(A) + P(\overline{A}) = 1}\]</p>
+<p style="text-align: center; font-size: 17px;">\[\boxed{P(A \cup B) = P(A) + P(B) - P(A \cap B)}\]</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarque — Incompatibilité</div>
+<ul>
+  <li>Si \(A \cap B = \emptyset\), on dit que \(A\) et \(B\) sont <strong>incompatibles</strong>.</li>
+  <li>Si \(A\) et \(B\) sont incompatibles : \(\boxed{P(A \cup B) = P(A) + P(B)}\).</li>
+  <li>Plus généralement, si \(A_1, A_2, \dots, A_n\) sont <strong>deux à deux incompatibles</strong> :</li>
+</ul>
+<p style="text-align: center;">\[P(A_1 \cup A_2 \cup \dots \cup A_n) = P(A_1) + P(A_2) + \dots + P(A_n) = \sum_{k=1}^{n} P(A_k)\]</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exo 3 p.1 — Formule pour 3 événements</div>
+<p>Calcul de \(P(A \cup B \cup C)\) :</p>
+<p>\(P(A \cup B \cup C) = P((A \cup B) \cup C) = P(A \cup B) + P(C) - P((A \cup B) \cap C)\)</p>
+<p>\(= P(A) + P(B) - P(A \cap B) + P(C) - P((A \cap C) \cup (B \cap C))\)</p>
+<p>\(= P(A) + P(B) + P(C) - P(A \cap B) - (P(A \cap C) + P(B \cap C) - P(A \cap B \cap C))\)</p>
+<p style="text-align: center; font-size: 17px;">\[\boxed{P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C) - P(B \cap C) + P(A \cap B \cap C)}\]</p>
+</div>
+
+<!-- ---------- II. ÉQUIPROBABILITÉ ---------- -->
+<h3 class="sec-h" id="c7-2"><span class="roman">II.</span> Un cas particulier important : l'équiprobabilité</h3>
+
+<div class="coeur">
+<p><strong>Définition — Équiprobabilité</strong></p>
+<p>Soit \(\Omega\) un univers fini. On dit qu'on est dans une situation d'<strong>équiprobabilité</strong> lorsque <strong>tous les événements élémentaires ont la même probabilité</strong>.</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemples</div>
+<p><strong>★</strong> Le dé non truqué : \(\Omega = \{1, 2, 3, 4, 5, 6\}\). Puisque le dé n'est pas truqué, il n'y a pas de face privilégiée et on attribue la même probabilité à chaque face. <strong>On est en situation d'équiprobabilité</strong>.</p>
+
+<p><strong>★</strong> Les boules de couleurs :</p>
+<ul>
+  <li>Avec \(\Omega_1 = \{\text{rouge, vert, jaune}\}\) : il n'y a <em>pas</em> équiprobabilité (couleurs privilégiées dans l'urne).</li>
+  <li>Avec \(\Omega_2\) (10 boules numérotées) : il y a équiprobabilité.</li>
+</ul>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété ⭐ — Probabilité en cas d'équiprobabilité</strong></p>
+<p>Soit \(A\) un événement. En situation d'équiprobabilité, on a :</p>
+<p style="text-align: center; font-size: 18px;">\[\boxed{P(A) = \dfrac{\text{nbr de cas favorables}}{\text{nbr de cas possibles}}}\]</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarques</div>
+<ul>
+  <li>L'équiprobabilité <strong>dépend du choix d'univers</strong>.</li>
+  <li>Si on a l'équiprobabilité, une probabilité peut s'interpréter comme une <strong>proportion</strong> (voire comme un pourcentage).</li>
+  <li>En situation d'équiprobabilité, on se ramène à des <strong>questions de dénombrement</strong>.</li>
+</ul>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Démarche type prof en Probabilités</strong></p>
+<div class="skel">
+<strong>Étape 1</strong> — On définit l'univers \(\Omega\). <em>(Attention si on vise l'équiprobabilité — choisir un univers avec issues équiprobables.)</em><br>
+<strong>Étape 2</strong> — On introduit et définit les événements utiles. <br>
+<strong>Étape 3</strong> — On fait un bilan des données. <br>
+<strong>Étape 4</strong> — On traduit chaque question (souvent en termes d'intersections / unions / contraires).
+</div>
+</div>
+
+<!-- ---------- III. PROBABILITÉS CONDITIONNELLES & INDÉPENDANCE ---------- -->
+<h3 class="sec-h" id="c7-3"><span class="roman">III.</span> Probabilités conditionnelles & indépendance</h3>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">A. Probabilités conditionnelles</h4>
+
+<div class="blk ex">
+<div class="blk-l">Exemple introductif — Roi sachant figure rouge</div>
+<p>On tire une carte dans un jeu de 52 cartes non marquées. <strong>Question</strong> : quelle est la probabilité d'avoir tiré un roi ?</p>
+<p>Soit \(\Omega\) l'ensemble des 52 cartes. Il y a équiprobabilité. Soit \(R\) l'événement « on a tiré un roi ». Alors :</p>
+<p style="text-align: center;">\[P(R) = \dfrac{4}{52} = \boxed{\dfrac{1}{13}}\]</p>
+
+<p>On nous donne l'information certaine : <em>« la carte tirée est une figure rouge »</em>. Quelle est la probabilité d'avoir tiré un roi ?</p>
+<p>Soit \(\Omega_2\) l'ensemble des figures rouges. Il y a équiprobabilité dans \(\Omega_2\). Soit \(R_2\) l'événement « on a tiré un roi » (restreint à \(\Omega_2\)).</p>
+<p style="text-align: center;">\[P(R_2) = \dfrac{\text{nbr de rois rouges}}{\text{nbr de figures rouges}} = \dfrac{2}{6} = \boxed{\dfrac{1}{3}}\]</p>
+
+<p><strong>Problème</strong> : On aimerait rester dans \(\Omega\) et ne pas tout changer à chaque question. On constate que :</p>
+<p style="text-align: center;">\[P(R_2) = \dfrac{2}{6} = \dfrac{2/52}{6/52} = \dfrac{P(R \cap F)}{P(F)}\]</p>
+<p>où \(F\) est l'événement « on a tiré une figure rouge ». Ainsi \(R_2\) peut s'écrire <em>« on a tiré un roi <strong>sachant qu'</strong>on a tiré une figure rouge »</em>.</p>
+</div>
+
+<div class="coeur">
+<p><strong>Définition — Probabilité conditionnelle</strong></p>
+<p>Soit \(A\) et \(B\) deux événements, avec \(P(B) \neq 0\). La <strong>probabilité de \(A\) sachant \(B\)</strong>, notée \(P_B(A)\), est égale à :</p>
+<p style="text-align: center; font-size: 18px;">\[\boxed{P_B(A) = \dfrac{P(A \cap B)}{P(B)}}\]</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarques fondamentales</div>
+<ul>
+  <li>On a aussi : \(\boxed{P(A \cap B) = P(B) \times P_B(A)}\) (« proba intersection = proba du conditionnant × proba conditionnelle »)</li>
+  <li>Si \(P(A) \neq 0\), on a aussi \(P_A(B) = \dfrac{P(A \cap B)}{P(A)}\).</li>
+  <li>⚠️ En général : \(P_A(B) \neq P_B(A)\). <strong>Attention à l'écriture !</strong></li>
+</ul>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 30px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">B. Formule des probabilités totales</h4>
+
+<div class="coeur">
+<p><strong>Définition — Système complet d'événements</strong></p>
+<p>On dit que les événements \(A_1, A_2, \dots, A_n\) forment un <strong>système complet d'événements</strong> lorsque :</p>
+<ol>
+  <li>\(A_1 \cup A_2 \cup \dots \cup A_n = \Omega\)</li>
+  <li>\(A_1, A_2, \dots, A_n\) sont <strong>deux à deux incompatibles</strong></li>
+  <li>Aucun de ces événements \(A_i\) n'est vide</li>
+</ol>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarques</div>
+<ul>
+  <li>Il y a <strong>3 conditions</strong> et aucune ne parle de probabilités.</li>
+  <li>Si \(A_1, A_2, \dots, A_n\) forment un système complet d'événements, alors \(\sum_{k=1}^{n} P(A_k) = 1\) (somme des probabilités = 1).</li>
+  <li><strong>★ Cas particulier majeur</strong> : si \(A\) et \(\overline{A}\) ne sont pas vides, alors \(\{A, \overline{A}\}\) forme un système complet d'événements.</li>
+</ul>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Lancer d'un dé</div>
+<p>On lance un dé classique non truqué. Soit \(A\) l'événement « on a obtenu un n° inférieur à \(\pi\) » et \(I\) l'événement « on a obtenu un n° impair ». Il y a équiprobabilité. \(\Omega = \{1, 2, 3, 4, 5, 6\}\).</p>
+<p>On a \(A = \{1, 2, 3\}\) et \(I = \{1, 3, 5\}\). Donc \(P(A) = \dfrac{3}{6} = \dfrac{1}{2}\) et \(P(I) = \dfrac{1}{2}\). Ainsi \(P(A) + P(I) = 1\).</p>
+<p>Mais on a \(A \cap I \neq \emptyset\) (puisque \(\{1, 3\} \subset A \cap I\)), donc \(A\) et \(I\) <strong>ne forment pas</strong> un système complet d'événements.</p>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété ⭐ — Formule des probabilités totales</strong></p>
+<p>Si \(A_1, A_2, \dots, A_n\) forment un système complet d'événements, alors pour tout événement \(E\) :</p>
+<p style="text-align: center; font-size: 16px;">\[P(E) = P(A_1 \cap E) + P(A_2 \cap E) + \dots + P(A_n \cap E)\]</p>
+<p style="text-align: center; font-size: 17px;">\[\boxed{P(E) = P(A_1) P_{A_1}(E) + P(A_2) P_{A_2}(E) + \dots + P(A_n) P_{A_n}(E) = \sum_{k=1}^{n} P(A_k) P_{A_k}(E)}\]</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Julie (probabilités successives)</div>
+<p>D'après l'énoncé, pour tout \(n \geq 1\), on a :</p>
+<p>\(P_{A_n}(A_{n+1}) = \dfrac{1}{5}\), \(P_{B_n}(A_{n+1}) = \dfrac{2}{5}\), et \(P_1 = \dfrac{1}{2} = P(A_1)\).</p>
+<p>Soit \(n \geq 1\) un entier. Les événements \(A_n\) et \(B_n\) forment un système complet d'événements. D'après la formule des probabilités totales :</p>
+<p style="text-align: center;">\[P_{n+1} = P(A_{n+1}) = P(A_n) P_{A_n}(A_{n+1}) + P(B_n) P_{B_n}(A_{n+1}) = P_n \times \dfrac{1}{5} + q_n \times \dfrac{2}{5}\]</p>
+<p>(où \(q_n = P(B_n) = 1 - P_n\)).</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Astuce — Reconnaître un système complet sur un arbre</div>
+<p>Le système complet d'événements est, sur le dessin (arbre de probabilités), les <strong>branches principales</strong>.</p>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 30px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">C. Formule des probabilités composées</h4>
+
+<div class="coeur">
+<p><strong>Propriété ⭐ — Formule des probabilités composées</strong></p>
+<p>Soit \(A_1, A_2, A_3, \dots, A_n\) des événements avec \(P(A_1 \cap A_2 \cap \dots \cap A_{n-1}) \neq 0\). Alors :</p>
+<p style="text-align: center; font-size: 16px;">\[\boxed{P(A_1 \cap A_2 \cap A_3 \cap \dots \cap A_n) = P(A_1) \, P_{A_1}(A_2) \, P_{A_1 \cap A_2}(A_3) \dots P_{A_1 \cap A_2 \cap \dots \cap A_{n-1}}(A_n)}\]</p>
+</div>
+
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 30px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">D. Indépendance</h4>
+
+<div class="coeur">
+<p><strong>Définition — Événements indépendants</strong></p>
+<p>Soit \(A\) et \(B\) deux événements. On dit que \(A\) et \(B\) sont <strong>indépendants</strong> lorsque :</p>
+<p style="text-align: center; font-size: 18px;">\[\boxed{P(A \cap B) = P(A) \cdot P(B)}\]</p>
+<p>(en pratique : calculer les deux séparément et vérifier si égaux)</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarque</div>
+<p>Si \(P(A) \neq 0\), on sait que \(P(A \cap B) = P(A) P_A(B)\). Dire que \(A\) et \(B\) sont indépendants, c'est dire que \(P(A \cap B) = P(A) P(B)\), c-à-d \(P(B) = P_A(B)\).</p>
+<p>Autrement dit : <em>connaître \(A\) ne change pas la probabilité de \(B\)</em>.</p>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- CHAPITRE 12 — LOGARITHME NÉPÉRIEN                            -->
+<!-- ============================================================ -->
+
+<div class="ch" id="c12">
+  <div class="cn">Chapitre 11</div>
+  <h2>Logarithme Népérien</h2>
+  <p>Définition, propriété fondamentale, étude complète, indéterminations, nombre e, fonctions du type Ln(u)</p>
+</div>
+
+<div class="toc">
+  <h3>Sections du chapitre 12</h3>
+  <div class="toc-grid">
+    <a href="#c12-1"><span class="ico">📐</span> I. Définition et premières propriétés</a>
+    <a href="#c12-2"><span class="ico">⚙️</span> II. Propriété fondamentale de Ln</a>
+    <a href="#c12-3"><span class="ico">🔍</span> III. Étude complète de Ln</a>
+    <a href="#c12-4"><span class="ico">∞</span> IV. Indéterminations avec Ln</a>
+    <a href="#c12-5"><span class="ico">🔢</span> V. Le nombre e</a>
+    <a href="#c12-6"><span class="ico">🔗</span> VI. Fonctions du type Ln(u)</a>
+  </div>
+</div>
+
+<h3 class="sec-h" id="c12-1"><span class="roman">I.</span> Définition et premières propriétés</h3>
+
+<div class="coeur">
+<p><strong>Définition — Logarithme Népérien</strong></p>
+<p>Soit \(f : x \mapsto \dfrac{1}{x}\). La fonction inverse est continue sur \(\mathbb{R}^{+*}\), on sait alors qu'elle admet une <strong>unique primitive</strong> \(F\) de \(f\) sur \(\mathbb{R}^{+*}\) qui vérifie \(F(1) = 0\).</p>
+<p>La fonction <strong>logarithme népérien</strong> est la primitive sur \(\mathbb{R}^{+*}\) de la fonction inverse, qui s'annule en 1. On la note <strong>Ln</strong>.</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarque</div>
+<p>En Python, pour utiliser la fonction Ln, on a besoin de la bibliothèque <code>numpy</code> ; on utilise alors la commande <code>np.log(...)</code>.</p>
+</div>
+
+<div class="blk prop">
+<div class="blk-l">Propriétés <span class="tag">3 contradictoires — à vérifier</span></div>
+<ul>
+  <li>La fonction Ln est <strong>définie sur \(\mathbb{R}^{+*}\)</strong></li>
+  <li>La fonction Ln est <strong>dérivable sur \(\mathbb{R}^{+*}\)</strong> et pour tout \(x > 0\), on a \(\mathrm{Ln}'(x) = \dfrac{1}{x}\)</li>
+  <li>Alors \(\mathrm{Ln}'(x) > 0\) pour tout \(x > 0\) donc Ln est <strong>strictement croissante</strong> sur \(\mathbb{R}^{+*}\)</li>
+  <li>On a \(\mathrm{Ln}(1) = 0\)</li>
+</ul>
+</div>
+
+<div class="coeur">
+<p><strong>Propriétés algébriques de Ln</strong></p>
+<p>Pour tous \(a, b\) dans \(\mathbb{R}^{+*}\) :</p>
+<ul>
+  <li>\(\mathrm{Ln}(a) = \mathrm{Ln}(b) \iff a = b\)</li>
+  <li>\(\mathrm{Ln}(a) < \mathrm{Ln}(b) \iff a < b\)</li>
+</ul>
+<p><strong>En particulier</strong> : \(\mathrm{Ln}(x) > 0 \iff x > 1\) et \(\mathrm{Ln}(x) < 0 \iff 0 < x < 1\)</p>
+</div>
+
+<div class="blk exo">
+<div class="blk-l">Exo 1 — Domaine de définition, tableaux de signes, équations</div>
+<p><strong>d)</strong> Soit \(x\) un réel. Ce problème n'a de sens que pour \((1-x)(x-3) > 0\) et \(x - 1 > 0\).</p>
+<p>Tableau de signes :</p>
+<table class="tab">
+<tr><th>\(x\)</th><th>\(-\infty\)</th><th>1</th><th>3</th><th>\(+\infty\)</th></tr>
+<tr><td>\(1-x\)</td><td colspan="2">+</td><td colspan="2">−</td></tr>
+<tr><td>\(x-3\)</td><td colspan="3">−</td><td>+</td></tr>
+<tr><td>\((1-x)(x-3)\)</td><td>−</td><td>0</td><td>+</td><td>−</td></tr>
+</table>
+<p>Ainsi \((1-x)(x-3) > 0\) et \(x - 1 > 0\) eq. à \(1 < x < 3\) et \(x > 1\).</p>
+<p>Finalement on impose \(x \in \,]1, 3[\).</p>
+<p>Or \(\mathrm{Ln}((1-x)(x-3)) = \mathrm{Ln}(x-1)\) cad \((1-x)(x-3) = x-1\) ou encore \((1-x)(x-3) - (x-1) = 0\) cad \((1-x)(x-3) + (1-x) = 0\) cad \((1-x)(x-3+1) = 0\) ou encore \((1-x)(x-2) = 0\) eq. à \(1-x = 0\) ou \(x-2 = 0\), eq. à \(x = 1\) ou \(x = 2\).</p>
+<p>Or on a imposé \(x \in \,]1, 3[\). Donc \(x = 1\) est exclu (car \(1 \notin \,]1, 3[\)) et \(x = 2\) est accepté (car \(2 \in \,]1, 3[\)).</p>
+<p><strong>Finalement, on a</strong> \(\boxed{S = \{2\}}\)</p>
+</div>
+
+<h3 class="sec-h" id="c12-2"><span class="roman">II.</span> La propriété fondamentale de Ln</h3>
+
+<div class="coeur">
+<p><strong>Propriété fondamentale de Ln</strong></p>
+<p>Soit \(a\) et \(b\) dans \(\mathbb{R}^{+*}\). Alors :</p>
+<p style="text-align: center; font-size: 19px;">\[\mathrm{Ln}(ab) = \mathrm{Ln}(a) + \mathrm{Ln}(b)\]</p>
+</div>
+
+<div class="blk preuve">
+<div class="blk-l">Preuve</div>
+<p>Soit \(a > 0\) fixé. Soit \(f : x \mapsto \mathrm{Ln}(ax) - \mathrm{Ln}(a) - \mathrm{Ln}(x)\). Soit \(u : x \mapsto ax\).</p>
+<p>La fonction \(u\) est dérivable sur \(\mathbb{R}^{+*}\), pour tout \(x \in \mathbb{R}^{+*}\), on a \(u(x) \in \mathbb{R}^{+*}\). La fonction Ln est dérivable sur \(\mathbb{R}^{+*}\). Alors, la fonction \(\mathrm{Ln} \circ u\) est dérivable sur \(\mathbb{R}^{+*}\). Ainsi, la fonction \(f\) est une somme de fonctions dérivables sur \(\mathbb{R}^{+*}\).</p>
+<p>Pour tout \(x > 0\), on a : \(f'(x) = a \times \dfrac{1}{ax} - \dfrac{1}{x} = \dfrac{1}{x} - \dfrac{1}{x} = 0\).</p>
+<p>Ainsi \(f\) est constante sur \(\mathbb{R}^{+*}\). De plus on a \(f(1) = \mathrm{Ln}(a) - \mathrm{Ln}(a) - \mathrm{Ln}(1) = -\mathrm{Ln}(1) = 0\).</p>
+<p>Finalement on a \(f(x) = 0\) pour tout \(x > 0\), c'est-à-dire \(\mathrm{Ln}(ax) = \mathrm{Ln}(a) + \mathrm{Ln}(x)\) pour tout \(x > 0\).</p>
+</div>
+
+<div class="coeur">
+<p><strong>Conséquences</strong></p>
+<ul>
+  <li>Pour tous \(a, b > 0\) : \(\mathrm{Ln}\!\left(\dfrac{a}{b}\right) = \mathrm{Ln}(a) - \mathrm{Ln}(b)\)</li>
+  <li>En particulier pour tout \(x > 0\) : \(\mathrm{Ln}\!\left(\dfrac{1}{x}\right) = -\mathrm{Ln}(x)\)</li>
+  <li>Pour tous réels \(a_1, \dots, a_n\) : \(\mathrm{Ln}(a_1 \times \dots \times a_n) = \mathrm{Ln}(a_1) + \mathrm{Ln}(a_2) + \dots + \mathrm{Ln}(a_n)\)</li>
+  <li>Pour tout \(a > 0\) et tout entier \(n\) : \(\mathrm{Ln}(a^n) = n \cdot \mathrm{Ln}(a)\)</li>
+  <li>Pour tout \(a > 0\) : \(\mathrm{Ln}(\sqrt{a}) = \dfrac{1}{2} \cdot \mathrm{Ln}(a)\)</li>
+</ul>
+</div>
+
+<div class="blk exo">
+<div class="blk-l">Exo 2 — Étude de fonctions f, g, R avec Ln</div>
+<div class="todo">⏳ Détail à transcrire</div>
+</div>
+
+<h3 class="sec-h" id="c12-3"><span class="roman">III.</span> Étude complète de Ln</h3>
+
+<div class="blk prop">
+<div class="blk-l">Synthèse — Ensemble de définition, dérivée, variations</div>
+<p><strong>Ensemble de définition</strong> : La fonction Ln est définie sur \(\mathbb{R}^{+*}\).</p>
+<p><strong>Dérivée et variations</strong> : La fonction Ln est dérivable sur \(\mathbb{R}^{+*}\) et pour tout \(x > 0\), on a \(\mathrm{Ln}'(x) = \dfrac{1}{x}\). La fonction Ln est strictement croissante sur \(\mathbb{R}^{+*}\).</p>
+</div>
+
+<div class="coeur">
+<p><strong>Limites</strong></p>
+<p><strong>Étude en \(+\infty\)</strong> : on a \(\mathrm{Ln}(10) > 1\) donc pour tout entier \(n\), on a \(\mathrm{Ln}(10^n) = n \cdot \mathrm{Ln}(10)\), or \(\lim\limits_{n \to +\infty} n \cdot \mathrm{Ln}(10) = +\infty\) donc \(\lim\limits_{n \to +\infty} \mathrm{Ln}(10^n) = +\infty\). Cela assure que Ln prend des valeurs aussi grandes que l'on veut. Or Ln est strictement croissante sur \(\mathbb{R}^{+*}\) donc :</p>
+<p style="text-align: center;">\[\lim_{x \to +\infty} \mathrm{Ln}(x) = +\infty\]</p>
+
+<p><strong>Étude en 0</strong> : Pour tout \(x > 0\), on a \(\mathrm{Ln}(x) = -\mathrm{Ln}\!\left(\dfrac{1}{x}\right)\). Or \(\lim\limits_{x \to 0^+} \dfrac{1}{x} = +\infty\) et \(\lim\limits_{x \to +\infty} \mathrm{Ln}(x) = +\infty\), donc par composition \(\lim\limits_{x \to 0^+} \mathrm{Ln}\!\left(\dfrac{1}{x}\right) = +\infty\) et alors :</p>
+<p style="text-align: center;">\[\lim_{x \to 0^+} \mathrm{Ln}(x) = -\infty\]</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarque</div>
+<p>La droite d'équation \(x = 0\) est asymptote verticale à \(\mathcal{C}_{\mathrm{Ln}}\).</p>
+</div>
+
+<div class="blk prop">
+<div class="blk-l">Tangente \(T_A\) en \(x = 1\)</div>
+<p>La tangente \(T_A\) à \(\mathcal{C}_{\mathrm{Ln}}\) au point d'abscisse 1 a pour équation \(y = \mathrm{Ln}'(1)(x-1) + \mathrm{Ln}(1)\).</p>
+<p>Or \(\mathrm{Ln}'(1) = 1\) et \(\mathrm{Ln}(1) = 0\). Ainsi \(T_A\) a pour équation \(y = x - 1\).</p>
+</div>
+
+<div class="todo">⏳ Tableau de variations + courbe \(\mathcal{C}_{\mathrm{Ln}}\) à intégrer</div>
+
+<h3 class="sec-h" id="c12-4"><span class="roman">IV.</span> Indéterminations avec Ln</h3>
+
+<div class="coeur">
+<p><strong>Propriété — Croissance comparée en \(+\infty\)</strong></p>
+<p style="text-align: center; font-size: 19px;">\[\lim_{x \to +\infty} \dfrac{\mathrm{Ln}(x)}{x} = 0\]</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarque</div>
+<p>En \(+\infty\), c'est « \(x\) qui gagne » face à \(\mathrm{Ln}(x)\).</p>
+</div>
+
+<div class="coeur">
+<p><strong>Échelle des forces en \(+\infty\)</strong> &nbsp; <span class="tag">à pas écrire sur copies</span></p>
+<p>De la plus faible à la plus forte, on a :</p>
+<p style="text-align: center; font-size: 17px;">\[\mathrm{Ln}(x) \;\prec\; \sqrt{x} \;\prec\; x \;\prec\; x^2 \;\prec\; x^3 \;\prec\; \dots\]</p>
+<p style="text-align: center; font-style: italic; color: var(--muted);">(en pratique : tout polynôme « bat » Ln à l'infini)</p>
+</div>
+
+<div class="blk met">
+<div class="blk-l">Méthode 1 — Par composées (exemple a)</div>
+<ol>
+  <li>Pour tout \(x > 0\) on a \(\dfrac{\mathrm{Ln}(x)}{x^2} = \dfrac{\mathrm{Ln}(x)}{x} \times \dfrac{1}{x}\)</li>
+  <li>On sait que \(\lim\limits_{x \to +\infty} \dfrac{\mathrm{Ln}(x)}{x} = 0\) et \(\lim\limits_{x \to +\infty} \dfrac{1}{x} = 0\)</li>
+  <li>Donc par produit \(\lim\limits_{x \to +\infty} \dfrac{\mathrm{Ln}(x)}{x^2} = 0\)</li>
+</ol>
+</div>
+
+<div class="blk met">
+<div class="blk-l">Méthode 2 — Autre approche (exemple a)</div>
+<ol>
+  <li>Pour tout \(x > 0\) on a \(\dfrac{\mathrm{Ln}(x)}{x^2} = \dfrac{1}{2} \times \dfrac{2 \mathrm{Ln}(x)}{x^2} = \dfrac{1}{2} \times \dfrac{\mathrm{Ln}(x^2)}{x^2}\)</li>
+  <li>Or \(\lim\limits_{x \to +\infty} x^2 = +\infty\) et \(\lim\limits_{X \to +\infty} \dfrac{\mathrm{Ln}(X)}{X} = 0\)</li>
+  <li>Donc par composition \(\lim\limits_{x \to +\infty} \dfrac{\mathrm{Ln}(x^2)}{x^2} = 0\) et donc \(\lim\limits_{x \to +\infty} \dfrac{\mathrm{Ln}(x)}{x^2} = 0\)</li>
+</ol>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété — Croissance comparée en 0</strong></p>
+<p style="text-align: center; font-size: 19px;">\[\lim_{x \to 0^+} x \cdot \mathrm{Ln}(x) = 0\]</p>
+<p><strong>Démonstration</strong> : Pour \(x > 0\), on a \(x \mathrm{Ln}(x) = -\dfrac{\mathrm{Ln}(1/x)}{1/x}\). On sait que \(\lim\limits_{x \to 0^+} \dfrac{1}{x} = +\infty\) et \(\lim\limits_{X \to +\infty} \dfrac{\mathrm{Ln}(X)}{X} = 0\). Donc par composition \(\lim\limits_{x \to 0^+} \dfrac{\mathrm{Ln}(1/x)}{1/x} = 0\).</p>
+</div>
+
+<h3 class="sec-h" id="c12-5"><span class="roman">V.</span> Le nombre e</h3>
+
+<div class="blk preuve">
+<div class="blk-l">Justification de l'existence et unicité</div>
+<p>On s'intéresse à l'équation \(\mathrm{Ln}(x) = 1\) d'inconnue \(x > 0\).</p>
+<ul>
+  <li>La fonction Ln est strictement croissante sur \(\mathbb{R}^{+*}\) donc l'équation \(\mathrm{Ln}(x) = 1\) admet <strong>au plus une solution</strong> dans \(\mathbb{R}^{+*}\).</li>
+  <li>On a \(\mathrm{Ln}(1) = 0\). De plus \(\lim\limits_{x \to +\infty} \mathrm{Ln}(x) = +\infty\) donc il existe un réel \(a > 0\) tel que \(\mathrm{Ln}(a) > 1\).</li>
+  <li>Ainsi \(1 \in [\mathrm{Ln}(1), \mathrm{Ln}(a)]\) et donc 1 est une valeur intermédiaire pour Ln sur \([1, a]\). Or Ln est continue sur \(\mathbb{R}^{+*}\), donc d'après le <strong>théorème des valeurs intermédiaires</strong> l'équation \(\mathrm{Ln}(x) = 1\) admet au moins une solution dans \(\mathbb{R}^{+*}\).</li>
+</ul>
+<p>Finalement l'équation \(\mathrm{Ln}(x) = 1\) admet une <strong>unique solution</strong> dans \(\mathbb{R}^{+*}\).</p>
+</div>
+
+<div class="coeur">
+<p><strong>Définition — Le nombre e</strong></p>
+<p>Le nombre <strong>\(e\)</strong> est la solution dans \(\mathbb{R}^{+*}\) de l'équation \(\mathrm{Ln}(x) = 1\).</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarques</div>
+<ul>
+  <li>On a \(\mathrm{Ln}(e) = 1\)</li>
+  <li>En Python, le nombre \(e\) est codé par <code>np.e</code></li>
+  <li>On peut montrer que \(e \approx 2{,}71828 \approx 2{,}72\)</li>
+</ul>
+</div>
+
+<div class="blk prop">
+<div class="blk-l">Propriétés</div>
+<ul>
+  <li>Pour tout entier \(n\) : \(\mathrm{Ln}(e^n) = n \cdot \mathrm{Ln}(e) = n\)</li>
+  <li>On a \(\mathrm{Ln}(\sqrt{e}) = \dfrac{1}{2}\)</li>
+</ul>
+</div>
+
+<div class="blk exo">
+<div class="blk-l">Exo 8 — Équations avec Ln</div>
+<p><strong>b)</strong> Soit \(x\) un réel. Le problème n'a de sens que pour \(2x+1 > 0\), cad \(x > -\dfrac{1}{2}\).</p>
+<p>On impose donc \(x > -\dfrac{1}{2}\). \(2 \mathrm{Ln}(2x-1) = \dfrac{1}{2} \mathrm{Ln}(9) + \mathrm{Ln}(12)\), cad \(\mathrm{Ln}((2x-1)^2) = \mathrm{Ln}(\sqrt{9}) + \mathrm{Ln}(12)\)…</p>
+<div class="todo">⏳ Suite à compléter</div>
+</div>
+
+<div class="blk exo">
+<div class="blk-l">Exo 9 — Inéquations Ln</div>
+<p><strong>b)</strong> \(\mathrm{Ln}(3-x) < 4\). On impose \(x < 3\). Dans ces conditions : \(\mathrm{Ln}(3-x) < 4\), eq. à \(\mathrm{Ln}(3-x) < \mathrm{Ln}(e^4)\), eq. à \(3-x < e^4\) car Ln est strictement croissante sur \(\mathbb{R}^{+*}\), eq. à \(3 - e^4 < x\).</p>
+<p>Finalement \(\mathcal{S} = \,]3-e^4, 3[\).</p>
+</div>
+
+<h3 class="sec-h" id="c12-6"><span class="roman">VI.</span> Fonctions du type Ln(u)</h3>
+
+<p style="color: var(--muted); font-size: 14px; font-style: italic;">(Cas particulier du théorème général)</p>
+
+<div class="coeur">
+<p><strong>Propriété 1 — Dérivée de Ln(u)</strong></p>
+<p>Soit \(u\) une fonction dérivable et <strong>strictement positive</strong> sur \(I\). Alors la fonction \(\mathrm{Ln}(u)\) est dérivable sur \(I\) et :</p>
+<p style="text-align: center; font-size: 19px;">\[(\mathrm{Ln}(u))' = \dfrac{u'}{u}\]</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple</div>
+<p>Soit \(f : x \mapsto \mathrm{Ln}(5x^2 + 3)\). Soit \(u : x \mapsto 5x^2 + 3\).</p>
+<p>La fonction \(u\) est dérivable et strictement positive sur \(\mathbb{R}\).</p>
+<p>Donc \(f = \mathrm{Ln} \circ u\) est dérivable sur \(\mathbb{R}\).</p>
+<p>Pour tout \(x \in \mathbb{R}\) on a \(f'(x) = \dfrac{10x}{5x^2+3}\).</p>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété 2 — Primitive de u'/u</strong></p>
+<p>Soit \(u\) une fonction dérivable et <strong>strictement positive</strong> sur \(I\). Alors une primitive de \(\dfrac{u'}{u}\) sur \(I\) est \(\mathrm{Ln}(u)\).</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple</div>
+<p>Soit \(f : x \mapsto \dfrac{x}{5x^2+3}\). La fonction \(f\) est un quotient de fonctions continues sur \(\mathbb{R}\). Donc \(f\) est continue sur \(\mathbb{R}\). Ainsi \(f\) admet des primitives sur \(\mathbb{R}\). Une de ces primitives est :</p>
+<p style="text-align: center;">\[F : x \mapsto \dfrac{1}{10} \cdot \mathrm{Ln}(5x^2+3)\]</p>
+</div>
+
+<div class="blk exo">
+<div class="blk-l">Exo 10 — Étude f : x ↦ x · Ln(x)</div>
+<p><strong>a)</strong> La fonction \(f\) est définie sur \(\mathbb{R}^{+*}\).</p>
+<p><strong>Variations</strong> : la fonction \(f\) est un produit de fonctions dérivables sur \(\mathbb{R}^{+*}\), donc \(f\) est dérivable sur \(\mathbb{R}^{+*}\).</p>
+<p>Pour tout \(x > 0\) on a \(f'(x) = \mathrm{Ln}(x) + x \times \dfrac{1}{x} = \mathrm{Ln}(x) + 1\).</p>
+<p>En posant \(f'(x) > 0\), cad \(\mathrm{Ln}(x) + 1 > 0\), cad \(\mathrm{Ln}(x) > -1\), eq. à \(\mathrm{Ln}(x) > \mathrm{Ln}(e^{-1})\), eq. à \(x > e^{-1}\) car Ln est strictement croissante sur \(\mathbb{R}^{+*}\).</p>
+<p>Ainsi \(f'(x) > 0\) eq. à \(x > e^{-1}\). De même \(f'(x) < 0\) eq. à \(x < e^{-1}\). Et \(f'(x) = 0\) eq. à \(x = e^{-1}\).</p>
+<p>Donc \(f\) est strictement décroissante sur \(]0, e^{-1}]\) et strictement croissante sur \([e^{-1}, +\infty[\).</p>
+</div>
+
+<div class="ch" id="c13">
+  <div class="cn">Chapitre 12</div>
+  <h2>Variables Aléatoires Finies</h2>
+  <p>Définition de variable aléatoire, loi de probabilité, espérance, linéarité, jeu favorable / équitable / défavorable</p>
+</div>
+
+<div class="toc">
+  <h3>Sections du chapitre 13</h3>
+  <div class="toc-grid">
+    <a href="#c13-1"><span class="ico">🎲</span> I. Définition</a>
+    <a href="#c13-2"><span class="ico">📊</span> II. Espérance</a>
+    <a href="#c13-4"><span class="ico">🎯</span> IV. Lois à connaître parfaitement</a>
+  </div>
+</div>
+
+<h3 class="sec-h" id="c13-1"><span class="roman">I.</span> Définition</h3>
+
+<div class="blk ex">
+<div class="blk-l">Exemple introductif</div>
+<p>Dans une urne se trouvent 5 boules blanches et 2 boules noires indiscernables au toucher. On tire successivement et sans remise des boules, une par une.</p>
+<p>Soit \(\Omega\) un univers fixé à cette expérience. Pour tout \(n \geq 1\), on note \(B_n\) l'événement « on a tiré une boule blanche lors du \(n^{\text{ème}}\) tirage ». On note \(R\) le rang d'apparition de la 1ère boule blanche.</p>
+<p>Ainsi \(R\) est une grandeur numérique dont la valeur est fixée par l'issue de l'expérience. Puisqu'il n'y a que deux boules noires et que les tirages sont sans remise, les valeurs possibles de \(R\) sont 1, 2 et 3.</p>
+<p>On note \(R(\Omega) = \{1, 2, 3\}\).</p>
+<ul>
+  <li>\(P([R=1]) = P(B_1) = \dfrac{5}{7}\)</li>
+  <li>\(P([R=2]) = P(\overline{B_1} \cap B_2) = P(\overline{B_1}) \times P_{\overline{B_1}}(B_2) = \dfrac{2}{7} \times \dfrac{5}{6} = \dfrac{5}{21}\)</li>
+  <li>\(P([R=3]) = P(\overline{B_1} \cap \overline{B_2} \cap B_3) = \dfrac{2}{7} \times \dfrac{1}{6} \times \dfrac{5}{5} = \dfrac{1}{21}\)</li>
+</ul>
+</div>
+
+<div class="coeur">
+<p><strong>Définition — Variable aléatoire finie</strong></p>
+<p>Une <strong>variable aléatoire \(X\)</strong> est une grandeur numérique dont la valeur est fixée par l'issue d'une certaine expérience aléatoire.</p>
+<p>L'ensemble des valeurs possibles de la variable aléatoire \(X\) est noté <strong>\(X(\Omega)\)</strong>.</p>
+<p>Lorsque \(X(\Omega)\) est un ensemble fini, on dit que \(X\) est une <strong>variable aléatoire finie</strong>.</p>
+</div>
+
+<div class="coeur">
+<p><strong>Méthode — Déterminer la loi de X</strong></p>
+<p>Déterminer la loi de la variable \(X\) c'est :</p>
+<ol>
+  <li>Déterminer \(X(\Omega)\)</li>
+  <li>Déterminer \(P(X = x_i)\) pour tout \(x_i\) dans \(X(\Omega)\)</li>
+</ol>
+<p>Dans la mesure du possible, on présente les résultats dans un tableau.</p>
+</div>
+
+<div class="coeur">
+<p><strong>Remarque — Système complet d'événements</strong></p>
+<p>Dans le cas général, avec \(X(\Omega) = \{x_1, x_2, \dots, x_n\}\), les événements \([X = x_1], [X = x_2], \dots, [X = x_n]\) forment un <strong>système complet d'événements</strong>.</p>
+<p><strong>Conséquence</strong> : la somme des probabilités \(P(X = x_i)\) doit être égale à 1, soit :</p>
+<p style="text-align: center;">\[\sum_{i=1}^{n} P(X = x_i) = 1\]</p>
+</div>
+
+<div class="blk exo">
+<div class="blk-l">Exo 1 — Urne avec boules colorées + gains</div>
+<p>Soit \(R\) l'ensemble des boules. Je tire avec équiprobabilité. Soit \(B\) (resp. \(V\), \(R\)) l'événement « on a tiré une boule bleue (resp. verte, rouge) ».</p>
+<p>Alors \(P(B) = \dfrac{2}{10}\), \(P(V) = \dfrac{3}{10}\) et \(P(R) = \dfrac{5}{10}\).</p>
+<p>On a \(G(\Omega) = \{10, 5, -2\}\) et :</p>
+<ul>
+  <li>\(P([G = 10]) = P(B) = \dfrac{2}{10}\)</li>
+  <li>\(P([G = 5]) = P(V) = \dfrac{3}{10}\)</li>
+  <li>\(P([G = -2]) = P(R) = \dfrac{5}{10}\)</li>
+</ul>
+<p>Ainsi la loi de \(G\) est donnée par :</p>
+<table class="tab">
+<tr><th>\(g_i\)</th><td>-2</td><td>5</td><td>10</td></tr>
+<tr><th>\(P(G = g_i)\)</th><td>5/10</td><td>3/10</td><td>2/10</td></tr>
+</table>
+</div>
+
+<div class="blk exo">
+<div class="blk-l">Exo 2 — Urne avec n boules numérotées 1 à n</div>
+<p><strong>1)</strong> Il y a 1 boule n°1, 2 boules n°2, 3 boules n°3, …, \(n\) boules n°\(n\).</p>
+<p>Donc au total il y a \(1 + 2 + 3 + \dots + n = \dfrac{n(n+1)}{2}\) boules dans l'urne.</p>
+<p><strong>2)</strong> Soit \(\Omega\) l'ensemble des boules. Il y a équiprobabilité.</p>
+<p>On a \(X(\Omega) = \{1, 2, \dots, n\}\).</p>
+<p>Pour \(i \in \{1, 2, \dots, n\}\), on a :</p>
+<p style="text-align: center;">\[P(X = i) = \dfrac{\text{nombre de boules n°}i}{\text{nombre total de boules}} = \dfrac{i}{n(n+1)/2} = \dfrac{2i}{n(n+1)}\]</p>
+<p>Ainsi \(X(\Omega) = \{1, 2, \dots, n\}\) avec \(P(X = i) = \dfrac{2i}{n(n+1)}\) pour tout \(i \in X(\Omega)\).</p>
+<p><strong>Vérification</strong> : \(\displaystyle\sum_{i=1}^{n} P(X = i) = \sum_{i=1}^{n} \dfrac{2i}{n(n+1)} = \dfrac{2}{n(n+1)} \sum_{i=1}^{n} i = \dfrac{2}{n(n+1)} \cdot \dfrac{n(n+1)}{2} = 1\) ✓</p>
+</div>
+
+<h3 class="sec-h" id="c13-2"><span class="roman">II.</span> Espérance</h3>
+
+<div class="coeur">
+<p><strong>Définition — Espérance</strong></p>
+<p>Soit \(X\) une variable aléatoire finie avec \(X(\Omega) = \{x_1, x_2, \dots, x_n\}\).</p>
+<p>L'<strong>espérance</strong> de \(X\) (ou espérance mathématique de \(X\)) est le nombre noté <strong>\(E(X)\)</strong> avec :</p>
+<p style="text-align: center;">\[E(X) = x_1 P(X=x_1) + x_2 P(X=x_2) + \dots + x_n P(X=x_n) = \sum_{i=1}^{n} x_i P(X = x_i)\]</p>
+<p>= somme des (valeurs × probabilités associées)</p>
+</div>
+
+<div class="coeur">
+<p><strong>Remarques essentielles</strong></p>
+<ul>
+  <li>L'espérance de \(X\) peut s'interpréter comme la <strong>valeur moyenne</strong> de \(X\) sur un très grand nombre d'expériences.</li>
+  <li>Lorsque la variable est le <strong>gain algébrique du joueur</strong> :
+    <ul>
+      <li>Si \(E(G) > 0\) on dit que le jeu est <strong>favorable au joueur</strong></li>
+      <li>Si \(E(G) < 0\) on dit que le jeu est <strong>défavorable au joueur</strong></li>
+      <li>Si \(E(G) = 0\) on dit que le jeu est <strong>équitable</strong></li>
+    </ul>
+  </li>
+</ul>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple A — La roulette</div>
+<p>À la roulette, les numéros vont de 0 à 36. On mise 1€ : valeur un numéro ; s'il sort, on nous donne 36€, sinon on perd notre mise.</p>
+<p>Soit \(G\) le gain algébrique du joueur. Soit \(\Omega\) un univers fixé à cette expérience.</p>
+<p>On a \(G(\Omega) = \{-1, 35\}\), \(P(G = -1) = \dfrac{36}{37}\) et \(P(G = 35) = \dfrac{1}{37}\).</p>
+<p>Alors \(E(G) = -1 \cdot P(G=-1) + 35 \cdot P(G=35) = -\dfrac{36}{37} + 35 \times \dfrac{1}{37} = -\dfrac{36}{37} + \dfrac{35}{37}\).</p>
+<p>Cad <strong>\(E(G) = -\dfrac{1}{37}\)</strong>. On a \(E(G) < 0\) donc le jeu est défavorable au joueur.</p>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété — Linéarité de l'espérance</strong></p>
+<p>Soit \(X\) et \(Y\) deux variables aléatoires finies. Soit \(a\) et \(b\) des réels. Alors :</p>
+<p style="text-align: center; font-size: 19px;">\[E(aX + bY) = a \cdot E(X) + b \cdot E(Y)\]</p>
+</div>
+
+<div class="blk exo">
+<div class="blk-l">Exo 3 — Boules R/J/V — calcul E(G)</div>
+<p>Soit \(\Omega\) un univers fixé à cette expérience. On note \(R_i\) (resp. \(J_i\), \(V_i\)) l'événement « on a tiré une boule rouge (resp. jaune, verte) lors du \(i^{\text{ème}}\) tirage ».</p>
+<p>On a \(G(\Omega) = \{10, -5, 8, -4\}\) avec :</p>
+<ul>
+  <li>\(P(G = 10) = P(R_1) = \dfrac{1}{7}\)</li>
+  <li>\(P(G = -5) = P(J_1) = \dfrac{2}{7}\)</li>
+  <li>\(P(G = 8) = P(V_1 \cap R_2) = P(V_1) \cdot P_{V_1}(R_2) = \dfrac{4}{7} \times \dfrac{1}{6} = \dfrac{2}{21}\)</li>
+  <li>\(P(G = -4) = P(V_1 \cap \overline{R_2}) = P(V_1) \cdot P_{V_1}(\overline{R_2}) = \dfrac{4}{7} \times \dfrac{5}{6} = \dfrac{10}{21}\)</li>
+</ul>
+<p>Alors :</p>
+<p style="text-align: center;">\[E(G) = -5 \cdot \dfrac{2}{7} - 4 \cdot \dfrac{10}{21} + 8 \cdot \dfrac{2}{21} + 10 \cdot \dfrac{1}{7} = \dfrac{-30 - 40 + 16 + 30}{21} = -\dfrac{24}{21} = -\dfrac{8}{7}\]</p>
+</div>
+
+<div class="blk exo">
+<div class="blk-l">Exo 5 — Linéarité E(S) = E(V) + E(R)</div>
+<p>On a \(V(\Omega) = \{1, 2, 3\}\), \(P(V=1) = \dfrac{1}{6}\), \(P(V=2) = \dfrac{2}{6}\), \(P(V=3) = \dfrac{3}{6}\).</p>
+<p>Alors \(E(V) = 1 \cdot \dfrac{1}{6} + 2 \cdot \dfrac{2}{6} + 3 \cdot \dfrac{3}{6} = \dfrac{1 + 4 + 9}{6} = \dfrac{14}{6}\), cad <strong>\(E(V) = \dfrac{7}{3}\)</strong>.</p>
+<p>On a \(S = V + R\), donc par linéarité de l'espérance :</p>
+<p style="text-align: center;">\[E(S) = E(V + R) = E(V) + E(R) = \dfrac{7}{3} + \dfrac{3}{2} = \dfrac{23}{6}\]</p>
+</div>
+
+<div class="blk exo">
+<div class="blk-l">Exo 7 — Jeu équitable G = 7X − 6</div>
+<p><strong>1)</strong> Chaque boule noire tirée rapporte 5€, donc les \(x\) boules noires tirées rapporteront un total de \(5x\) €. Chaque boule blanche tirée rapporte 2€, donc les \(3-x\) boules blanches tirées rapporteront un total de \(2(3-x)\) €.</p>
+<p>Alors \(G\) = ce que ça m'a rapporté − ce que ça coûte = \(5x - 2(3-x) - 6 = 5x + 2x - 6 - 6 = 7x - 6\).</p>
+<p>Donc <strong>\(G = 7X - 6\)</strong>.</p>
+<p><strong>Calcul de l'espérance</strong> : \(E(G) = E(7X - 6) = 7 \cdot E(X) - 6\) par linéarité de l'espérance \(= 7 \times \dfrac{6}{7} - 6 = 0\).</p>
+<p><strong>\(E(G) = 0\)</strong> donc le jeu est <strong>équitable</strong>.</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- IV. LOIS À CONNAÎTRE PARFAITEMENT                            -->
+<!-- ============================================================ -->
+<h3 class="sec-h" id="c13-4"><span class="roman">IV.</span> Lois à connaître parfaitement</h3>
+
+<!-- ---------- A. LOI UNIFORME ---------- -->
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 26px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">A. La loi uniforme</h4>
+
+<div class="coeur">
+<p><strong>Définition — Loi uniforme</strong></p>
+<p>On dit que la variable aléatoire \(X\) suit <strong>la loi uniforme</strong> sur \(\{x_1, x_2, \dots, x_n\}\) lorsque :</p>
+<ul>
+  <li>\(X(\Omega) = \{x_1, x_2, \dots, x_n\}\)</li>
+  <li>\(P(X = x_i) = \dfrac{1}{n}\) pour tout \(i \in \{1, \dots, n\}\)</li>
+</ul>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarque</div>
+<p>C'est la notion d'<strong>équiprobabilité</strong> dans le monde des variables aléatoires.</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemples</div>
+<p><strong>★</strong> Soit \(X\) la variable aléatoire égale au n° obtenu lors du lancer d'un dé classique non truqué. Alors :</p>
+<p style="text-align: center; background: rgba(239,68,68,.08); padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(239,68,68,.30);"><strong>La variable \(X\) suit la loi uniforme sur \(\{1, 2, 3, 4, 5, 6\}\)</strong></p>
+<p><strong>★</strong> On lance une pièce équilibrée. On gagne 2 points si on obtient Pile et on perd 1 point si on obtient Face. Soit \(X\) la variable aléatoire égale au nombre de points marqués. Alors :</p>
+<p style="text-align: center; background: rgba(239,68,68,.08); padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(239,68,68,.30);"><strong>\(X\) suit la loi uniforme sur \(\{-1, 2\}\)</strong></p>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété — Espérance et variance de la loi uniforme</strong></p>
+<p>Soit \(X\) une variable aléatoire qui suit la loi uniforme sur \(\{1, 2, 3, \dots, N\}\). <em>(⚠️ il faut partir de 1 et ne pas sauter de valeur pour pouvoir appliquer la formule)</em></p>
+<p>Alors :</p>
+<p style="text-align: center; font-size: 18px;">\[\boxed{E(X) = \dfrac{N+1}{2} \qquad \text{et} \qquad V(X) = \dfrac{N^2 - 1}{12}}\]</p>
+</div>
+
+<div class="blk preuve">
+<div class="blk-l">Preuve de \(E(X) = \dfrac{N+1}{2}\)</div>
+<p>On a \(X(\Omega) = \{1, 2, \dots, N\}\) avec \(P(X = k) = \dfrac{1}{N}\) pour tout \(k \in X(\Omega)\).</p>
+<p>Alors :</p>
+<p style="text-align: center;">\[E(X) = \sum_{k=1}^{N} k \, P(X = k) = \sum_{k=1}^{N} k \times \dfrac{1}{N} = \dfrac{1}{N} \sum_{k=1}^{N} k = \dfrac{1}{N} \times \dfrac{N(N+1)}{2} = \dfrac{N+1}{2}\]</p>
+</div>
+
+<div class="blk preuve">
+<div class="blk-l">Preuve de \(V(X) = \dfrac{N^2 - 1}{12}\)</div>
+<p>Si \(X\) suit la loi uniforme sur \(\{1, 2, \dots, N\}\), on a déjà \(E(X) = \dfrac{N+1}{2}\). On calcule \(E(X^2)\) :</p>
+<p style="text-align: center;">\[E(X^2) = \sum_{k=1}^{N} k^2 \, P(X = k) = \sum_{k=1}^{N} k^2 \times \dfrac{1}{N} = \dfrac{1}{N} \sum_{k=1}^{N} k^2 = \dfrac{1}{N} \cdot \dfrac{N(N+1)(2N+1)}{6} = \dfrac{(N+1)(2N+1)}{6}\]</p>
+<p>Alors, d'après <strong>Huygens</strong> :</p>
+<p>\(V(X) = E(X^2) - (E(X))^2 = \dfrac{(N+1)(2N+1)}{6} - \left(\dfrac{N+1}{2}\right)^2 = \dfrac{(N+1)(2N+1)}{6} - \dfrac{(N+1)^2}{4}\)</p>
+<p>\(= \dfrac{2(N+1)(2N+1) - 3(N+1)^2}{12} = \dfrac{(N+1)\bigl(2(2N+1) - 3(N+1)\bigr)}{12} = \dfrac{(N+1)(4N + 2 - 3N - 3)}{12}\)</p>
+<p>\(= \dfrac{(N+1)(N-1)}{12} = \dfrac{N^2 - 1}{12}\)</p>
+</div>
+
+<!-- ---------- B. LOI DE BERNOULLI ---------- -->
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 30px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">B. La loi de Bernoulli</h4>
+
+<div class="coeur">
+<p><strong>Définition — Épreuve de Bernoulli et loi de Bernoulli</strong></p>
+<p><strong>★</strong> Une <strong>épreuve de Bernoulli</strong> est une expérience aléatoire qui ne possède que <strong>2 issues</strong>, l'une appelée « succès » et l'autre « échec ».</p>
+<p><strong>★</strong> Soit \(p \in [0\,;1]\). On dit que la variable aléatoire \(X\) suit <strong>la loi de Bernoulli de paramètre \(p\)</strong> lorsque :</p>
+<ul>
+  <li>\(X(\Omega) = \{0, 1\}\)</li>
+  <li>\(P(X = 1) = p\) (alors \(P(X = 0) = 1 - p\))</li>
+</ul>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Lancer d'un dé équilibré</div>
+<p>On lance un dé équilibré.</p>
+<ul>
+  <li>Soit \(X\) la variable aléatoire qui vaut 1 si on obtient la face n°3, et qui vaut 0 sinon.</li>
+  <li>Soit \(Y\) la variable aléatoire qui vaut 1 si on n'obtient pas la face 3 et qui vaut 0 sinon.</li>
+  <li>Soit \(Z\) la variable aléatoire qui vaut 1 si on obtient la face 3, et qui vaut -1 sinon.</li>
+</ul>
+
+<p>Soit \(\Omega = \{1, 2, 3, 4, 5, 6\}\). Il y a équiprobabilité. Soit \(T\) l'événement « on obtient la face 3 ». Alors \(P(T) = \dfrac{1}{6}\).</p>
+
+<p>On a \(X(\Omega) = \{0\,;1\}\) et \(P(X = 1) = P(T) = \dfrac{1}{6}\).</p>
+<p style="text-align: center; background: rgba(239,68,68,.08); padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(239,68,68,.30);"><strong>Ainsi \(X\) suit la loi de Bernoulli de paramètre \(p = \dfrac{1}{6}\)</strong></p>
+
+<p>On a \(Y(\Omega) = \{0\,;1\}\) et \(P(Y = 1) = P(\overline{T}) = \dfrac{5}{6}\).</p>
+<p style="text-align: center; background: rgba(239,68,68,.08); padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(239,68,68,.30);"><strong>Ainsi \(Y\) suit la loi de Bernoulli de paramètre \(p_Y = \dfrac{5}{6}\)</strong></p>
+
+<p>On a \(Z(\Omega) = \{-1\,;1\}\). Donc \(Z\) <strong>ne suit pas</strong> une loi de Bernoulli (car \(\{-1\,;1\}\) au lieu de \(\{0\,;1\}\)).</p>
+<p>La loi de \(Z\) est donnée par :</p>
+<table class="tab">
+<tr><th>\(z_i\)</th><td>-1</td><td>1</td></tr>
+<tr><th>\(P(Z = z_i)\)</th><td>5/6</td><td>1/6</td></tr>
+</table>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété ⭐ — Espérance et variance d'une loi de Bernoulli</strong></p>
+<p>Si \(X\) suit la loi de Bernoulli de paramètre \(p\), alors :</p>
+<p style="text-align: center; font-size: 18px;">\[\boxed{E(X) = p \qquad \text{et} \qquad V(X) = p(1 - p)}\]</p>
+</div>
+
+<div class="blk preuve">
+<div class="blk-l">Preuve de \(E(X) = p\)</div>
+<p>On a :</p>
+<table class="tab">
+<tr><th>\(x_i\)</th><td>0</td><td>1</td></tr>
+<tr><th>\(P(X = x_i)\)</th><td>\(1-p\)</td><td>\(p\)</td></tr>
+</table>
+<p>Donc \(E(X) = 0 \cdot P(X = 0) + 1 \cdot P(X = 1) = 0 \times (1-p) + 1 \times p = p\).</p>
+</div>
+
+<div class="blk preuve">
+<div class="blk-l">Preuve de \(V(X) = p(1-p)\)</div>
+<p>On a \(E(X^2) = 0^2 \cdot P(X=0) + 1^2 \cdot P(X=1) = 0 + 1 \cdot p = p\).</p>
+<p>Alors, d'après <strong>Huygens</strong> :</p>
+<p style="text-align: center;">\[V(X) = E(X^2) - (E(X))^2 = p - p^2 = p(1 - p)\]</p>
+</div>
+
+<!-- ---------- C. LOI BINOMIALE ---------- -->
+<h4 style="font-family:'Playfair Display',serif; font-size: 22px; color: var(--red); margin: 30px 0 10px; padding-left: 8px; border-left: 4px solid var(--red);">C. La loi binomiale</h4>
+
+<div class="blk ex">
+<div class="blk-l">Exemple introductif — Urne 5 blanches + 4 noires, 3 tirages avec remise</div>
+<p>Dans une urne, se trouvent <strong>5 boules blanches et 4 boules noires</strong>. On tire successivement et <strong>avec remise</strong> 3 boules de cette urne.</p>
+<p>Soit \(X\) la variable aléatoire égale au nombre de boules blanches tirées. Déterminer la loi de \(X\).</p>
+
+<p><strong>Mise en place</strong> : Soit \(\Omega\) un univers lié à cette expérience. Pour tout \(i\), on note \(B_i\) l'événement « on a tiré une boule blanche lors du \(i^{\text{ème}}\) tirage ». Alors \(P(B_i) = \dfrac{5}{9}\) et \(P(\overline{B_i}) = \dfrac{4}{9}\).</p>
+
+<p>On a \(X(\Omega) = \{0, 1, 2, 3\}\).</p>
+
+<p><strong>P(X = 0)</strong> :</p>
+<p style="text-align: center;">\[P(X = 0) = P(\overline{B_1} \cap \overline{B_2} \cap \overline{B_3}) = P(\overline{B_1}) P(\overline{B_2}) P(\overline{B_3})\]</p>
+<p>car les tirages sont indépendants (puisque remise).</p>
+<p style="text-align: center;">\[P(X = 0) = \left(\dfrac{4}{9}\right)^3 = \binom{3}{0} \left(\dfrac{5}{9}\right)^0 \left(\dfrac{4}{9}\right)^3 = 1 \times 1 \times \left(\dfrac{4}{9}\right)^3\]</p>
+
+<p><strong>P(X = 1)</strong> :</p>
+<p style="text-align: center;">\[P(X = 1) = P((B_1 \cap \overline{B_2} \cap \overline{B_3}) \cup (\overline{B_1} \cap B_2 \cap \overline{B_3}) \cup (\overline{B_1} \cap \overline{B_2} \cap B_3))\]</p>
+<p>Car les événements \(B_1 \cap \overline{B_2} \cap \overline{B_3}\), \(\overline{B_1} \cap B_2 \cap \overline{B_3}\) et \(\overline{B_1} \cap \overline{B_2} \cap B_3\) sont <strong>deux à deux incompatibles</strong>.</p>
+<p style="text-align: center;">\[P(X = 1) = P(B_1) P(\overline{B_2}) P(\overline{B_3}) + P(\overline{B_1}) P(B_2) P(\overline{B_3}) + P(\overline{B_1}) P(\overline{B_2}) P(B_3)\]</p>
+<p style="text-align: center;">\[= \dfrac{5}{9} \times \dfrac{4}{9} \times \dfrac{4}{9} + \dfrac{4}{9} \times \dfrac{5}{9} \times \dfrac{4}{9} + \dfrac{4}{9} \times \dfrac{4}{9} \times \dfrac{5}{9} = 3 \times \dfrac{5}{9} \times \left(\dfrac{4}{9}\right)^2\]</p>
+<p style="text-align: center;">\[\left(P(X = 1) = \binom{3}{1} \dfrac{5}{9} \left(\dfrac{4}{9}\right)^2\right)\]</p>
+
+<p><strong>P(X = 2)</strong> : De même, \(P(X = 2)\) est la somme de probabilités du type \(P(B_1 \cap B_2 \cap \overline{B_3})\) (avec 2 \(B_i\) et 1 \(\overline{B_i}\)).</p>
+<p>Chacune de ces probabilités vaut alors un produit de 3 facteurs dont deux valent \(\dfrac{5}{9}\) et un vaut \(\dfrac{4}{9}\). Chacune vaut donc \(\left(\dfrac{5}{9}\right)^2 \times \dfrac{4}{9}\).</p>
+<p><strong>Combien y a-t-il de façons de disposer 2 boules blanches parmi les 3 boules obtenues ?</strong> On choisit 2 places sur les 3 places possibles. L'ordre n'est pas important et la répétition est interdite. Une disposition est donc une <strong>combinaison à 2 éléments</strong> de l'ensemble \(E\) des 3 places. Il y a donc \(\binom{3}{2} = 3\) dispositions possibles. Ainsi :</p>
+<p style="text-align: center;">\[P(X = 2) = \binom{3}{2} \left(\dfrac{5}{9}\right)^2 \dfrac{4}{9}\]</p>
+
+<p><strong>P(X = 3)</strong> : De même :</p>
+<p style="text-align: center;">\[P(X = 3) = \binom{3}{3} \left(\dfrac{5}{9}\right)^3 \left(\dfrac{4}{9}\right)^0\]</p>
+
+<p><strong>Généralisation</strong> — Si on faisait \(N\) tirages : \(X(\Omega) = \{0, 1, \dots, N\}\) et pour tout \(k \in X(\Omega)\) :</p>
+<p style="text-align: center; font-size: 17px;">\[P(X = k) = \binom{N}{k} \left(\dfrac{5}{9}\right)^k \left(\dfrac{4}{9}\right)^{N - k}\]</p>
+</div>
+
+<div class="coeur">
+<p><strong>Définition ⭐ — Loi binomiale</strong></p>
+<p>Soit \(N \geq 0\) un entier et \(p \in [0\,;1]\). On dit que la variable aléatoire \(X\) suit <strong>la loi binomiale de paramètres \(N\) et \(p\)</strong>, notée \(\mathcal{B}(N, p)\), lorsque :</p>
+<ul>
+  <li>\(X(\Omega) = \{0, 1, 2, \dots, N\}\)</li>
+  <li>\(P(X = k) = \dbinom{N}{k} p^k (1 - p)^{N - k}\) pour tout \(k \in X(\Omega)\)</li>
+</ul>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">⚠️ Remarque — Tableau de loi</div>
+<p>Pour la <strong>loi de Bernoulli</strong>, pas besoin de faire le tableau. Mais pour la <strong>loi binomiale</strong>, besoin de faire le tableau <strong>uniquement quand demandé</strong>.</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarque — Interprétation</div>
+<p>C'est la loi suivie par une variable aléatoire qui <strong>compte le nombre de succès</strong> lors d'une succession de \(N\) <strong>épreuves de Bernoulli identiques et indépendantes</strong> (et \(p\) est la probabilité du succès à chaque épreuve).</p>
+</div>
+
+<div class="redaction">
+<p><strong>📝 Rédaction type prof — Reconnaître une loi binomiale</strong></p>
+<div class="skel">
+La variable \(X\) compte le nombre de succès (<em>« on a obtenu ... »</em>) lors de la succession de \(N = \dots\) épreuves de Bernoulli (<em>« on tire/lance/interroge ... »</em>) qui sont <strong>identiques et indépendantes</strong>. <br>
+Donc \(X\) suit la loi binomiale de paramètres \(N = \dots\) et \(p = \dots\).
+</div>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Classe avec garçons et filles</div>
+<p>Dans une classe il y a 20 garçons et 13 filles. On interroge successivement 15 élèves de façon indépendante. Soit \(F\) la variable aléatoire égale au nombre de filles interrogées. Déterminer la loi de \(F\).</p>
+<p>Soit \(\Omega\) un univers lié à cette expérience. La variable \(F\) compte le nombre de succès (<em>« on interroge une fille »</em>) lors de la succession de \(N = 15\) épreuves de Bernoulli (<em>« on interroge un élève »</em>) qui sont identiques et indépendantes. Donc \(F\) suit la <strong>loi binomiale de paramètres \(N = 15\) et \(p = \dfrac{13}{33}\)</strong>.</p>
+<p>On sait alors \(F(\Omega) = \{0, 1, \dots, 15\}\) et :</p>
+<p style="text-align: center;">\[P(F = k) = \binom{15}{k} \left(\dfrac{13}{33}\right)^k \left(\dfrac{20}{33}\right)^{15 - k} \quad \text{pour tout } k \in F(\Omega)\]</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarque — Somme des probabilités = 1</div>
+<p>On a :</p>
+<p style="text-align: center;">\[\sum_{k=0}^{N} P(X = k) = \sum_{k=0}^{N} \binom{N}{k} p^k (1-p)^{N-k} = (p + 1 - p)^N = 1^N = 1\]</p>
+<p>(formule du binôme de Newton appliquée à \((p + (1-p))^N\)).</p>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété ⭐ — Espérance et variance de la loi binomiale</strong></p>
+<p>Si \(X\) suit la loi binomiale de paramètres \(N\) et \(p\), alors :</p>
+<p style="text-align: center; font-size: 18px;">\[\boxed{E(X) = N \cdot p \qquad \text{et} \qquad V(X) = N \cdot p \cdot (1 - p)}\]</p>
+</div>
+
+<div class="blk preuve">
+<div class="blk-l">Preuve de \(E(X) = Np\) — Méthode 1 (formule \(k \binom{N}{k} = N \binom{N-1}{k-1}\))</div>
+<p>On rappelle que pour tout \(k \in \{1, 2, \dots, N\}\), on a \(k \binom{N}{k} = N \binom{N-1}{k-1}\).</p>
+<p>Alors :</p>
+<p>\(E(X) = \sum_{k=0}^{N} k \cdot P(X = k) = \sum_{k=1}^{N} k \cdot P(X = k)\) (le terme pour \(k=0\) vaut 0 dans une somme, il ne change rien)</p>
+<p>\(= \sum_{k=1}^{N} k \times \binom{N}{k} p^k (1-p)^{N-k} = \sum_{k=1}^{N} N \binom{N-1}{k-1} p^k (1-p)^{N-k}\) (d'après le rappel)</p>
+<p>\(= N \sum_{k=1}^{N} \binom{N-1}{k-1} p^k (1-p)^{N-k}\)</p>
+<p>On pose \(i = k - 1\), donc \(k = i + 1\). Quand \(k = 1, \dots, N\), \(i = 0, \dots, N-1\). Après réindexation :</p>
+<p>\(= N \sum_{i=0}^{N-1} \binom{N-1}{i} p^{i+1} (1-p)^{N-(i+1)} = N p \sum_{i=0}^{N-1} \binom{N-1}{i} p^i (1-p)^{N-1-i}\)</p>
+<p>\(= N p \cdot (p + (1-p))^{N-1} = N p \times 1^{N-1} = N p\).</p>
+</div>
+
+<div class="blk preuve">
+<div class="blk-l">Preuve de \(E(X) = Np\) — Méthode 2 (linéarité avec Bernoulli)</div>
+<p>Pour tout \(i \in \{1, 2, \dots, N\}\), on note \(X_i\) la variable aléatoire égale à 1 si on a obtenu un succès lors de la \(i\)-ème épreuve, et égale à 0 sinon.</p>
+<p>Alors \(X_i\) suit la loi de Bernoulli de paramètre \(p\). Ainsi \(E(X_i) = p\).</p>
+<p>Or \(X = \sum_{i=1}^{N} X_i\), donc par <strong>linéarité de l'espérance</strong> :</p>
+<p style="text-align: center;">\[E(X) = E\left(\sum_{i=1}^{N} X_i\right) = \sum_{i=1}^{N} E(X_i) = \sum_{i=1}^{N} p = N \times p\]</p>
+</div>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Exo 13 (3 variables binomiales)</div>
+<p>Soit \(\Omega\) un univers lié à cette expérience. La variable \(X\) (resp \(Y\), \(Z\)) compte le nombre de succès <em>« on a tiré une boule rouge (resp verte, bleue) »</em> lors de la succession de \(N = 8\) épreuves de Bernoulli (<em>« on tire une boule »</em>) identiques et indépendantes (tirages avec remise).</p>
+<p style="background: rgba(239,68,68,.08); padding: 10px 14px; border-radius: 6px; border: 1px solid rgba(239,68,68,.30);"><strong>Donc \(X\) suit la loi binomiale \(\mathcal{B}\left(8, \dfrac{1}{6}\right)\), \(Y\) suit \(\mathcal{B}\left(8, \dfrac{2}{6}\right)\) et \(Z\) suit \(\mathcal{B}\left(8, \dfrac{3}{6}\right)\)</strong>.</p>
+<p>Alors :</p>
+<ul>
+  <li>\(E(X) = N \cdot p_X = 8 \times \dfrac{1}{6} = \dfrac{4}{3}\)</li>
+  <li>\(E(Y) = N \cdot p_Y = 8 \times \dfrac{2}{6} = \dfrac{8}{3}\)</li>
+  <li>\(E(Z) = N \cdot p_Z = 8 \times \dfrac{3}{6} = 4\)</li>
+</ul>
+<p><strong>Remarque (que si on nous demande de le dire)</strong> : on a \(X(\Omega) = Y(\Omega) = Z(\Omega) = \{0, 1, \dots, 8\}\). Pour tout \(k \in \{0, 1, \dots, 8\}\) :</p>
+<ul>
+  <li>\(P(X = k) = \binom{8}{k} \left(\dfrac{1}{6}\right)^k \left(\dfrac{5}{6}\right)^{8-k}\)</li>
+  <li>\(P(Y = k) = \binom{8}{k} \left(\dfrac{1}{3}\right)^k \left(\dfrac{2}{3}\right)^{8-k}\)</li>
+  <li>\(P(Z = k) = \binom{8}{k} \left(\dfrac{1}{2}\right)^k \left(\dfrac{1}{2}\right)^{8-k} = \binom{8}{k} \left(\dfrac{1}{2}\right)^{8}\)</li>
+</ul>
+</div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- CHAPITRE 14 — PRIMITIVES                                     -->
+<!-- ============================================================ -->
+
+<div class="ch" id="c14">
+  <div class="cn">Chapitre 10</div>
+  <h2>Primitives</h2>
+  <p>Définition, existence, primitives d'une fonction, primitive vérifiant une condition initiale</p>
+</div>
+
+<div class="toc">
+  <h3>Sections du chapitre 14</h3>
+  <div class="toc-grid">
+    <a href="#c14-1"><span class="ico">💡</span> I. Notion de primitive</a>
+    <a href="#c14-2"><span class="ico">∃!</span> II. Existence et unicité conditionnelle</a>
+  </div>
+</div>
+
+<!-- ---------- I. NOTION DE PRIMITIVE ---------- -->
+<h3 class="sec-h" id="c14-1"><span class="roman">I.</span> Notion de primitive</h3>
+
+<div class="blk ex">
+<div class="blk-l">Exemple introductif — \(f : x \mapsto x^2\)</div>
+<p><strong>Question</strong> : existe-t-il une fonction \(F\), dérivable sur \(\mathbb{R}\), telle que \(F' = f\) ?</p>
+<p><strong>Réponse</strong> : oui, par exemple \(F : x \mapsto \dfrac{1}{3} x^3\) car \(\dfrac{1}{3} x^3 \xrightarrow{\text{dérivation}} \dfrac{1}{3} \times 3 x^2 = x^2\). <em>(le facteur \(1/3\) ne bouge pas)</em></p>
+<p>Mais \(G : x \mapsto \dfrac{1}{3} x^3 + \dfrac{\sqrt{\pi}}{13}\) convient aussi.</p>
+<p>De façon générale, pour tout réel \(c\), la fonction \(x \mapsto \dfrac{1}{3} x^3 + c\) convient aussi.</p>
+</div>
+
+<div class="coeur">
+<p><strong>Définition — Primitive d'une fonction sur un intervalle</strong></p>
+<p>Soit \(f\) une fonction. On dit que la fonction \(F\) est <strong>une primitive de \(f\) sur l'intervalle \(I\)</strong> lorsque :</p>
+<ul>
+  <li>\(F\) est <strong>dérivable</strong> sur \(I\)</li>
+  <li>Pour tout \(x \in I\), on a \(F'(x) = f(x)\)</li>
+</ul>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Remarques</div>
+<ul>
+  <li>Dans l'exemple : pour tout réel \(c\), la fonction \(x \mapsto \dfrac{1}{3} x^3 + c\) est une primitive de la fonction carré sur \(\mathbb{R}\).</li>
+  <li>Si \(f\) admet <strong>une</strong> primitive sur \(I\), alors \(f\) en admet une <strong>infinité</strong> (car une constante se dérive en 0).</li>
+</ul>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété (admise) — Existence des primitives ⭐</strong></p>
+<p>Si \(f\) est <strong>continue</strong> sur l'intervalle \(I\), alors \(f\) admet des primitives sur \(I\).</p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">⚠️ Remarques pratiques</div>
+<ul>
+  <li>Primitiver une <strong>somme</strong> revient à primitiver terme à terme.</li>
+  <li>Primitiver un <strong>produit</strong> ou un <strong>quotient</strong>, en général, on ne sait pas faire.</li>
+</ul>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété ⭐ — Toutes les primitives</strong></p>
+<p>Soit \(f\) une fonction continue sur l'intervalle \(I\). Soit \(F\) une primitive de \(f\) sur \(I\).</p>
+<p>Les primitives de \(f\) sur \(I\) sont les fonctions de la forme :</p>
+<p style="text-align: center; font-size: 18px;">\[\boxed{x \mapsto F(x) + c} \quad \text{avec } c \in \mathbb{R} \text{ (constante réelle)}\]</p>
+</div>
+
+<div class="blk preuve">
+<div class="blk-l">Preuve — Sens direct</div>
+<p>Soit \(c\) un réel. La fonction \(G : x \mapsto F(x) + c\).</p>
+<p>Alors \(G\) est dérivable sur \(I\) et, pour tout \(x \in I\), on a :</p>
+<p>\(G'(x) = F'(x) + 0 = F'(x) = f(x)\) (puisque \(F\) est une primitive de \(f\) sur \(I\))</p>
+<p>Ainsi, \(G\) est une primitive de \(f\) sur \(I\). <strong>(2ème famille)</strong></p>
+</div>
+
+<div class="blk preuve">
+<div class="blk-l">Preuve — Réciproquement</div>
+<p>Soit \(H\) une primitive de \(f\) sur \(I\). <strong>Objectif</strong> : prouver que \(H\) est de la forme \(x \mapsto F(x) + c\) où \(c\) est une constante. C-à-d, il existe un réel \(c\) tel que pour tout \(x \in I\), on a \(H(x) = F(x) + c\), ou encore \(H(x) - F(x) = c\). <strong>Reformulation</strong> : on veut prouver que la fonction \(H - F\) est <strong>constante sur \(I\)</strong>.</p>
+<p>La fonction \(H - F\) est une somme de fonctions dérivables sur \(I\), donc \(H - F\) est dérivable sur \(I\). Pour tout \(x \in I\), on a :</p>
+<p style="text-align: center;">\[(H - F)'(x) = H'(x) - F'(x) = f(x) - f(x) = 0\]</p>
+<p>(car \(F\) et \(H\) sont des primitives de \(f\) sur \(I\)). Donc, la fonction \(H - F\) est <strong>constante sur \(I\)</strong>.</p>
+<p>Ainsi, il existe un réel \(c\) tel que \(H(x) - F(x) = c\) pour tout \(x \in I\). Ou encore \(H(x) = F(x) + c\). C-à-d, \(H\) est de la forme \(x \mapsto F(x) + c\) où \(c\) est une constante réelle. <strong>(1ère famille)</strong></p>
+</div>
+
+<div class="blk rem">
+<div class="blk-l">Astuce mentale — Schéma "deux familles"</div>
+<p>Si un élément est dans la <strong>1ère famille</strong> (\(x \mapsto F(x) + c\)) et dans la <strong>2ème famille</strong> (les primitives de \(f\) sur \(I\)), et que chacune est dans l'autre, alors les deux <strong>sont la même famille</strong>.</p>
+</div>
+
+<!-- ---------- II. EXISTENCE ET UNICITÉ CONDITIONNELLE ---------- -->
+<h3 class="sec-h" id="c14-2"><span class="roman">II.</span> Primitive vérifiant une condition initiale</h3>
+
+<div class="blk ex">
+<div class="blk-l">Exemple — Primitive de la fonction carré avec \(F(7) = 32\)</div>
+<p>Les primitives sur \(\mathbb{R}\) de la fonction carré sont les fonctions de la forme :</p>
+<p style="text-align: center;">\[x \mapsto \dfrac{1}{3} x^3 + c \quad \text{avec } c \text{ constante réelle.}\]</p>
+<p>Soit \(F\) une de ces primitives. On veut \(F(7) = 32\), c-à-d :</p>
+<p style="text-align: center;">\[\dfrac{1}{3} \times 7^3 + c = 32 \quad \Longleftrightarrow \quad c = 32 - \dfrac{7^3}{3}\]</p>
+<p>Ainsi, la primitive \(F\) de la fonction carré sur \(\mathbb{R}\) qui vérifie \(F(7) = 32\) est :</p>
+<p style="text-align: center; font-size: 17px;">\[\boxed{F : x \mapsto \dfrac{1}{3} x^3 + 32 - \dfrac{7^3}{3}}\]</p>
+</div>
+
+<div class="coeur">
+<p><strong>Propriété ⭐ — Existence et unicité de la primitive avec condition initiale</strong></p>
+<p>Soit \(f\) une fonction continue sur l'intervalle \(I\).</p>
+<p>Pour tout \(a \in I\) et \(b \in \mathbb{R}\), <strong>il existe une unique primitive \(F\) de \(f\) sur \(I\) qui vérifie \(F(a) = b\)</strong>.</p>
+</div>
+
+
+
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
